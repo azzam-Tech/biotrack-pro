@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/amarn/Downloads/index_6.html -->
+<!-- saved from url=(0045)file:///C:/Users/amarn/Downloads/index_7.html -->
 <html lang="ar" dir="rtl" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -257,13 +257,13 @@ tr:hover td{background:var(--bg2);}
   </div>
   <div class="nav-section">
     <div class="nav-label">الرئيسية</div>
-    <div class="nav-item" onclick="go(&#39;dash&#39;)"><span class="ni">📊</span>لوحة التحكم</div>
+    <div class="nav-item active" onclick="go(&#39;dash&#39;)"><span class="ni">📊</span>لوحة التحكم</div>
     <div class="nav-item" onclick="go(&#39;live&#39;)"><span class="ni">⚡</span>البصمات الحية<span class="nav-badge" id="nb">0</span></div>
     <div class="nav-item" onclick="go(&#39;wizard&#39;)"><span class="ni">🧙</span>معالج الإعداد</div>
   </div>
   <div class="nav-section">
     <div class="nav-label">الموارد البشرية</div>
-    <div class="nav-item active" onclick="go(&#39;emps&#39;)"><span class="ni">👥</span>الموظفون</div>
+    <div class="nav-item" onclick="go(&#39;emps&#39;)"><span class="ni">👥</span>الموظفون</div>
     <div class="nav-item" onclick="go(&#39;depts&#39;)"><span class="ni">🏢</span>الأقسام والمناطق</div>
   </div>
   <div class="nav-section">
@@ -292,17 +292,35 @@ tr:hover td{background:var(--bg2);}
 </aside>
 <main class="main">
   <div class="topbar">
-    <div class="page-title" id="pg-title">إدارة الموظفين</div>
+    <div class="page-title" id="pg-title">لوحة التحكم</div>
     <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-inp" placeholder="بحث سريع..." oninput="quickSearch(this.value)"></div>
     <div style="position:relative"><button class="btn" onclick="go(&#39;approvals&#39;)">🔔</button><div id="ndot" style="display:none;position:absolute;top:-1px;left:-1px;width:7px;height:7px;background:var(--red);border-radius:50%;"></div></div>
-    <div class="clock" id="clk">14:15:08</div>
+    <div class="clock" id="clk">14:52:37</div>
     <div id="api-status" title="حالة الاتصال بالخادم" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; cursor: pointer;" onclick="if(API_READY)toast(&#39;✅ متصل بقاعدة البيانات الحقيقية&#39;,&#39;ok&#39;);else toast(&#39;⚠️ غير متصل — يعمل بالبيانات المحلية&#39;);"></div>
     <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل الوضع">🌙</button>
   </div>
-  <div class="page fadein" id="pg"><div class="fadein"><div class="ph"><div><h2>👥 الموظفون (0)</h2></div><div style="display:flex;gap:8px"><input class="inp" placeholder="🔍 بحث..." oninput="renderEmps(this.value)" value="" style="width:220px"><button class="btn primary" onclick="showAddEmp()">➕ إضافة</button></div></div>
-  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>PIN</th><th>القسم</th><th>المنصب</th><th>المنطقة</th><th class="tc">المناوبة</th><th>التعيين</th><th class="tc">الحالة</th><th class="tc">إجراءات</th></tr></thead><tbody>
-  
-  </tbody></table></div></div></div></div>
+  <div class="page fadein" id="pg"><div class="fadein"><div class="kpi-row c4">
+  <div class="kpi gn" onclick="go(&#39;reports&#39;)"><div class="kpi-icon">👥</div><div class="kpi-val">0</div><div class="kpi-lbl">حاضرون اليوم</div><div class="kpi-sub">▲ 0% من الكادر</div><div class="prog" style="margin-top:8px"><div class="prog-bar" style="width:0%;background:var(--accent)"></div></div></div>
+  <div class="kpi bl" onclick="go(&#39;emps&#39;)"><div class="kpi-icon">🧑‍💼</div><div class="kpi-val">1</div><div class="kpi-lbl">الموظفون النشطون</div><div class="kpi-sub">● 0 في إجازة</div></div>
+  <div class="kpi am" onclick="go(&#39;reports&#39;)"><div class="kpi-icon">⚠️</div><div class="kpi-val">0</div><div class="kpi-lbl">متأخرون اليوم</div><div class="kpi-sub">✓ لا تأخير</div></div>
+  <div class="kpi rd" onclick="go(&#39;approvals&#39;)"><div class="kpi-icon">📬</div><div class="kpi-val">0</div><div class="kpi-lbl">طلبات معلقة</div><div class="kpi-sub">✓ لا طلبات</div></div>
+</div>
+<div class="g3">
+  <div class="stack">
+    <div class="card"><div class="card-head"><div class="card-title">📈 حضور آخر 7 أيام</div><button class="btn" onclick="go(&#39;reports&#39;)" style="font-size:10px">تفصيل ←</button></div>
+    <div class="card-body"><div class="bars"><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الأ</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الا</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الث</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الأ</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الخ</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الج</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--accent)"></div><div class="bar-l">الس</div></div></div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">⚡ آخر البصمات</div><button class="btn" onclick="go(&#39;live&#39;)" style="font-size:10px">الكل ←</button></div>
+    <div></div></div>
+  </div>
+  <div class="stack">
+    <div class="card"><div class="card-head"><div class="card-title">🖥️ الأجهزة</div></div>
+    <div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">📬 الطلبات المعلقة</div></div>
+    <div><div style="padding:18px;text-align:center;color:var(--text3);font-size:11.5px">✓ لا طلبات معلقة</div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">🏢 الأقسام</div></div>
+    <div class="card-body"><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#3b8ef5;display:inline-block"></span>الإدارة العليا</span><span style="color:var(--text3)">1</span></div><div class="prog"><div class="prog-bar" style="width:100%;background:#3b8ef5"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#f04a5a;display:inline-block"></span>الصيانة والعمليات</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#f04a5a"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#f5a623;display:inline-block"></span>المبيعات</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#f5a623"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#22d3ee;display:inline-block"></span>المحاسبة والمالية</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#22d3ee"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#16c784;display:inline-block"></span>الموارد البشرية</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#16c784"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#a78bfa;display:inline-block"></span>تقنية المعلومات</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#a78bfa"></div></div></div></div></div>
+  </div>
+</div></div></div>
 </main>
 </div>
 <div class="overlay" id="ov" style="display:none" onclick="if(event.target===this)closeMod()">
@@ -760,10 +778,10 @@ function editTT(id){
   </div>
   <div class="form-actions">
     <button class="btn" onclick="closeMod()">إلغاء</button>
-    <button class="btn primary" onclick="(()=>{const tt=DB.timetables.find(x=>x.id===${id});tt.name=document.getElementById('ett-name').value;tt.checkIn=document.getElementById('ett-in').value;tt.checkInStart=document.getElementById('ett-ins').value;tt.checkInEnd=document.getElementById('ett-ine').value;tt.checkOut=document.getElementById('ett-out').value;tt.checkOutStart=document.getElementById('ett-outs').value;tt.checkOutEnd=document.getElementById('ett-oute').value;tt.offDays=_getChips('ett-offdays');tt.breakEnabled=document.getElementById('ett-bren').checked;tt.breakStart=document.getElementById('ett-brs').value;tt.breakEnd=document.getElementById('ett-bre').value;closeMod();renderTT();toast('✅ تم','ok');})()">💾 حفظ</button>
+    <button class="btn primary" onclick="(async()=>{const tt=DB.timetables.find(x=>x.id===${id});const data={name:document.getElementById('ett-name').value,check_in:document.getElementById('ett-in').value,check_in_start:document.getElementById('ett-ins').value,check_in_end:document.getElementById('ett-ine').value,check_out:document.getElementById('ett-out').value,check_out_start:document.getElementById('ett-outs').value,check_out_end:document.getElementById('ett-oute').value,off_days:_getChips('ett-offdays'),break_enabled:document.getElementById('ett-bren').checked,break_start:document.getElementById('ett-brs').value,break_end:document.getElementById('ett-bre').value};if(API_READY){const res=await api('PUT','/api/timetables/${id}',data);if(!res.success){toast('❌ '+res.error,'err');return;}}tt.name=data.name;tt.checkIn=data.check_in;tt.checkInStart=data.check_in_start;tt.checkInEnd=data.check_in_end;tt.checkOut=data.check_out;tt.checkOutStart=data.check_out_start;tt.checkOutEnd=data.check_out_end;tt.offDays=data.off_days;tt.breakEnabled=data.break_enabled;tt.breakStart=data.break_start;tt.breakEnd=data.break_end;closeMod();renderTT();toast('✅ تم التحديث','ok');})()">💾 حفظ</button>
   </div>`,'lg');
 }
-function delTT(id){if(!confirm('حذف جدول الوقت؟'))return;if(DB.shifts.find(s=>s.timetableId===id)){toast('❌ هناك مناوبات مرتبطة','err');return;}DB.timetables.splice(DB.timetables.findIndex(x=>x.id===id),1);renderTT();toast('🗑️ تم الحذف');}
+async function delTT(id){if(!confirm('حذف جدول الوقت؟'))return;if(DB.shifts.find(s=>s.timetableId===id)){toast('❌ هناك مناوبات مرتبطة','err');return;}if(API_READY){const res=await api('DELETE','/api/timetables/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}DB.timetables.splice(DB.timetables.findIndex(x=>x.id===id),1);renderTT();toast('🗑️ تم الحذف');}
 // ═══ SHIFTS (date-based) ═══
 function renderShifts(){
   pg(`<div class="ph"><div><h2>🔄 المناوبات</h2><p>كل مناوبة مرتبطة بجدول وقت ولها تاريخ بداية ونهاية</p></div><button class="btn primary" onclick="showAddShift()">➕ إضافة مناوبة</button></div>
@@ -834,9 +852,9 @@ function editShift(id){
     <div class="fg"><label class="lbl">تاريخ النهاية</label><input class="inp" type="date" id="es-end" value="${s.endDate||''}"></div>
   </div>
   <div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button>
-  <button class="btn primary" onclick="(()=>{const s=DB.shifts.find(x=>x.id===${id});s.name=document.getElementById('es-name').value;s.timetableId=parseInt(document.getElementById('es-tt').value);s.startDate=document.getElementById('es-start').value;s.endDate=document.getElementById('es-end').value;closeMod();renderShifts();toast('✅ تم','ok');})()">💾 حفظ</button></div>`);
+  <button class="btn primary" onclick="(async()=>{const s=DB.shifts.find(x=>x.id===${id});const data={name:document.getElementById('es-name').value,timetable_id:parseInt(document.getElementById('es-tt').value),start_date:document.getElementById('es-start').value,end_date:document.getElementById('es-end').value};if(API_READY){const res=await api('PUT','/api/shifts/${id}',data);if(!res.success){toast('❌ '+res.error,'err');return;}}s.name=data.name;s.timetableId=data.timetable_id;s.startDate=data.start_date;s.endDate=data.end_date;closeMod();renderShifts();toast('✅ تم التحديث','ok');})()">💾 حفظ</button></div>`);
 }
-function delShift(id){if(!confirm('حذف هذه المناوبة؟'))return;if(DB.employees.find(e=>e.shiftId===id)){toast('❌ هناك موظفون في هذه المناوبة','err');return;}DB.shifts.splice(DB.shifts.findIndex(x=>x.id===id),1);renderShifts();toast('🗑️ تم الحذف');}
+async function delShift(id){if(!confirm('حذف هذه المناوبة؟'))return;if(DB.employees.find(e=>e.shiftId===id)){toast('❌ هناك موظفون في هذه المناوبة','err');return;}if(API_READY){const res=await api('DELETE','/api/shifts/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}DB.shifts.splice(DB.shifts.findIndex(x=>x.id===id),1);renderShifts();toast('🗑️ تم الحذف');}
 
 // ═══ SCHEDULES ═══
 function renderSchedules(){
@@ -863,7 +881,7 @@ function changeSchedule(empId){
     <select class="sel" id="cs-sh">${DB.shifts.map(s=>{const tt=DB.timetables.find(t=>t.id===s.timetableId);return`<option value="${s.id}"${s.id===e.shiftId?' selected':''}>${s.name}${tt?' | دخول: '+tt.checkIn+' | خروج: '+tt.checkOut:''} (${s.startDate}→${s.endDate})</option>`;}).join('')}</select>
   </div>
   <div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button>
-  <button class="btn primary" onclick="(()=>{DB.employees.find(x=>x.id===${empId}).shiftId=parseInt(document.getElementById('cs-sh').value);closeMod();renderSchedules();toast('✅ تم تغيير المناوبة','ok');})()">✅ تطبيق</button></div>`);
+  <button class="btn primary" onclick="(async()=>{const shiftId=parseInt(document.getElementById('cs-sh').value);if(API_READY){const res=await api('PUT','/api/employees/${empId}',{shift_id:shiftId});if(!res.success){toast('❌ '+res.error,'err');return;}}DB.employees.find(x=>x.id===${empId}).shiftId=shiftId;closeMod();renderSchedules();toast('✅ تم تغيير المناوبة','ok');})()">✅ تطبيق</button></div>`);
 }
 
 // ═══ RULES ═══
@@ -1068,8 +1086,8 @@ function editEmp(id){
   <div class="fg-row"><div class="fg"><label class="lbl">القسم</label><select class="sel" id="ee-dept">${DB.departments.map(d=>`<option value="${d.id}"${d.id===e.dept?' selected':''}>${d.name}</option>`).join('')}</select></div><div class="fg"><label class="lbl">المناوبة</label><select class="sel" id="ee-sh">${DB.shifts.map(s=>`<option value="${s.id}"${s.id===e.shiftId?' selected':''}>${s.name}</option>`).join('')}</select></div></div>
   <div class="fg-row"><div class="fg"><label class="lbl">المنطقة</label><select class="sel" id="ee-area">${DB.areas.map(a=>`<option value="${a.id}"${a.id===e.areaId?' selected':''}>${a.name}</option>`).join('')}</select></div><div class="fg"><label class="lbl">الحالة</label><select class="sel" id="ee-status"><option value="active"${e.status==='active'?' selected':''}>نشط</option><option value="leave"${e.status==='leave'?' selected':''}>إجازة</option><option value="inactive">غير نشط</option></select></div></div>
   <div class="form-actions"><button class="btn danger" onclick="delEmp(${id})">🗑️</button><button class="btn" onclick="closeMod()">إلغاء</button>
-  <button class="btn primary" onclick="(()=>{const e=DB.employees.find(x=>x.id===${id});e.name=document.getElementById('ee-name').value;e.card=document.getElementById('ee-card').value;e.dept=+document.getElementById('ee-dept').value;e.shiftId=+document.getElementById('ee-sh').value;e.areaId=+document.getElementById('ee-area').value;e.status=document.getElementById('ee-status').value;closeMod();renderEmps();toast('✅ تم','ok');})()">💾 حفظ</button></div>`);}
-function delEmp(id){if(!confirm('حذف؟'))return;DB.employees.splice(DB.employees.findIndex(e=>e.id===id),1);closeMod();renderEmps();toast('🗑️ تم');}
+  <button class="btn primary" onclick="(async()=>{const e=DB.employees.find(x=>x.id===${id});const data={name:document.getElementById('ee-name').value,card:document.getElementById('ee-card').value,dept_id:+document.getElementById('ee-dept').value,shift_id:+document.getElementById('ee-sh').value,area_id:+document.getElementById('ee-area').value,status:document.getElementById('ee-status').value};if(API_READY){const res=await api('PUT','/api/employees/${id}',data);if(!res.success){toast('❌ '+res.error,'err');return;}}e.name=data.name;e.card=data.card;e.dept=data.dept_id;e.shiftId=data.shift_id;e.areaId=data.area_id;e.status=data.status;closeMod();renderEmps();toast('✅ تم التحديث','ok');})()">💾 حفظ</button></div>`);}
+async function delEmp(id){if(!confirm('حذف هذا الموظف نهائياً؟'))return;if(API_READY){const res=await api('DELETE','/api/employees/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}DB.employees.splice(DB.employees.findIndex(e=>e.id===id),1);closeMod();renderEmps();toast('🗑️ تم الحذف');}
 function empReport(id){
   const e=DB.employees.find(x=>x.id===id);const logs=DB.logs.filter(l=>l.empId===id);const ins=logs.filter(l=>l.type==='دخول');
   const lateC=ins.filter(l=>l.lateMin>0).length;const totalLate=ins.reduce((s,l)=>s+l.lateMin,0);const tt=ttByShift(e.shiftId);
@@ -1097,9 +1115,9 @@ function renderDepts(){
       </tbody></table></div></div>
   </div></div>`);
 }
-function addDept(){openMod('➕ قسم',`<div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="nd-n"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(()=>{const n=document.getElementById('nd-n').value.trim();if(!n)return;DB.departments.push({id:DB.departments.length+1,name:n,parentId:null,managerId:null,color:AVA_C[DB.departments.length%AVA_C.length]});closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
-function editDept(id){const d=DB.departments.find(x=>x.id===id);openMod(`✏️ ${d.name}`,`<div class="fg"><label class="lbl">الاسم</label><input class="inp" id="ed-n" value="${d.name}"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="DB.departments.find(x=>x.id===${id}).name=document.getElementById('ed-n').value;closeMod();renderDepts();toast('✅','ok')">💾</button></div>`,'sm');}
-function addPos(){openMod('➕ منصب',`<div class="fg"><label class="lbl">المسمى <span class="req">*</span></label><input class="inp" id="np-t"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(()=>{const t=document.getElementById('np-t').value.trim();if(!t)return;DB.positions.push({id:DB.positions.length+1,title:t});closeMod();renderDepts();toast('✅','ok');})()">💾</button></div>`,'sm');}
+function addDept(){openMod('➕ قسم',`<div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="nd-n"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const n=document.getElementById('nd-n').value.trim();if(!n)return;const color=AVA_C[DB.departments.length%AVA_C.length];if(API_READY){const res=await api('POST','/api/departments',{name:n,color});if(!res.success){toast('❌ '+res.error,'err');return;}DB.departments.push({id:res.data.id,name:n,parentId:null,managerId:null,color});}else{DB.departments.push({id:DB.departments.length+1,name:n,parentId:null,managerId:null,color});}closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+function editDept(id){const d=DB.departments.find(x=>x.id===id);openMod(`✏️ ${d.name}`,`<div class="fg"><label class="lbl">الاسم</label><input class="inp" id="ed-n" value="${d.name}"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const name=document.getElementById('ed-n').value.trim();if(!name)return;if(API_READY){const res=await api('PUT','/api/departments/${id}',{name});if(!res.success){toast('❌ '+res.error,'err');return;}}DB.departments.find(x=>x.id===${id}).name=name;closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+function addPos(){openMod('➕ منصب',`<div class="fg"><label class="lbl">المسمى <span class="req">*</span></label><input class="inp" id="np-t"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const t=document.getElementById('np-t').value.trim();if(!t)return;if(API_READY){const res=await api('POST','/api/positions',{title:t});if(!res.success){toast('❌ '+res.error,'err');return;}DB.positions.push({id:res.data.id,title:t});}else{DB.positions.push({id:DB.positions.length+1,title:t});}closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
 
 // ═══ APPROVALS ═══
 // ═══ APPROVALS — ADMIN-ONLY (no employee portal) ═══
@@ -1133,8 +1151,9 @@ async function reject(id){
   if(curPage==='approvals')renderApprovals();else renderDash();
   toast('🚫 تم رفض الطلب');
 }
-function deleteAppr(id){
+async function deleteAppr(id){
   if(!confirm('حذف هذا الطلب نهائياً؟'))return;
+  if(API_READY){const res=await api('DELETE','/api/approvals/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}
   DB.approvals.splice(DB.approvals.findIndex(a=>a.id===id),1);
   renderApprovals();toast('🗑️ تم الحذف');
 }
@@ -1391,17 +1410,22 @@ function editAppr(id){
 <div class="form-actions">
   <button class="btn danger" onclick="deleteAppr(${id});closeMod()">🗑️ حذف</button>
   <button class="btn" onclick="closeMod()">إلغاء</button>
-  <button class="btn primary" onclick="(()=>{
+  <button class="btn primary" onclick="(async()=>{
     const a=DB.approvals.find(x=>x.id===${id});
     const empId=parseInt(document.getElementById('ea-emp').value);
     const emp=DB.employees.find(e=>e.id===empId);
     const typeKey=document.getElementById('ea-type').value;
     const cfg=_apprTypeCfg(typeKey);
-    a.empId=empId;a.empName=emp.name;
-    a.typeKey=typeKey;a.type=cfg.label;a.typeIcon=cfg.icon;a.typeColor=cfg.color;
-    a.detail=document.getElementById('ea-detail').value;
-    a.reason=document.getElementById('ea-reason').value;
     const newStatus=document.getElementById('ea-status').value;
+    const detail=document.getElementById('ea-detail').value;
+    const reason=document.getElementById('ea-reason').value;
+    if(API_READY){
+      const res=await api('PUT','/api/approvals/${id}',{employee_id:empId,type_key:typeKey,type_label:cfg.label,type_icon:cfg.icon,detail,reason,status:newStatus});
+      if(!res.success){toast('❌ '+res.error,'err');return;}
+    }
+    a.empId=empId;a.empName=emp?emp.name:a.empName;
+    a.typeKey=typeKey;a.type=cfg.label;a.typeIcon=cfg.icon;a.typeColor=cfg.color;
+    a.detail=detail;a.reason=reason;
     if(newStatus!=='pending'&&a.status==='pending')a.resolvedAt=fD(new Date());
     a.status=newStatus;
     closeMod();renderApprovals();toast('✅ تم تحديث الطلب','ok');
@@ -1436,7 +1460,7 @@ function renderAreas(){
   ${DB.areas.map(a=>`<tr><td style="font-weight:700">📍 ${a.name}</td><td style="font-family:'JetBrains Mono',monospace;color:var(--blue)">${a.tz}</td><td class="tc"><span class="badge g">${DB.devices.filter(d=>d.areaId===a.id).length}</span></td><td class="tc"><span class="badge b">${DB.employees.filter(e=>e.areaId===a.id).length}</span></td></tr>`).join('')}
   </tbody></table></div></div>`);
 }
-function addArea(){openMod('➕ منطقة',`<div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="na-n"></div><div class="fg"><label class="lbl">المنطقة الزمنية</label><select class="sel" id="na-tz"><option>Etc/GMT+3</option><option>Etc/GMT+2</option><option>Etc/GMT+0</option></select></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(()=>{const n=document.getElementById('na-n').value.trim();if(!n)return;DB.areas.push({id:DB.areas.length+1,name:n,tz:document.getElementById('na-tz').value});closeMod();renderAreas();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+function addArea(){openMod('➕ منطقة',`<div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="na-n"></div><div class="fg"><label class="lbl">المنطقة الزمنية</label><select class="sel" id="na-tz"><option>Etc/GMT+3</option><option>Etc/GMT+2</option><option>Etc/GMT+0</option></select></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const n=document.getElementById('na-n').value.trim();const tz=document.getElementById('na-tz').value;if(!n)return;if(API_READY){const res=await api('POST','/api/areas',{name:n,timezone:tz});if(!res.success){toast('❌ '+res.error,'err');return;}DB.areas.push({id:res.data.id,name:n,tz});}else{DB.areas.push({id:DB.areas.length+1,name:n,tz});}closeMod();renderAreas();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
 
 // ═══ ACCESS CONTROL ═══
 function renderAccess(){
