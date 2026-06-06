@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///C:/Users/amarn/Downloads/index_14.html -->
+<html lang="ar" dir="rtl" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BioTrack Pro v4</title>
+<link href="./BioTrack Pro v4_files/css2" rel="stylesheet">
+<style>
+/* ── THEME ── */
+[data-theme="dark"]{
+  --bg0:#080c14;--bg1:#0f1623;--bg2:#141d2e;--bg3:#1a2438;--bg4:#202c44;
+  --border:#1e2d45;--border2:#2a3d5e;--border3:#3a5280;
+  --text:#dde6f5;--text2:#8fa3c0;--text3:#4d6480;--text4:#2d3f55;
+}
+[data-theme="light"]{
+  --bg0:#f0f4fa;--bg1:#ffffff;--bg2:#f8fafd;--bg3:#eef2f8;--bg4:#e4ebf5;
+  --border:#d0dcea;--border2:#b8ccdf;--border3:#9ab4cf;
+  --text:#1a2540;--text2:#4a6080;--text3:#8099b8;--text4:#a0b4cc;
+}
+:root{
+  --accent:#16c784;--accent2:#0fa868;--accent-glow:rgba(22,199,132,.12);
+  --blue:#3b8ef5;--blue2:#2070d8;--blue-glow:rgba(59,142,245,.12);
+  --amber:#f5a623;--amber-glow:rgba(245,166,35,.12);
+  --red:#f04a5a;--red-glow:rgba(240,74,90,.12);
+  --purple:#a78bfa;--purple-glow:rgba(167,139,250,.12);
+  --cyan:#22d3ee;
+  --r:8px;--r2:12px;--r3:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--bg0);color:var(--text);font-family:'Cairo',sans-serif;font-size:13px;transition:background .2s,color .2s;}
+/* ── LAYOUT ── */
+.shell{display:flex;height:100vh;}
+.sidebar{width:220px;background:var(--bg1);border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{height:54px;background:var(--bg1);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 18px;gap:10px;flex-shrink:0;}
+.page{flex:1;overflow-y:auto;padding:18px;}
+/* ── SIDEBAR ── */
+.logo{padding:14px 15px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px;}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--blue));display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.logo-name{font-size:13px;font-weight:800;}
+.logo-ver{font-size:9px;color:var(--text3);letter-spacing:.8px;text-transform:uppercase;}
+.nav-section{padding:8px 6px 2px;}
+.nav-label{font-size:9px;color:var(--text3);padding:0 8px;margin-bottom:3px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;}
+.nav-item{display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:7px;cursor:pointer;font-size:12px;color:var(--text2);margin-bottom:1px;border:1px solid transparent;white-space:nowrap;transition:all .12s;}
+.nav-item:hover{background:var(--bg3);color:var(--text);}
+.nav-item.active{background:var(--accent-glow);color:var(--accent);border-color:rgba(22,199,132,.18);}
+.nav-item .ni{font-size:13px;width:16px;text-align:center;flex-shrink:0;}
+.nav-badge{margin-right:auto;background:var(--red);color:#fff;font-size:9px;padding:1px 5px;border-radius:10px;font-weight:700;min-width:16px;text-align:center;}
+.sidebar-footer{margin-top:auto;padding:10px 12px;border-top:1px solid var(--border);}
+/* ── TOPBAR ── */
+.page-title{font-size:14px;font-weight:700;flex:1;}
+.search-wrap{position:relative;}
+.search-inp{background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:6px 10px 6px 30px;color:var(--text);font-size:11.5px;font-family:'Cairo',sans-serif;outline:none;width:190px;transition:width .15s,border-color .15s;}
+.search-inp:focus{border-color:var(--accent);width:220px;}
+.search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--text3);pointer-events:none;}
+.btn{padding:6px 13px;border-radius:7px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-size:11.5px;cursor:pointer;font-family:'Cairo',sans-serif;display:inline-flex;align-items:center;gap:5px;font-weight:600;white-space:nowrap;transition:all .12s;}
+.btn:hover{background:var(--bg4);color:var(--text);}
+.btn.primary{background:var(--accent);border-color:var(--accent2);color:#fff;}
+.btn.primary:hover{background:var(--accent2);}
+.btn.danger{background:var(--red-glow);border-color:var(--red);color:var(--red);}
+.btn.blue-btn{background:var(--blue-glow);border-color:var(--blue);color:var(--blue);}
+.clock{font-size:12px;color:var(--text2);background:var(--bg3);padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.8px;}
+.theme-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:5px 10px;cursor:pointer;font-size:14px;color:var(--text2);transition:all .12s;}
+.theme-btn:hover{background:var(--bg4);}
+/* ── PAGE HEADER ── */
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.ph h2{font-size:16px;font-weight:800;}
+.ph p{font-size:11px;color:var(--text3);margin-top:2px;}
+/* ── CARDS ── */
+.card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:background .2s,border-color .2s;}
+.card-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg2);}
+.card-title{font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.card-body{padding:14px 16px;}
+/* ── KPI ── */
+.kpi-row{display:grid;gap:12px;margin-bottom:16px;}
+.kpi-row.c4{grid-template-columns:repeat(4,1fr);}
+.kpi-row.c3{grid-template-columns:repeat(3,1fr);}
+.kpi-row.c5{grid-template-columns:repeat(5,1fr);}
+.kpi{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r2);padding:14px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .15s;}
+.kpi:hover{transform:translateY(-2px);}
+.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:var(--r2) var(--r2) 0 0;}
+.kpi.gn::after{background:var(--accent);}
+.kpi.bl::after{background:var(--blue);}
+.kpi.am::after{background:var(--amber);}
+.kpi.rd::after{background:var(--red);}
+.kpi.pr::after{background:var(--purple);}
+.kpi-icon{font-size:18px;margin-bottom:7px;}
+.kpi-val{font-size:24px;font-weight:800;line-height:1;letter-spacing:-1px;}
+.kpi-lbl{font-size:10px;color:var(--text3);margin-top:4px;font-weight:600;}
+.kpi-sub{font-size:10px;margin-top:4px;}
+.kpi.gn .kpi-sub{color:var(--accent);}
+.kpi.bl .kpi-sub{color:var(--blue);}
+.kpi.am .kpi-sub{color:var(--amber);}
+.kpi.rd .kpi-sub{color:var(--red);}
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;}
+th{text-align:right;padding:8px 12px;font-size:10.5px;color:var(--text3);font-weight:700;border-bottom:1px solid var(--border);white-space:nowrap;background:var(--bg2);}
+td{padding:9px 12px;font-size:12px;border-bottom:1px solid var(--border);vertical-align:middle;transition:background .1s;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--bg2);}
+.tc{text-align:center;}
+/* ── BADGE ── */
+.badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:700;white-space:nowrap;}
+.badge.g{background:var(--accent-glow);color:var(--accent);}
+.badge.r{background:var(--red-glow);color:var(--red);}
+.badge.a{background:var(--amber-glow);color:var(--amber);}
+.badge.b{background:var(--blue-glow);color:var(--blue);}
+.badge.p{background:var(--purple-glow);color:var(--purple);}
+.badge.x{background:var(--bg3);color:var(--text2);border:1px solid var(--border);}
+.dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;}
+/* ── FORM ── */
+.fg{margin-bottom:12px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.fg-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;}
+.lbl{font-size:11px;color:var(--text2);margin-bottom:5px;display:flex;align-items:center;gap:4px;font-weight:700;}
+.req{color:var(--red);}
+.inp,.sel{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:8px 10px;color:var(--text);font-size:12px;font-family:'Cairo',sans-serif;outline:none;transition:border-color .15s;}
+.inp:focus,.sel:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,199,132,.07);}
+.sel{appearance:none;cursor:pointer;}
+.inp[type=time]{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);}
+.inp[type=date]{font-family:'JetBrains Mono',monospace;font-size:12px;}
+.form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:13px;border-top:1px solid var(--border);}
+/* ── TOGGLE ── */
+.tgl{position:relative;display:inline-block;width:34px;height:18px;flex-shrink:0;}
+.tgl input{opacity:0;width:0;height:0;}
+.tgl-sl{position:absolute;cursor:pointer;inset:0;background:var(--bg4);border-radius:18px;border:1px solid var(--border2);transition:.2s;}
+.tgl-sl:before{content:'';position:absolute;height:12px;width:12px;left:2px;bottom:2px;background:var(--text3);border-radius:50%;transition:.2s;}
+.tgl input:checked+.tgl-sl{background:var(--accent);border-color:var(--accent2);}
+.tgl input:checked+.tgl-sl:before{transform:translateX(16px);background:#fff;}
+.tgl-wrap{display:flex;align-items:center;gap:8px;}
+/* ── MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:2000;backdrop-filter:blur(6px);}
+.modal{background:var(--bg1);border:1px solid var(--border2);border-radius:var(--r3);width:600px;max-width:96vw;max-height:92vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.6);}
+.modal.lg{width:780px;}
+.modal.sm{width:440px;}
+.mhead{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg1);z-index:1;}
+.mtitle{font-size:14px;font-weight:700;}
+.mx{background:none;border:none;color:var(--text2);cursor:pointer;font-size:18px;padding:2px 6px;border-radius:5px;}
+.mx:hover{background:var(--bg3);}
+.mbody{padding:20px;}
+/* ── TABS ── */
+.tab-bar{display:flex;gap:2px;background:var(--bg3);padding:3px;border-radius:9px;margin-bottom:15px;}
+.tab-btn{padding:6px 13px;border-radius:7px;cursor:pointer;font-size:11px;font-weight:600;color:var(--text3);transition:all .12s;}
+.tab-btn.active{background:var(--bg1);color:var(--text);border:1px solid var(--border);}
+.tab-pane{display:none;}
+.tab-pane.show{display:block;}
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:2fr 1fr;gap:14px;}
+.stack{display:flex;flex-direction:column;gap:14px;}
+/* ── PROGRESS ── */
+.prog{background:var(--bg4);border-radius:4px;height:5px;overflow:hidden;}
+.prog-bar{height:100%;border-radius:4px;transition:width .4s;}
+/* ── PULSE ── */
+.pls{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.pls.on{background:var(--accent);box-shadow:0 0 6px var(--accent);animation:glow 2s infinite;}
+.pls.off{background:var(--text3);}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.4}}
+/* ── AVA ── */
+.ava{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;}
+/* ── TIME WINDOW ── */
+.tw{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px;margin-bottom:10px;}
+.tw.in-tw{border-color:rgba(22,199,132,.25);}
+.tw.out-tw{border-color:rgba(240,74,90,.25);}
+.tw-title{font-size:10.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.tw-row{display:flex;align-items:flex-end;gap:8px;}
+.tw-cell{flex:1;text-align:center;}
+.tw-cell label{font-size:9.5px;color:var(--text3);display:block;margin-bottom:4px;font-weight:600;}
+.tw-cell .inp{text-align:center;}
+.tw-sep{color:var(--text3);font-size:18px;padding-bottom:6px;flex-shrink:0;}
+.tw-main{flex:1;text-align:center;}
+.tw-main label{font-size:9.5px;display:block;margin-bottom:4px;font-weight:700;}
+.tw-main.in label{color:var(--accent);}
+.tw-main.out label{color:var(--red);}
+.tw-main.in .inp{border-color:var(--accent);color:var(--accent);font-size:14px;font-weight:800;background:var(--accent-glow);}
+.tw-main.out .inp{border-color:var(--red);color:var(--red);font-size:14px;font-weight:800;background:var(--red-glow);}
+/* ── DAY CHIPS (flexible off days) ── */
+.day-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.chip{padding:5px 12px;border-radius:20px;cursor:pointer;font-size:11.5px;font-weight:600;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);user-select:none;transition:all .12s;}
+.chip:hover{border-color:var(--border3);}
+.chip.sel{background:var(--accent-glow);border-color:var(--accent);color:var(--accent);}
+/* ── CHECK LIST ── */
+.chk-list{display:flex;flex-direction:column;gap:3px;max-height:210px;overflow-y:auto;}
+.chk-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:7px;cursor:pointer;border:1px solid transparent;transition:all .1s;}
+.chk-item:hover{background:var(--bg3);}
+.chk-item.sel{background:var(--accent-glow);border-color:rgba(22,199,132,.2);}
+.chk-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border2);background:var(--bg3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .12s;}
+.chk-item.sel .chk-box{background:var(--accent);border-color:var(--accent2);color:#fff;}
+/* ── WIZARD ── */
+.wz-wrap{max-width:660px;margin:0 auto;}
+.wz-steps{position:relative;display:flex;margin-bottom:22px;}
+.wz-steps::before{content:'';position:absolute;top:18px;right:36px;left:36px;height:2px;background:var(--border2);z-index:0;}
+.wz-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;z-index:1;}
+.wz-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid var(--border2);background:var(--bg3);transition:all .2s;}
+.wz-circle.done{background:var(--accent-glow);border-color:var(--accent);color:var(--accent);}
+.wz-circle.active{background:var(--accent);border-color:var(--accent2);color:#fff;}
+.wz-lbl{font-size:9.5px;color:var(--text3);font-weight:600;text-align:center;line-height:1.3;transition:color .2s;}
+.wz-lbl.active{color:var(--accent);}
+.wz-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.wz-nav{display:flex;justify-content:space-between;margin-top:14px;}
+/* ── REPORT FILTERS ── */
+.rpt-filter{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;margin-bottom:14px;}
+.rpt-filter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px;}
+.rpt-filter-lbl{font-size:10px;color:var(--text3);font-weight:700;margin-bottom:4px;}
+.rpt-ctrl{background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:6px 9px;color:var(--text);font-size:11.5px;font-family:'Cairo',sans-serif;outline:none;width:100%;transition:border-color .15s;}
+.rpt-ctrl:focus{border-color:var(--accent);}
+/* ── DEVICE GRID ── */
+.dev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.dev-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r2);padding:14px;cursor:pointer;transition:border-color .15s,transform .15s;}
+.dev-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.dev-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:10px 0;}
+.dev-stat{background:var(--bg3);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);}
+.dev-stat-v{font-size:14px;font-weight:700;}
+.dev-stat-l{font-size:8.5px;color:var(--text3);margin-top:1px;}
+/* ── RULE BLOCK ── */
+.rule-blk{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:12px;margin-bottom:11px;}
+.rule-head{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px;}
+.rule-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:11.5px;}
+.rule-row:last-child{margin-bottom:0;}
+.rule-lbl{color:var(--text2);flex:1;}
+.rule-inp{width:65px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:4px 7px;color:var(--text);font-size:12px;font-family:'JetBrains Mono',monospace;text-align:center;outline:none;transition:border-color .15s;}
+.rule-inp:focus{border-color:var(--accent);}
+.rule-unit{font-size:10px;color:var(--text3);}
+/* ── BARS ── */
+.bars{display:flex;align-items:flex-end;gap:5px;height:75px;}
+.bar-w{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.bar-b{width:100%;border-radius:3px 3px 0 0;min-height:3px;cursor:pointer;transition:opacity .15s;}
+.bar-b:hover{opacity:.75;}
+.bar-l{font-size:8px;color:var(--text3);}
+/* ── BARS ── */
+.wz-assign-card{background:var(--bg3);border:2px solid var(--border);border-radius:9px;padding:14px;cursor:pointer;text-align:center;transition:all .15s;}
+.wz-assign-card:hover{border-color:var(--border2);}
+.wz-assign-card.sel{background:var(--accent-glow);border-color:var(--accent);}
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--bg2);border:1px solid var(--border2);color:var(--text);padding:11px 18px;border-radius:9px;font-size:12px;z-index:9999;box-shadow:0 6px 24px rgba(0,0,0,.5);font-family:'Cairo',sans-serif;animation:tin .2s ease;}
+@keyframes tin{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.fadein{animation:fadein .2s ease;}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+#api-status.connected{background:var(--accent);box-shadow:0 0 5px var(--accent);animation:glow 2s infinite;}
+
+/* ── APPROVAL TYPE CARDS ── */
+.appr-type-card:hover{background:var(--bg4) !important;border-color:var(--border3) !important;}
+.appr-type-card.sel{background:var(--accent-glow) !important;border-color:var(--accent) !important;}
+
+/* ── LOGIN ── */
+.login-overlay{position:fixed;inset:0;background:var(--bg0);display:flex;align-items:center;justify-content:center;z-index:9999;}
+.login-card{background:var(--bg1);border:1px solid var(--border2);border-radius:20px;padding:40px;width:360px;max-width:94vw;box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.login-logo{text-align:center;margin-bottom:28px;}
+.login-logo-mark{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--blue));display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 12px;}
+.login-logo-name{font-size:18px;font-weight:800;}
+.login-logo-ver{font-size:11px;color:var(--text3);margin-top:3px;}
+.login-field{margin-bottom:16px;}
+.login-lbl{font-size:11px;color:var(--text2);font-weight:700;margin-bottom:6px;display:block;}
+.login-inp{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:9px;padding:11px 14px;color:var(--text);font-size:13px;font-family:'Cairo',sans-serif;outline:none;transition:border-color .15s;}
+.login-inp:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,199,132,.08);}
+.login-btn{width:100%;background:var(--accent);border:none;border-radius:9px;padding:12px;color:#fff;font-size:14px;font-weight:700;font-family:'Cairo',sans-serif;cursor:pointer;margin-top:8px;transition:background .15s;}
+.login-btn:hover{background:var(--accent2);}
+.login-err{background:var(--red-glow);border:1px solid var(--red);border-radius:8px;padding:9px 13px;font-size:12px;color:var(--red);margin-bottom:14px;display:none;text-align:center;}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-mark">👁</div>
+    <div><div class="logo-name">BioTrack Pro</div><div class="logo-ver">v4.0 · ADMS</div></div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">الرئيسية</div>
+    <div class="nav-item active" onclick="go(&#39;dash&#39;)"><span class="ni">📊</span>لوحة التحكم</div>
+    <div class="nav-item" onclick="go(&#39;live&#39;)"><span class="ni">⚡</span>البصمات الحية<span class="nav-badge" id="nb">0</span></div>
+    <div class="nav-item" onclick="go(&#39;wizard&#39;)"><span class="ni">🧙</span>معالج الإعداد</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">الموارد البشرية</div>
+    <div class="nav-item" onclick="go(&#39;emps&#39;)"><span class="ni">👥</span>الموظفون</div>
+    <div class="nav-item" onclick="go(&#39;depts&#39;)"><span class="ni">🏢</span>الأقسام والمناطق</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">الجداول</div>
+    <div class="nav-item" onclick="go(&#39;timetables&#39;)"><span class="ni">🕐</span>جداول الوقت</div>
+    <div class="nav-item" onclick="go(&#39;shifts&#39;)"><span class="ni">🔄</span>المناوبات</div>
+    <div class="nav-item" onclick="go(&#39;schedules&#39;)"><span class="ni">📅</span>تعيين الجداول</div>
+    <div class="nav-item" onclick="go(&#39;rules&#39;)"><span class="ni">⚙️</span>قواعد الاحتساب</div>
+    <div class="nav-item" onclick="go(&#39;approvals&#39;)"><span class="ni">✅</span>الموافقات<span class="nav-badge" id="apnb"></span></div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">الأجهزة</div>
+    <div class="nav-item" onclick="go(&#39;devices&#39;)"><span class="ni">🖥️</span>الأجهزة</div>
+    <div class="nav-item" onclick="go(&#39;areas&#39;)"><span class="ni">📍</span>المناطق</div>
+    <div class="nav-item" onclick="go(&#39;access&#39;)"><span class="ni">🔐</span>التحكم بالوصول</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">التقارير</div>
+    <div class="nav-item" onclick="go(&#39;reports&#39;)"><span class="ni">📋</span>التقارير المتكاملة</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">النظام</div>
+    <div class="nav-item" onclick="go(&#39;settings&#39;)"><span class="ni">🛠️</span>الإعدادات</div>
+  </div>
+  <div class="sidebar-footer"><div style="font-size:9px;color:var(--text3);text-align:center">BioTrack Pro v4.0 · ISO 27001</div></div>
+</aside>
+<main class="main">
+  <div class="topbar">
+    <div class="page-title" id="pg-title">لوحة التحكم</div>
+    <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-inp" placeholder="بحث سريع..." oninput="quickSearch(this.value)"></div>
+    <div style="position:relative"><button class="btn" onclick="go(&#39;approvals&#39;)">🔔</button><div id="ndot" style="display:none;position:absolute;top:-1px;left:-1px;width:7px;height:7px;background:var(--red);border-radius:50%;"></div></div>
+    <div class="clock" id="clk">00:44:26</div>
+    <div id="api-status" title="حالة الاتصال بالخادم" style="width:8px;height:8px;border-radius:50%;background:var(--text3);flex-shrink:0;cursor:pointer" onclick="if(API_READY)toast(&#39;✅ متصل بقاعدة البيانات الحقيقية&#39;,&#39;ok&#39;);else toast(&#39;⚠️ غير متصل — يعمل بالبيانات المحلية&#39;);"></div>
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل الوضع">🌙</button>
+  </div>
+  <div class="page fadein" id="pg"></div>
+</main>
+</div>
+<div class="overlay" id="ov" style="display:none" onclick="if(event.target===this)closeMod()">
+  <div class="modal" id="mod" onclick="event.stopPropagation()">
+    <div class="mhead"><div class="mtitle" id="mod-title"></div><button class="mx" onclick="closeMod()">✕</button></div>
+    <div class="mbody" id="mod-body"></div>
+  </div>
+</div>
+<script>
+
+
+// ══════════════════════════════════════════════════════════════
+//   AUTH — نظام تسجيل الدخول
+//   غيّر كلمة المرور هنا قبل النشر
+// ══════════════════════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════════════════
+//   AUTH — Supabase Authentication (آمن 100%)
+//   كلمة المرور محفوظة في Supabase فقط — لا تُرى هنا أبداً
+// ══════════════════════════════════════════════════════════════
+
+let currentUser = null;
+let currentRole = null;
+let _supabaseAuth = null;
+
+// تهيئة Supabase Auth client
+function _getAuthClient(){
+  if(_supabaseAuth) return _supabaseAuth;
+  const {createClient} = supabase;
+  _supabaseAuth = createClient(API_URL.replace('/api',''), SUPABASE_ANON_KEY);
+  return _supabaseAuth;
+}
+
+async function doLogin(){
+  const email = document.getElementById('login-user').value.trim().toLowerCase();
+  const pass  = document.getElementById('login-pass').value;
+  const errEl = document.getElementById('login-err');
+  const btn   = document.querySelector('.login-btn');
+
+  if(!email || !pass){
+    errEl.style.display='block';
+    errEl.textContent='❌ أدخل البريد الإلكتروني وكلمة المرور';
+    return;
+  }
+
+  btn.textContent='⏳ جارٍ التحقق...';
+  btn.disabled=true;
+  errEl.style.display='none';
+
+  try {
+    // Send to our backend for verification (safe)
+    const res = await fetch(API_URL + '/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({email, password: pass})
+    });
+    const data = await res.json();
+
+    if(data.success){
+      currentUser = data.email;
+      currentRole = data.role;
+      // Store token securely in sessionStorage
+      sessionStorage.setItem('bt_token', data.token);
+      sessionStorage.setItem('bt_email', data.email);
+      sessionStorage.setItem('bt_role',  data.role);
+      document.getElementById('login-screen').style.display = 'none';
+      startApp();
+    } else {
+      errEl.style.display='block';
+      errEl.textContent='❌ ' + (data.error || 'البريد الإلكتروني أو كلمة المرور غير صحيحة');
+      document.getElementById('login-pass').value='';
+      document.getElementById('login-pass').focus();
+    }
+  } catch(e) {
+    errEl.style.display='block';
+    errEl.textContent='❌ تعذر الاتصال بالخادم — تحقق من الإنترنت';
+  } finally {
+    btn.textContent='🔐 تسجيل الدخول';
+    btn.disabled=false;
+  }
+}
+
+function checkSession(){
+  const token = sessionStorage.getItem('bt_token');
+  const email = sessionStorage.getItem('bt_email');
+  const role  = sessionStorage.getItem('bt_role');
+  if(token && email){
+    currentUser = email;
+    currentRole = role || 'admin';
+    // Add token to all API calls
+    return true;
+  }
+  return false;
+}
+
+async function logout(){
+  if(!confirm('هل تريد تسجيل الخروج؟')) return;
+  await fetch(API_URL + '/auth/logout', {
+    method: 'POST',
+    headers: {'Authorization': 'Bearer ' + sessionStorage.getItem('bt_token')}
+  }).catch(()=>{});
+  sessionStorage.clear();
+  currentUser = null;
+  currentRole = null;
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-user').value = '';
+  document.getElementById('login-pass').value = '';
+  // Clear DB
+  Object.keys(DB).forEach(k => { if(Array.isArray(DB[k])) DB[k]=[]; });
+}
+
+function canEdit(){
+  if(currentRole === 'viewer'){
+    toast('⛔ ليس لديك صلاحية التعديل');
+    return false;
+  }
+  return true;
+}
+
+// Add auth token to all API calls
+const _origApi = api;
+async function api(method, path, body=null){
+  const token = sessionStorage.getItem('bt_token');
+  const opts = { method, headers: {'Content-Type':'application/json'} };
+  if(token) opts.headers['Authorization'] = 'Bearer ' + token;
+  if(body)  opts.body = JSON.stringify(body);
+  try {
+    const res = await fetch(API_URL + path, opts);
+    if(res.status === 401){
+      // Token expired — force re-login
+      sessionStorage.clear();
+      document.getElementById('login-screen').style.display='flex';
+      toast('⚠️ انتهت صلاحية الجلسة — سجّل دخولك مجدداً');
+      return {success:false, error:'غير مصرح'};
+    }
+    return await res.json();
+  } catch(e) {
+    console.error('API Error:', e);
+    return {success:false, error: e.message};
+  }
+}
+
+
+// ═══════════════════════════════════════════════════════════
+//   API CONFIG — غيّر هذا الرابط لرابط Render الخاص بك
+// ═══════════════════════════════════════════════════════════
+const API_URL = 'https://biotrack-backend.onrender.com';
+
+// ═══ API HELPER ═══
+async function api(method, path, body=null){
+  const opts = {
+    method,
+    headers: {'Content-Type':'application/json'},
+  };
+  if(body) opts.body = JSON.stringify(body);
+  try {
+    const res = await fetch(API_URL + path, opts);
+    const data = await res.json();
+    return data;
+  } catch(e) {
+    console.error('API Error:', e);
+    return {success: false, error: e.message};
+  }
+}
+
+// ═══ LOAD ALL DATA FROM API ON START ═══
+let API_READY = false;
+async function loadFromAPI(){
+  showLoading(true);
+  try {
+    const [emps, depts, areas, positions, timetables, shifts, devices, approvals, rules] = await Promise.all([
+      api('GET','/api/employees'),
+      api('GET','/api/departments'),
+      api('GET','/api/areas'),
+      api('GET','/api/positions'),
+      api('GET','/api/timetables'),
+      api('GET','/api/shifts'),
+      api('GET','/api/devices'),
+      api('GET','/api/approvals'),
+      api('GET','/api/rules'),
+    ]);
+    if(emps.success)        DB.employees    = emps.data.map(normalizeEmp);
+    if(depts.success)       DB.departments  = depts.data.map(normalizeDept);
+    if(areas.success)       DB.areas        = areas.data;
+    if(positions.success)   DB.positions    = positions.data.map(p=>({id:p.id,title:p.title}));
+    if(timetables.success)  DB.timetables   = timetables.data.map(normalizeTT);
+    if(shifts.success)      DB.shifts       = shifts.data.map(normalizeSh);
+    if(devices.success)     DB.devices      = devices.data.map(normalizeDev);
+    if(approvals.success)   DB.approvals    = approvals.data.map(normalizeAppr);
+    if(rules.success&&rules.data) DB.rules  = normalizeRules(rules.data);
+
+    // Load today's logs
+    const today = new Date().toISOString().split('T')[0];
+    const logs = await api('GET',`/api/logs?from_date=${today}&to_date=${today}&limit=200`);
+    if(logs.success) DB.logs = logs.data.map(normalizeLog);
+
+    API_READY = true;
+    showLoading(false);
+    const statusDot=document.getElementById('api-status');if(statusDot)statusDot.style.background='var(--accent)';
+    toast('✅ تم تحميل البيانات من قاعدة البيانات','ok');
+  } catch(e) {
+    showLoading(false);
+    toast('⚠️ تعذّر الاتصال بالخادم — يعمل بالبيانات المحلية');
+    API_READY = false;
+  }
+}
+
+function showLoading(show){
+  let el = document.getElementById('api-loading');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'api-loading';
+    el.style.cssText = 'position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--blue));z-index:9999;animation:loadbar 1.5s ease-in-out infinite';
+    document.body.appendChild(el);
+    const style = document.createElement('style');
+    style.textContent = '@keyframes loadbar{0%{opacity:1;transform:scaleX(0);transform-origin:left}50%{opacity:1;transform:scaleX(1);transform-origin:left}51%{transform-origin:right}100%{opacity:0;transform:scaleX(0);transform-origin:right}}';
+    document.head.appendChild(style);
+  }
+  el.style.display = show ? 'block' : 'none';
+}
+
+// ═══ NORMALIZE FUNCTIONS — تحويل بيانات API إلى نفس صيغة DB ═══
+function normalizeEmp(e){
+  return {
+    id:e.id, pin:e.pin, name:e.name,
+    dept:e.dept_id, pos:e.pos_id,
+    shiftId:e.shift_id, areaId:e.area_id,
+    card:e.card||'', status:e.status||'active',
+    hire:e.hire_date||'', empCode:e.emp_code||''
+  };
+}
+function normalizeDept(d){
+  return {id:d.id,name:d.name,parentId:d.parent_id,managerId:d.manager_id,color:d.color||'#3b8ef5'};
+}
+function normalizeTT(t){
+  return {
+    id:t.id, name:t.name, type:t.type||'عادي',
+    checkIn:t.check_in?.substring(0,5)||'09:00',
+    checkInStart:t.check_in_start?.substring(0,5)||'07:00',
+    checkInEnd:t.check_in_end?.substring(0,5)||'11:00',
+    checkOut:t.check_out?.substring(0,5)||'17:00',
+    checkOutStart:t.check_out_start?.substring(0,5)||'15:00',
+    checkOutEnd:t.check_out_end?.substring(0,5)||'19:00',
+    offDays:t.off_days||['الجمعة','السبت'],
+    weekStart:t.week_start||'الأحد',
+    breakEnabled:t.break_enabled!==false,
+    breakStart:t.break_start?.substring(0,5)||'13:00',
+    breakEnd:t.break_end?.substring(0,5)||'14:00',
+    breakMins:t.break_minutes||60,
+    colorCode:t.color_code||'#3b8ef5'
+  };
+}
+function normalizeSh(s){
+  return {
+    id:s.id, name:s.name,
+    timetableId:s.timetable_id,
+    startDate:s.start_date||'', endDate:s.end_date||'',
+    flexible:s.flexible||false
+  };
+}
+function normalizeDev(d){
+  return {
+    id:d.id, sn:d.sn, name:d.name, model:d.model||'ZKTeco',
+    ip:d.ip||'', areaId:d.area_id,
+    status:d.status||'offline',
+    lastSeen:d.last_seen?new Date(d.last_seen):null,
+    users:d.total_users||0, fingers:d.total_fingers||0,
+    faces:d.total_faces||0, palms:0, logs:d.total_logs||0,
+    heartbeat:d.heartbeat||10, tz:d.timezone||'Asia/Riyadh'
+  };
+}
+function normalizeLog(l){
+  return {
+    id:l.id, empId:l.employee_id,
+    empName:l.employees?.name||'',
+    empPin:l.employee_pin||'',
+    devSN:l.device_sn||'MANUAL',
+    deptId:l.employees?.dept_id,
+    areaId:l.employees?.area_id,
+    ts:new Date(l.punch_time),
+    type:l.punch_type||'دخول',
+    mode:l.verify_mode||'بصمة',
+    lateMin:0, earlyMin:0,
+    inWindow:l.in_window!==false,
+    isNew:false, isManual:l.is_manual||false
+  };
+}
+function normalizeAppr(a){
+  return {
+    id:a.id,
+    empId:a.employee_id,
+    empName:a.employees?.name||'',
+    typeKey:a.type_key||'other',
+    type:a.type_label||'',
+    typeIcon:a.type_icon||'📋',
+    typeColor:'a',
+    detail:a.detail||'',
+    reason:a.reason||'',
+    status:a.status||'pending',
+    submitted:a.submitted_at?.split('T')[0]||'',
+    resolvedAt:a.resolved_at?.split('T')[0]||'',
+    addedBy:a.added_by||'المدير'
+  };
+}
+function normalizeRules(r){
+  return {
+    lateAbsent:r.late_absent_min||100,
+    earlyAbsent:r.early_absent_min||100,
+    noInAction:r.no_checkin_action||'تأخير',
+    noInMins:r.no_checkin_mins||60,
+    noOutAction:r.no_checkout_action||'مغادرة مبكرة',
+    noOutMins:r.no_checkout_mins||60,
+    maxHours:r.max_work_hours||12,
+    calcRule:r.calc_rule||'الأول والأخير',
+    dailyOT:r.daily_ot||false,
+    weekendOT:r.weekend_ot||false,
+    holidayOT:r.holiday_ot||false,
+    weeklyOT:r.weekly_ot||false
+  };
+}
+
+// ═══ LIVE LOGS POLLING — تحديث البصمات كل 10 ثوانٍ من API ═══
+async function pollLiveLogs(){
+  if(!API_READY) return;
+  const today = new Date().toISOString().split('T')[0];
+  const res = await api('GET',`/api/logs?from_date=${today}&to_date=${today}&limit=50`);
+  if(!res.success) return;
+  const newLogs = res.data.map(normalizeLog);
+  const existingIds = new Set(DB.logs.map(l=>l.id));
+  const added = newLogs.filter(l=>!existingIds.has(l.id));
+  if(added.length > 0){
+    added.forEach(l=>{ l.isNew=true; DB.logs.unshift(l); });
+    DB.logs.sort((a,b)=>b.ts-a.ts);
+    liveCount += added.length;
+    document.getElementById('nb').textContent = liveCount;
+    document.getElementById('ndot').style.display = 'block';
+    if(curPage==='dash') renderDash();
+    if(curPage==='live') renderLive();
+  }
+}
+
+
+// ═══ DATABASE — بيانات فارغة تُملأ من API ═══
+const DB={
+  areas:[],
+  departments:[],
+  positions:[],
+  timetables:[],
+  shifts:[],
+  employees:[],
+  devices:[],
+  rules:{lateAbsent:100,earlyAbsent:100,noInAction:'تأخير',noInMins:60,noOutAction:'مغادرة مبكرة',noOutMins:60,maxHours:12,calcRule:'الأول والأخير',dailyOT:false,weekendOT:false,holidayOT:false,weeklyOT:false},
+  approvals:[],
+  logs:[],nid:1
+};
+// لا توجد بيانات وهمية — كل البيانات تأتي من Supabase عبر API
+// ═══ HELPERS ═══
+const pad=n=>String(n).padStart(2,'0');
+const fT=dt=>{if(!dt)return'—';const d=new Date(dt);return`${pad(d.getHours())}:${pad(d.getMinutes())}`;};
+const fD=dt=>{if(!dt)return'—';const d=new Date(dt);return`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;};
+const fDT=dt=>fD(dt)+' '+fT(dt);
+const deptN=id=>(DB.departments.find(d=>d.id===id)||{name:'—'}).name;
+const areaN=id=>(DB.areas.find(a=>a.id===id)||{name:'—'}).name;
+const shiftN=id=>(DB.shifts.find(s=>s.id===id)||{name:'—'}).name;
+const posN=id=>(DB.positions.find(p=>p.id===id)||{title:'—'}).title;
+const ttByShift=shiftId=>{const sh=DB.shifts.find(s=>s.id===shiftId);return sh?DB.timetables.find(t=>t.id===sh.timetableId):null;};
+const todayLogs=()=>{const t=new Date();t.setHours(0,0,0,0);return DB.logs.filter(l=>new Date(l.ts)>=t);};
+const ALL_DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const AVA_C=['#3b8ef5','#16c784','#f5a623','#a78bfa','#f04a5a','#22d3ee','#fb923c','#34d399'];
+function ava(name,sz=30){const c=AVA_C[name.charCodeAt(0)%AVA_C.length];return`<div class="ava" style="width:${sz}px;height:${sz}px;background:${c}18;color:${c};border:1.5px solid ${c}40;font-size:${Math.floor(sz*.38)}px">${name.charAt(0)}</div>`;}
+function pg(html){document.getElementById('pg').innerHTML='<div class="fadein">'+html+'</div>';}
+function toast(msg,type=''){
+  const t=document.createElement('div');t.className='toast';
+  if(type==='ok')t.style.borderColor='var(--accent)';
+  if(type==='err')t.style.borderColor='var(--red)';
+  t.textContent=msg;document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300)},2500);
+}
+function openMod(title,body,sz=''){
+  document.getElementById('mod-title').textContent=title;
+  document.getElementById('mod-body').innerHTML=body;
+  document.getElementById('mod').className='modal'+(sz?' '+sz:'');
+  document.getElementById('ov').style.display='flex';
+}
+function closeMod(){document.getElementById('ov').style.display='none';}
+
+// ═══ THEME ═══
+function toggleTheme(){
+  const h=document.documentElement;
+  const dark=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('theme-btn').textContent=dark?'🌙':'☀️';
+}
+
+// ═══ CLOCK + LIVE SIM ═══
+let liveCount=0;
+setInterval(()=>{const n=new Date();document.getElementById('clk').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;},1000);
+// Live data comes from API polling (pollLiveLogs every 10s)
+// No fake simulation
+
+// ═══ NAV ═══
+let curPage='dash';
+const TITLES={dash:'لوحة التحكم',live:'البصمات الحية',wizard:'معالج الإعداد السريع',emps:'إدارة الموظفين',depts:'الأقسام والمناطق',timetables:'جداول الوقت',shifts:'المناوبات',schedules:'تعيين الجداول',rules:'قواعد الاحتساب',approvals:'الموافقات',devices:'الأجهزة',areas:'المناطق',access:'التحكم بالوصول',reports:'التقارير المتكاملة',settings:'الإعدادات'};
+function go(page){
+  curPage=page;
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  const el=document.querySelector(`.nav-item[onclick="go('${page}')"]`);
+  if(el)el.classList.add('active');
+  document.getElementById('pg-title').textContent=TITLES[page]||page;
+  if(page==='live'){liveCount=0;document.getElementById('nb').textContent='0';document.getElementById('ndot').style.display='none';}
+  const R={dash:renderDash,live:renderLive,wizard:renderWizard,emps:renderEmps,depts:renderDepts,timetables:renderTT,shifts:renderShifts,schedules:renderSchedules,rules:renderRules,approvals:renderApprovals,devices:renderDevices,areas:renderAreas,access:renderAccess,reports:renderReports,settings:renderSettings};
+  if(R[page])R[page]();
+  const pc=DB.approvals.filter(a=>a.status==='pending').length;
+  const apnb=document.getElementById('apnb');
+  apnb.textContent=pc||'';apnb.style.display=pc?'inline':'none';
+}
+function quickSearch(q){if(q.length<2)return;const e=DB.employees.find(x=>x.name.includes(q)||x.pin.includes(q));if(e){go('emps');setTimeout(()=>renderEmps(q),50);}}
+// ═══ DASHBOARD ═══
+function renderDash(){
+  const tl=todayLogs();
+  const inIds=[...new Set(tl.filter(l=>l.type==='دخول').map(l=>l.empId))];
+  const late=tl.filter(l=>l.type==='دخول'&&l.lateMin>0);
+  const total=DB.employees.filter(e=>e.status==='active').length;
+  const pending=DB.approvals.filter(a=>a.status==='pending').length;
+  const days=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+  const bars=[];
+  for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);d.setHours(0,0,0,0);const nd=new Date(d);nd.setDate(nd.getDate()+1);const c=DB.logs.filter(l=>new Date(l.ts)>=d&&new Date(l.ts)<nd&&l.type==='دخول').length;bars.push({day:days[d.getDay()],c,today:i===0});}
+  const maxB=Math.max(...bars.map(b=>b.c),1);
+  pg(`<div class="kpi-row c4">
+  <div class="kpi gn" onclick="go('reports')"><div class="kpi-icon">👥</div><div class="kpi-val">${inIds.length}</div><div class="kpi-lbl">حاضرون اليوم</div><div class="kpi-sub">▲ ${Math.round(inIds.length/total*100)}% من الكادر</div><div class="prog" style="margin-top:8px"><div class="prog-bar" style="width:${Math.round(inIds.length/total*100)}%;background:var(--accent)"></div></div></div>
+  <div class="kpi bl" onclick="go('emps')"><div class="kpi-icon">🧑‍💼</div><div class="kpi-val">${total}</div><div class="kpi-lbl">الموظفون النشطون</div><div class="kpi-sub">● ${DB.employees.filter(e=>e.status==='leave').length} في إجازة</div></div>
+  <div class="kpi am" onclick="go('reports')"><div class="kpi-icon">⚠️</div><div class="kpi-val">${late.length}</div><div class="kpi-lbl">متأخرون اليوم</div><div class="kpi-sub">${late.length>0?'▼ تجاوزوا فترة السماح':'✓ لا تأخير'}</div></div>
+  <div class="kpi rd" onclick="go('approvals')"><div class="kpi-icon">📬</div><div class="kpi-val">${pending}</div><div class="kpi-lbl">طلبات معلقة</div><div class="kpi-sub">${pending>0?'● تحتاج مراجعة':'✓ لا طلبات'}</div></div>
+</div>
+<div class="g3">
+  <div class="stack">
+    <div class="card"><div class="card-head"><div class="card-title">📈 حضور آخر 7 أيام</div><button class="btn" onclick="go('reports')" style="font-size:10px">تفصيل ←</button></div>
+    <div class="card-body"><div class="bars">${bars.map(b=>`<div class="bar-w"><div class="bar-b" style="height:${Math.max(4,b.c/maxB*68)}px;background:${b.today?'var(--accent)':b.c>maxB*.6?'var(--blue)':'var(--border3)'}"></div><div class="bar-l">${b.day.substring(0,3)}</div></div>`).join('')}</div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">⚡ آخر البصمات</div><button class="btn" onclick="go('live')" style="font-size:10px">الكل ←</button></div>
+    <div>${DB.logs.slice(0,8).map(l=>`<div style="display:flex;align-items:center;gap:9px;padding:7px 14px;border-bottom:1px solid var(--border);${l.isNew?'animation:fadein .3s':''}">${ava(l.empName)}<div style="flex:1;min-width:0"><div style="font-size:11.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${l.empName}</div><div style="font-size:9.5px;color:var(--text3)">${l.devSN} · ${l.mode}</div></div><span class="badge ${l.type==='دخول'?'g':'r'}">${l.type}</span><div style="font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace;min-width:38px;text-align:left">${fT(l.ts)}</div></div>`).join('')}</div></div>
+  </div>
+  <div class="stack">
+    <div class="card"><div class="card-head"><div class="card-title">🖥️ الأجهزة</div></div>
+    <div>${DB.devices.map(d=>`<div style="display:flex;align-items:center;gap:9px;padding:9px 14px;border-bottom:1px solid var(--border)"><div class="pls ${d.status==='online'?'on':'off'}"></div><div style="flex:1;min-width:0"><div style="font-size:11.5px;font-weight:600">${d.name}</div><div style="font-size:9.5px;color:var(--text3)">${d.sn}</div></div><div style="text-align:left;font-size:10px;color:${d.status==='online'?'var(--accent)':'var(--text3)'};font-weight:700">${d.status==='online'?'متصل':'غير متصل'}</div></div>`).join('')}</div></div>
+    <div class="card"><div class="card-head"><div class="card-title">📬 الطلبات المعلقة</div></div>
+    <div>${DB.approvals.filter(a=>a.status==='pending').map(a=>`<div style="padding:9px 14px;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px"><div style="font-size:11.5px;font-weight:600">${a.empName}</div><span class="badge a">${a.type}</span></div><div style="font-size:10.5px;color:var(--text3);margin-bottom:7px">${a.detail} · ${a.reason}</div><div style="display:flex;gap:5px"><button class="btn primary" style="font-size:10px;padding:4px 9px" onclick="approve(${a.id})">✓ موافقة</button><button class="btn danger" style="font-size:10px;padding:4px 9px" onclick="reject(${a.id})">✗ رفض</button></div></div>`).join('')||'<div style="padding:18px;text-align:center;color:var(--text3);font-size:11.5px">✓ لا طلبات معلقة</div>'}</div></div>
+    <div class="card"><div class="card-head"><div class="card-title">🏢 الأقسام</div></div>
+    <div class="card-body">${DB.departments.map(d=>{const cnt=DB.employees.filter(e=>e.dept===d.id&&e.status==='active').length;return`<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:${d.color};display:inline-block"></span>${d.name}</span><span style="color:var(--text3)">${cnt}</span></div><div class="prog"><div class="prog-bar" style="width:${total?Math.round(cnt/total*100):0}%;background:${d.color}"></div></div></div>`;}).join('')}</div></div>
+  </div>
+</div>`);
+}
+
+// ═══ LIVE ═══
+function renderLive(){
+  pg(`<div class="card"><div class="card-head"><div class="card-title">⚡ البصمات الحية</div><div style="display:flex;align-items:center;gap:8px"><span class="badge g"><span class="dot"></span>مباشر</span><span style="font-size:10px;color:var(--text3)">${DB.logs.length} إجمالي</span></div></div>
+  <div class="tbl-wrap"><table><thead><tr><th>#</th><th>الموظف</th><th>PIN</th><th>الجهاز</th><th class="tc">النوع</th><th class="tc">التحقق</th><th class="tc">في النافذة</th><th>التاريخ والوقت</th><th class="tc">الحالة</th></tr></thead><tbody>
+  ${DB.logs.slice(0,60).map((l,i)=>`<tr class="${l.isNew?'fadein':''}"><td style="color:var(--text3);font-size:10px;font-family:'JetBrains Mono',monospace">${i+1}</td><td><div style="display:flex;align-items:center;gap:7px">${ava(l.empName)}<span style="font-weight:600">${l.empName}</span></div></td><td style="color:var(--blue);font-weight:700;font-family:'JetBrains Mono',monospace">${l.empPin}</td><td><span style="font-size:10px;background:var(--bg3);padding:2px 6px;border-radius:4px;border:1px solid var(--border)">${l.devSN}</span></td><td class="tc"><span class="badge ${l.type==='دخول'?'g':'r'}">${l.type}</span></td><td class="tc"><span class="badge b">${l.mode}</span></td><td class="tc"><span class="badge ${l.inWindow?'g':'r'}">${l.inWindow?'✓':'✗'}</span></td><td style="font-size:10.5px;color:var(--text2);font-family:'JetBrains Mono',monospace">${fDT(l.ts)}</td><td class="tc">${l.lateMin>0?`<span class="badge a">+${l.lateMin}د</span>`:'<span class="badge g">بالوقت</span>'}</td></tr>`).join('')}
+  </tbody></table></div></div>`);
+}
+
+// ═══ TIMETABLES PAGE ═══
+function renderTT(){
+  pg(`<div class="ph"><div><h2>🕐 جداول الوقت</h2><p>كل جدول يحدد نوافذ القبول — بصمة خارج النافذة مرفوضة تلقائياً</p></div><button class="btn primary" onclick="showAddTT()">➕ إضافة جدول وقت</button></div>
+  ${DB.timetables.map(tt=>`
+  <div class="card" style="margin-bottom:12px"><div class="card-head">
+    <div class="card-title"><span style="width:9px;height:9px;border-radius:50%;background:${tt.colorCode};display:inline-block"></span>${tt.name}</div>
+    <div style="display:flex;align-items:center;gap:7px">
+      <span class="badge b">${tt.type}</span>
+      <span class="badge x">${tt.offDays.join(' + ')}</span>
+      <span class="badge x">${DB.shifts.filter(s=>s.timetableId===tt.id).length} مناوبة</span>
+      <button class="btn" onclick="editTT(${tt.id})" style="font-size:10px;padding:4px 9px">✏️</button>
+      <button class="btn danger" onclick="delTT(${tt.id})" style="font-size:10px;padding:4px 9px">🗑️</button>
+    </div></div>
+    <div class="card-body">
+      <div class="g2" style="gap:10px">
+        <div class="tw in-tw">
+          <div class="tw-title"><span style="background:var(--accent-glow);color:var(--accent);padding:1px 8px;border-radius:12px;font-size:9.5px">⬇ دخول</span></div>
+          <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap">
+            <div style="text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:6px 10px"><div style="font-size:8.5px;color:var(--text3);margin-bottom:2px">بداية النافذة</div><div style="font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace">${tt.checkInStart}</div></div>
+            <div style="font-size:16px;color:var(--text3)">←</div>
+            <div style="text-align:center;background:var(--accent-glow);border:1px solid rgba(22,199,132,.3);border-radius:7px;padding:7px 13px"><div style="font-size:8.5px;color:var(--accent);margin-bottom:2px;font-weight:700">الدخول الرسمي</div><div style="font-size:19px;font-weight:800;color:var(--accent);font-family:'JetBrains Mono',monospace">${tt.checkIn}</div></div>
+            <div style="font-size:16px;color:var(--text3)">←</div>
+            <div style="text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:6px 10px"><div style="font-size:8.5px;color:var(--text3);margin-bottom:2px">نهاية النافذة</div><div style="font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace">${tt.checkInEnd}</div></div>
+          </div>
+        </div>
+        <div class="tw out-tw">
+          <div class="tw-title"><span style="background:var(--red-glow);color:var(--red);padding:1px 8px;border-radius:12px;font-size:9.5px">⬆ خروج</span></div>
+          <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap">
+            <div style="text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:6px 10px"><div style="font-size:8.5px;color:var(--text3);margin-bottom:2px">بداية النافذة</div><div style="font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace">${tt.checkOutStart}</div></div>
+            <div style="font-size:16px;color:var(--text3)">←</div>
+            <div style="text-align:center;background:var(--red-glow);border:1px solid rgba(240,74,90,.3);border-radius:7px;padding:7px 13px"><div style="font-size:8.5px;color:var(--red);margin-bottom:2px;font-weight:700">الخروج الرسمي</div><div style="font-size:19px;font-weight:800;color:var(--red);font-family:'JetBrains Mono',monospace">${tt.checkOut}</div></div>
+            <div style="font-size:16px;color:var(--text3)">←</div>
+            <div style="text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:6px 10px"><div style="font-size:8.5px;color:var(--text3);margin-bottom:2px">نهاية النافذة</div><div style="font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace">${tt.checkOutEnd}</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+        <span class="badge x">☕ استراحة: ${tt.breakEnabled?tt.breakStart+' - '+tt.breakEnd+' ('+tt.breakMins+'د)':'غير مفعّلة'}</span>
+        <span class="badge x">📆 أيام الراحة: ${tt.offDays.join(' · ')}</span>
+        <span class="badge x">📅 بداية الأسبوع: ${tt.weekStart}</span>
+      </div>
+    </div>
+  </div>`).join('')}`);
+}
+
+function _dayChips(pickerId,selectedDays){
+  return`<div class="day-chips" id="${pickerId}">${ALL_DAYS.map(d=>`<div class="chip${selectedDays.includes(d)?' sel':''}" onclick="this.classList.toggle('sel')">${d}</div>`).join('')}</div>`;
+}
+function _getChips(pickerId){return[...document.querySelectorAll(`#${pickerId} .chip.sel`)].map(el=>el.textContent);}
+
+function showAddTT(){
+  openMod('➕ إضافة جدول وقت جديد',`
+<div class="tab-bar" id="att-tabs"><div class="tab-btn active" onclick="swTab('att',0)">أوقات العمل</div><div class="tab-btn" onclick="swTab('att',1)">أيام الراحة</div><div class="tab-btn" onclick="swTab('att',2)">الاستراحة</div><div class="tab-btn" onclick="swTab('att',3)">عمل إضافي</div></div>
+<div id="att-p0" class="tab-pane show">
+  <div class="fg-row"><div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="att-name" placeholder="الدوام الرسمي (9ص–5م)"></div><div class="fg"><label class="lbl">النوع</label><select class="sel" id="att-type"><option>عادي</option><option>مرن</option></select></div></div>
+  <div class="tw in-tw">
+    <div class="tw-title"><span style="background:var(--accent-glow);color:var(--accent);padding:1px 8px;border-radius:12px;font-size:9.5px">⬇ دخول</span> نافذة القبول</div>
+    <div class="tw-row"><div class="tw-cell"><label>بداية النافذة</label><input class="inp" type="time" id="att-ins" value="07:00"></div><div class="tw-sep">←</div><div class="tw-main in"><label>الدخول الرسمي *</label><input class="inp" type="time" id="att-in" value="09:00"></div><div class="tw-sep">←</div><div class="tw-cell"><label>نهاية النافذة</label><input class="inp" type="time" id="att-ine" value="11:00"></div></div>
+  </div>
+  <div class="tw out-tw">
+    <div class="tw-title"><span style="background:var(--red-glow);color:var(--red);padding:1px 8px;border-radius:12px;font-size:9.5px">⬆ خروج</span> نافذة القبول</div>
+    <div class="tw-row"><div class="tw-cell"><label>بداية النافذة</label><input class="inp" type="time" id="att-outs" value="15:00"></div><div class="tw-sep">←</div><div class="tw-main out"><label>الخروج الرسمي *</label><input class="inp" type="time" id="att-out" value="17:00"></div><div class="tw-sep">←</div><div class="tw-cell"><label>نهاية النافذة</label><input class="inp" type="time" id="att-oute" value="19:00"></div></div>
+  </div>
+</div>
+<div id="att-p1" class="tab-pane">
+  <div class="fg"><label class="lbl">أيام الراحة — اختر يوماً أو أكثر <span class="req">*</span></label>${_dayChips('att-offdays',['الجمعة','السبت'])}</div>
+  <div class="fg" style="margin-top:12px"><label class="lbl">بداية الأسبوع</label><select class="sel" id="att-wks"><option>الأحد</option><option>السبت</option><option>الاثنين</option></select></div>
+</div>
+<div id="att-p2" class="tab-pane">
+  <div class="tgl-wrap" style="margin-bottom:13px"><label class="tgl"><input type="checkbox" id="att-bren" checked onchange="document.getElementById('att-brf').style.opacity=this.checked?'1':'0.4';document.getElementById('att-brf').style.pointerEvents=this.checked?'':'none'"><span class="tgl-sl"></span></label><span style="font-size:12.5px;font-weight:600;color:var(--text)">تفعيل الاستراحة (اختياري)</span></div>
+  <div id="att-brf"><div class="fg-row"><div class="fg"><label class="lbl">بداية الاستراحة</label><input class="inp" type="time" id="att-brs" value="13:00"></div><div class="fg"><label class="lbl">نهاية الاستراحة</label><input class="inp" type="time" id="att-bre" value="14:00"></div></div><div class="fg"><label class="lbl">مدة الاستراحة (دقائق)</label><input class="inp" id="att-brd" type="number" value="60" min="0" max="240"></div></div>
+</div>
+<div id="att-p3" class="tab-pane">
+  <div class="rule-blk"><div class="rule-head">أنواع العمل الإضافي</div>
+  ${[['att-ot-day','يومي'],['att-ot-wkend','نهاية الأسبوع'],['att-ot-hol','العطلات الرسمية'],['att-ot-wk','أسبوعي']].map(([id,lbl])=>`<div class="rule-row"><span class="rule-lbl">${lbl}</span><label class="tgl"><input type="checkbox" id="${id}"><span class="tgl-sl"></span></label></div>`).join('')}
+  </div>
+  <div class="fg-row"><div class="fg"><label class="lbl">أقصى ساعات عمل</label><input class="inp" id="att-maxh" type="number" value="12" min="1" max="24"></div><div class="fg"><label class="lbl">قاعدة الاحتساب</label><select class="sel" id="att-calc"><option>الأول والأخير</option><option>جميع السجلات</option></select></div></div>
+</div>
+<div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="saveTT()">💾 حفظ جدول الوقت</button></div>`,'lg');
+}
+
+function swTab(p,idx){
+  document.querySelectorAll(`#${p}-tabs .tab-btn`).forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll(`[id^="${p}-p"]`).forEach((pn,i)=>pn.classList.toggle('show',i===idx));
+}
+
+async function saveTT(){
+  const name=document.getElementById('att-name')?.value.trim();
+  if(!name){toast('❌ أدخل الاسم','err');return;}
+  const offDays=_getChips('att-offdays');
+  if(!offDays.length){toast('❌ اختر يوم راحة واحد على الأقل','err');return;}
+  const colors=['#3b8ef5','#16c784','#f5a623','#a78bfa','#f04a5a'];
+  const ttObj={
+    id:DB.timetables.length+1,name,type:document.getElementById('att-type').value,
+    checkIn:document.getElementById('att-in').value,checkInStart:document.getElementById('att-ins').value,checkInEnd:document.getElementById('att-ine').value,
+    checkOut:document.getElementById('att-out').value,checkOutStart:document.getElementById('att-outs').value,checkOutEnd:document.getElementById('att-oute').value,
+    offDays,weekStart:document.getElementById('att-wks')?.value||'الأحد',
+    breakEnabled:document.getElementById('att-bren')?.checked,
+    breakStart:document.getElementById('att-brs')?.value||'13:00',breakEnd:document.getElementById('att-bre')?.value||'14:00',
+    breakMins:parseInt(document.getElementById('att-brd')?.value)||60,
+    colorCode:colors[DB.timetables.length%5]
+  };
+  if(API_READY){
+    const body={name,type:ttObj.type,check_in:ttObj.checkIn,check_in_start:ttObj.checkInStart,check_in_end:ttObj.checkInEnd,check_out:ttObj.checkOut,check_out_start:ttObj.checkOutStart,check_out_end:ttObj.checkOutEnd,off_days:offDays,week_start:ttObj.weekStart,break_enabled:ttObj.breakEnabled,break_start:ttObj.breakStart,break_end:ttObj.breakEnd,break_minutes:ttObj.breakMins,color_code:ttObj.colorCode};
+    const res=await api('POST','/api/timetables',body);
+    if(res.success&&res.data) ttObj.id=res.data.id;
+  }
+  DB.timetables.push(ttObj);
+  closeMod();renderTT();toast('✅ تم حفظ جدول الوقت','ok');
+}
+
+function editTT(id){
+  const tt=DB.timetables.find(x=>x.id===id);
+  openMod(`✏️ تعديل: ${tt.name}`,`
+  <div class="fg"><label class="lbl">الاسم</label><input class="inp" id="ett-name" value="${tt.name}"></div>
+  <div class="tw in-tw" style="margin-bottom:10px">
+    <div class="tw-title"><span style="background:var(--accent-glow);color:var(--accent);padding:1px 8px;border-radius:12px;font-size:9.5px">⬇ دخول</span></div>
+    <div class="tw-row"><div class="tw-cell"><label>بداية</label><input class="inp" type="time" id="ett-ins" value="${tt.checkInStart}"></div><div class="tw-sep">←</div><div class="tw-main in"><label>الرسمي</label><input class="inp" type="time" id="ett-in" value="${tt.checkIn}"></div><div class="tw-sep">←</div><div class="tw-cell"><label>نهاية</label><input class="inp" type="time" id="ett-ine" value="${tt.checkInEnd}"></div></div>
+  </div>
+  <div class="tw out-tw" style="margin-bottom:10px">
+    <div class="tw-title"><span style="background:var(--red-glow);color:var(--red);padding:1px 8px;border-radius:12px;font-size:9.5px">⬆ خروج</span></div>
+    <div class="tw-row"><div class="tw-cell"><label>بداية</label><input class="inp" type="time" id="ett-outs" value="${tt.checkOutStart}"></div><div class="tw-sep">←</div><div class="tw-main out"><label>الرسمي</label><input class="inp" type="time" id="ett-out" value="${tt.checkOut}"></div><div class="tw-sep">←</div><div class="tw-cell"><label>نهاية</label><input class="inp" type="time" id="ett-oute" value="${tt.checkOutEnd}"></div></div>
+  </div>
+  <div class="fg"><label class="lbl">أيام الراحة</label>${_dayChips('ett-offdays',tt.offDays)}</div>
+  <div class="tgl-wrap" style="margin:10px 0"><label class="tgl"><input type="checkbox" id="ett-bren" ${tt.breakEnabled?'checked':''} onchange="document.getElementById('ett-brf').style.opacity=this.checked?'1':'0.4';document.getElementById('ett-brf').style.pointerEvents=this.checked?'':'none'"><span class="tgl-sl"></span></label><span style="font-size:12px;color:var(--text2)">تفعيل الاستراحة</span></div>
+  <div id="ett-brf" style="opacity:${tt.breakEnabled?'1':'0.4'};${tt.breakEnabled?'':'pointer-events:none'}">
+    <div class="fg-row"><div class="fg"><label class="lbl">بداية الاستراحة</label><input class="inp" type="time" id="ett-brs" value="${tt.breakStart}"></div><div class="fg"><label class="lbl">نهاية الاستراحة</label><input class="inp" type="time" id="ett-bre" value="${tt.breakEnd}"></div></div>
+  </div>
+  <div class="form-actions">
+    <button class="btn" onclick="closeMod()">إلغاء</button>
+    <button class="btn primary" onclick="(async()=>{const tt=DB.timetables.find(x=>x.id===${id});const data={name:document.getElementById('ett-name').value,check_in:document.getElementById('ett-in').value,check_in_start:document.getElementById('ett-ins').value,check_in_end:document.getElementById('ett-ine').value,check_out:document.getElementById('ett-out').value,check_out_start:document.getElementById('ett-outs').value,check_out_end:document.getElementById('ett-oute').value,off_days:_getChips('ett-offdays'),break_enabled:document.getElementById('ett-bren').checked,break_start:document.getElementById('ett-brs').value,break_end:document.getElementById('ett-bre').value};if(API_READY){const res=await api('PUT','/api/timetables/${id}',data);if(!res.success){toast('❌ '+res.error,'err');return;}}tt.name=data.name;tt.checkIn=data.check_in;tt.checkInStart=data.check_in_start;tt.checkInEnd=data.check_in_end;tt.checkOut=data.check_out;tt.checkOutStart=data.check_out_start;tt.checkOutEnd=data.check_out_end;tt.offDays=data.off_days;tt.breakEnabled=data.break_enabled;tt.breakStart=data.break_start;tt.breakEnd=data.break_end;closeMod();renderTT();toast('✅ تم التحديث','ok');})()">💾 حفظ</button>
+  </div>`,'lg');
+}
+async function delTT(id){if(!confirm('حذف جدول الوقت؟'))return;if(DB.shifts.find(s=>s.timetableId===id)){toast('❌ هناك مناوبات مرتبطة','err');return;}if(API_READY){const res=await api('DELETE','/api/timetables/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}DB.timetables.splice(DB.timetables.findIndex(x=>x.id===id),1);renderTT();toast('🗑️ تم الحذف');}
+// ═══ SHIFTS (date-based) ═══
+function renderShifts(){
+  pg(`<div class="ph"><div><h2>🔄 المناوبات</h2><p>كل مناوبة مرتبطة بجدول وقت ولها تاريخ بداية ونهاية</p></div><button class="btn primary" onclick="showAddShift()">➕ إضافة مناوبة</button></div>
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>المناوبة</th><th>جدول الوقت</th><th class="tc">دخول رسمي</th><th class="tc">نافذة الدخول</th><th class="tc">خروج رسمي</th><th class="tc">نافذة الخروج</th><th>من تاريخ</th><th>إلى تاريخ</th><th class="tc">مرنة</th><th class="tc">موظفون</th><th class="tc">إجراءات</th></tr></thead><tbody>
+  ${DB.shifts.map(s=>{
+    const tt=DB.timetables.find(t=>t.id===s.timetableId);
+    const cnt=DB.employees.filter(e=>e.shiftId===s.id).length;
+    return`<tr><td style="font-weight:700">${s.name}</td><td style="font-size:11px;color:var(--blue)">${tt?tt.name:'—'}</td>
+    <td class="tc" style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700">${tt?tt.checkIn:'—'}</td>
+    <td class="tc" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2)">${tt?tt.checkInStart+'→'+tt.checkInEnd:'—'}</td>
+    <td class="tc" style="font-family:'JetBrains Mono',monospace;color:var(--red);font-weight:700">${tt?tt.checkOut:'—'}</td>
+    <td class="tc" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2)">${tt?tt.checkOutStart+'→'+tt.checkOutEnd:'—'}</td>
+    <td style="font-size:10.5px;color:var(--text2)">${s.startDate||'—'}</td>
+    <td style="font-size:10.5px;color:var(--text2)">${s.endDate||'—'}</td>
+    <td class="tc"><span class="badge ${s.flexible?'g':'x'}">${s.flexible?'نعم':'لا'}</span></td>
+    <td class="tc"><span class="badge b">${cnt}</span></td>
+    <td class="tc"><div style="display:flex;gap:4px;justify-content:center"><button class="btn" onclick="editShift(${s.id})" style="font-size:10px;padding:3px 8px">✏️</button><button class="btn danger" onclick="delShift(${s.id})" style="font-size:10px;padding:3px 8px">🗑️</button></div></td></tr>`;
+  }).join('')}</tbody></table></div></div>`);
+}
+
+function showAddShift(){
+  openMod('➕ إضافة مناوبة جديدة',`
+  <div class="fg"><label class="lbl">اسم المناوبة <span class="req">*</span></label><input class="inp" id="ns-name" placeholder="مناوبة الصباح"></div>
+  <div class="fg"><label class="lbl">جدول الوقت <span class="req">*</span></label>
+    <select class="sel" id="ns-tt" onchange="updateShiftPreview()">${DB.timetables.map(t=>`<option value="${t.id}">${t.name}</option>`).join('')}</select>
+  </div>
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:11px;margin-bottom:12px" id="ns-preview"></div>
+  <div class="fg-row">
+    <div class="fg"><label class="lbl">تاريخ بداية المناوبة <span class="req">*</span></label><input class="inp" type="date" id="ns-start" value="${new Date().toISOString().split('T')[0]}"></div>
+    <div class="fg"><label class="lbl">تاريخ نهاية المناوبة <span class="req">*</span></label><input class="inp" type="date" id="ns-end" value="2030-12-31"></div>
+  </div>
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:9px 12px;font-size:11px;color:var(--text2);margin-bottom:12px">💡 مثال: من <b>2026-01-01</b> إلى <b>2030-12-31</b> = المناوبة سارية 5 سنوات كاملة</div>
+  <div class="tgl-wrap"><label class="tgl"><input type="checkbox" id="ns-flex"><span class="tgl-sl"></span></label><span style="font-size:12px;color:var(--text2)">مناوبة تلقائية (مرنة)</span></div>
+  <div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="saveShift()">💾 حفظ المناوبة</button></div>`);
+  setTimeout(updateShiftPreview,50);
+}
+function updateShiftPreview(){
+  const ttId=parseInt(document.getElementById('ns-tt')?.value);
+  const tt=DB.timetables.find(t=>t.id===ttId);
+  const el=document.getElementById('ns-preview');
+  if(!el||!tt)return;
+  el.innerHTML=`<b style="color:var(--accent)">معاينة النوافذ:</b> دخول: <span style="font-family:'JetBrains Mono',monospace">${tt.checkInStart} → <b style="color:var(--accent)">${tt.checkIn}</b> → ${tt.checkInEnd}</span> &nbsp;|&nbsp; خروج: <span style="font-family:'JetBrains Mono',monospace">${tt.checkOutStart} → <b style="color:var(--red)">${tt.checkOut}</b> → ${tt.checkOutEnd}</span>`;
+}
+async function saveShift(){
+  const name=document.getElementById('ns-name')?.value.trim();
+  const sd=document.getElementById('ns-start')?.value;
+  const ed=document.getElementById('ns-end')?.value;
+  if(!name){toast('❌ أدخل الاسم','err');return;}
+  if(!sd||!ed){toast('❌ حدّد تاريخ البداية والنهاية','err');return;}
+  if(new Date(ed)<=new Date(sd)){toast('❌ تاريخ النهاية يجب أن يكون بعد البداية','err');return;}
+  const ttId=parseInt(document.getElementById('ns-tt').value);
+  const flex=document.getElementById('ns-flex').checked;
+  const shObj={id:DB.shifts.length+1,name,timetableId:ttId,startDate:sd,endDate:ed,flexible:flex};
+  if(API_READY){
+    const res=await api('POST','/api/shifts',{name,timetable_id:ttId,start_date:sd,end_date:ed,flexible:flex});
+    if(res.success&&res.data) shObj.id=res.data.id;
+  }
+  DB.shifts.push(shObj);
+  closeMod();renderShifts();toast('✅ تم حفظ المناوبة','ok');
+}
+function editShift(id){
+  const s=DB.shifts.find(x=>x.id===id);
+  openMod(`✏️ تعديل: ${s.name}`,`
+  <div class="fg"><label class="lbl">الاسم</label><input class="inp" id="es-name" value="${s.name}"></div>
+  <div class="fg"><label class="lbl">جدول الوقت</label><select class="sel" id="es-tt">${DB.timetables.map(t=>`<option value="${t.id}"${t.id===s.timetableId?' selected':''}>${t.name}</option>`).join('')}</select></div>
+  <div class="fg-row">
+    <div class="fg"><label class="lbl">تاريخ البداية</label><input class="inp" type="date" id="es-start" value="${s.startDate||''}"></div>
+    <div class="fg"><label class="lbl">تاريخ النهاية</label><input class="inp" type="date" id="es-end" value="${s.endDate||''}"></div>
+  </div>
+  <div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button>
+  <button class="btn primary" onclick="(async()=>{const s=DB.shifts.find(x=>x.id===${id});const data={name:document.getElementById('es-name').value,timetable_id:parseInt(document.getElementById('es-tt').value),start_date:document.getElementById('es-start').value,end_date:document.getElementById('es-end').value};if(API_READY){const res=await api('PUT','/api/shifts/${id}',data);if(!res.success){toast('❌ '+res.error,'err');return;}}s.name=data.name;s.timetableId=data.timetable_id;s.startDate=data.start_date;s.endDate=data.end_date;closeMod();renderShifts();toast('✅ تم التحديث','ok');})()">💾 حفظ</button></div>`);
+}
+async function delShift(id){if(!confirm('حذف هذه المناوبة؟'))return;if(DB.employees.find(e=>e.shiftId===id)){toast('❌ هناك موظفون في هذه المناوبة','err');return;}if(API_READY){const res=await api('DELETE','/api/shifts/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}DB.shifts.splice(DB.shifts.findIndex(x=>x.id===id),1);renderShifts();toast('🗑️ تم الحذف');}
+
+// ═══ SCHEDULES ═══
+function renderSchedules(){
+  pg(`<div class="ph"><div><h2>📅 تعيين الجداول</h2><p>تعيين مناوبة لكل موظف مع عرض نوافذ الوقت المعتمدة والفترة الزمنية</p></div></div>
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>القسم</th><th>المناوبة الحالية</th><th class="tc">نافذة دخول</th><th class="tc">نافذة خروج</th><th>صلاحية من</th><th>صلاحية إلى</th><th class="tc">تعديل</th></tr></thead><tbody>
+  ${DB.employees.filter(e=>e.status!=='inactive').map(e=>{
+    const sh=DB.shifts.find(s=>s.id===e.shiftId);
+    const tt=sh?DB.timetables.find(t=>t.id===sh.timetableId):null;
+    return`<tr><td><div style="display:flex;align-items:center;gap:7px">${ava(e.name)}<div><div style="font-weight:600;font-size:12px">${e.name}</div><div style="font-size:9.5px;color:var(--text3)">${e.empCode}</div></div></div></td>
+    <td style="font-size:11px">${deptN(e.dept)}</td>
+    <td><span class="badge b" style="font-size:9.5px">${sh?sh.name:'—'}</span></td>
+    <td class="tc" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent)">${tt?tt.checkInStart+'→'+tt.checkIn+'→'+tt.checkInEnd:'—'}</td>
+    <td class="tc" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red)">${tt?tt.checkOutStart+'→'+tt.checkOut+'→'+tt.checkOutEnd:'—'}</td>
+    <td style="font-size:10.5px;color:var(--text2)">${sh?sh.startDate:'—'}</td>
+    <td style="font-size:10.5px;color:var(--text2)">${sh?sh.endDate:'—'}</td>
+    <td class="tc"><button class="btn" onclick="changeSchedule(${e.id})" style="font-size:10px;padding:4px 8px">🔄</button></td></tr>`;
+  }).join('')}</tbody></table></div></div>`);
+}
+function changeSchedule(empId){
+  const e=DB.employees.find(x=>x.id===empId);
+  openMod(`🔄 تغيير مناوبة: ${e.name}`,`
+  <div style="background:var(--bg3);border-radius:8px;padding:10px 13px;margin-bottom:13px;font-size:12px"><span style="color:var(--text3)">الحالي:</span> <b style="color:var(--amber)">${shiftN(e.shiftId)}</b></div>
+  <div class="fg"><label class="lbl">المناوبة الجديدة</label>
+    <select class="sel" id="cs-sh">${DB.shifts.map(s=>{const tt=DB.timetables.find(t=>t.id===s.timetableId);return`<option value="${s.id}"${s.id===e.shiftId?' selected':''}>${s.name}${tt?' | دخول: '+tt.checkIn+' | خروج: '+tt.checkOut:''} (${s.startDate}→${s.endDate})</option>`;}).join('')}</select>
+  </div>
+  <div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button>
+  <button class="btn primary" onclick="(async()=>{const shiftId=parseInt(document.getElementById('cs-sh').value);if(API_READY){const res=await api('PUT','/api/employees/${empId}',{shift_id:shiftId});if(!res.success){toast('❌ '+res.error,'err');return;}}DB.employees.find(x=>x.id===${empId}).shiftId=shiftId;closeMod();renderSchedules();toast('✅ تم تغيير المناوبة','ok');})()">✅ تطبيق</button></div>`);
+}
+
+// ═══ RULES ═══
+function renderRules(){
+  const R=DB.rules;
+  pg(`<div class="ph"><div><h2>⚙️ قواعد الاحتساب</h2><p>تحكم في آلية احتساب الغياب والتأخر والعمل الإضافي</p></div></div>
+  <div class="g2">
+    <div class="stack">
+      <div class="card"><div class="card-head"><div class="card-title">📏 قواعد الغياب التلقائي</div></div><div class="card-body">
+        <div class="rule-blk"><div class="rule-head">عتبات الغياب</div>
+          <div class="rule-row"><span class="rule-lbl">تأخير يتجاوز</span><div style="display:flex;align-items:center;gap:5px"><input class="rule-inp" id="r-late" value="${R.lateAbsent}"><span class="rule-unit">دقيقة → اعتبره غياباً</span></div></div>
+          <div class="rule-row"><span class="rule-lbl">مغادرة مبكرة تتجاوز</span><div style="display:flex;align-items:center;gap:5px"><input class="rule-inp" id="r-early" value="${R.earlyAbsent}"><span class="rule-unit">دقيقة → اعتبره غياباً</span></div></div>
+        </div>
+        <div class="rule-blk"><div class="rule-head">عند غياب البصمة</div>
+          <div class="rule-row"><span class="rule-lbl">غياب بصمة الدخول</span><div style="display:flex;align-items:center;gap:5px"><select class="sel" id="r-noin" style="width:100px;padding:4px 7px;font-size:11px"><option ${R.noInAction==='تأخير'?'selected':''}>تأخير</option><option ${R.noInAction==='غياب'?'selected':''}>غياب</option></select><input class="rule-inp" id="r-noin-m" value="${R.noInMins}"><span class="rule-unit">د</span></div></div>
+          <div class="rule-row"><span class="rule-lbl">غياب بصمة الخروج</span><div style="display:flex;align-items:center;gap:5px"><select class="sel" id="r-noout" style="width:100px;padding:4px 7px;font-size:11px"><option ${R.noOutAction==='مغادرة مبكرة'?'selected':''}>مغادرة مبكرة</option><option>غياب</option></select><input class="rule-inp" id="r-noout-m" value="${R.noOutMins}"><span class="rule-unit">د</span></div></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="stack">
+      <div class="card"><div class="card-head"><div class="card-title">🕑 العمل الإضافي والإعدادات العامة</div></div><div class="card-body">
+        <div class="rule-blk"><div class="rule-head">أنواع العمل الإضافي المفعّلة</div>
+          ${[['r-ot-day','يومي',R.dailyOT],['r-ot-wkend','نهاية الأسبوع',R.weekendOT],['r-ot-hol','العطلات الرسمية',R.holidayOT],['r-ot-wk','أسبوعي',R.weeklyOT]].map(([id,lbl,chk])=>`<div class="rule-row"><span class="rule-lbl">${lbl}</span><label class="tgl"><input type="checkbox" id="${id}" ${chk?'checked':''}><span class="tgl-sl"></span></label></div>`).join('')}
+        </div>
+        <div class="rule-blk"><div class="rule-head">إعدادات عامة</div>
+          <div class="rule-row"><span class="rule-lbl">أقصى ساعات عمل يومياً</span><div style="display:flex;align-items:center;gap:5px"><input class="rule-inp" id="r-maxh" value="${R.maxHours}"><span class="rule-unit">ساعة</span></div></div>
+          <div class="rule-row"><span class="rule-lbl">قاعدة احتساب الوقت</span><select class="sel" id="r-calc" style="width:140px;padding:4px 7px;font-size:11px"><option>الأول والأخير</option><option>جميع السجلات</option></select></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <div style="text-align:left"><button class="btn primary" onclick="saveRules()">💾 حفظ القواعد</button></div>`);
+}
+async function saveRules(){
+  DB.rules.lateAbsent=parseInt(document.getElementById('r-late').value)||100;
+  DB.rules.earlyAbsent=parseInt(document.getElementById('r-early').value)||100;
+  DB.rules.noInAction=document.getElementById('r-noin').value;
+  DB.rules.noInMins=parseInt(document.getElementById('r-noin-m').value)||60;
+  DB.rules.noOutAction=document.getElementById('r-noout').value;
+  DB.rules.noOutMins=parseInt(document.getElementById('r-noout-m').value)||60;
+  DB.rules.maxHours=parseInt(document.getElementById('r-maxh').value)||12;
+  DB.rules.dailyOT=document.getElementById('r-ot-day').checked;
+  DB.rules.weekendOT=document.getElementById('r-ot-wkend').checked;
+  DB.rules.holidayOT=document.getElementById('r-ot-hol').checked;
+  DB.rules.weeklyOT=document.getElementById('r-ot-wk').checked;
+  if(API_READY){await api('PUT','/api/rules',{late_absent_min:DB.rules.lateAbsent,early_absent_min:DB.rules.earlyAbsent,no_checkin_action:DB.rules.noInAction,no_checkin_mins:DB.rules.noInMins,no_checkout_action:DB.rules.noOutAction,no_checkout_mins:DB.rules.noOutMins,max_work_hours:DB.rules.maxHours,daily_ot:DB.rules.dailyOT,weekend_ot:DB.rules.weekendOT,holiday_ot:DB.rules.holidayOT,weekly_ot:DB.rules.weeklyOT});}
+  toast('✅ تم حفظ القواعد','ok');
+}
+// ═══ WIZARD (5 steps, all fixes applied) ═══
+let WZ={step:0,tt:{name:'',type:'عادي',checkIn:'09:00',checkInStart:'07:00',checkInEnd:'11:00',checkOut:'17:00',checkOutStart:'15:00',checkOutEnd:'19:00',offDays:['الجمعة','السبت'],weekStart:'الأحد',breakEnabled:true,breakStart:'13:00',breakEnd:'14:00',breakMins:60,colorCode:'#3b8ef5'},sh:{name:'',startDate:new Date().toISOString().split('T')[0],endDate:'2030-12-31',flexible:false},assignType:'all',assignIds:[]};
+function renderWizard(){WZ.step=0;WZ.tt={name:'',type:'عادي',checkIn:'09:00',checkInStart:'07:00',checkInEnd:'11:00',checkOut:'17:00',checkOutStart:'15:00',checkOutEnd:'19:00',offDays:['الجمعة','السبت'],weekStart:'الأحد',breakEnabled:true,breakStart:'13:00',breakEnd:'14:00',breakMins:60,colorCode:'#3b8ef5'};WZ.sh={name:'',startDate:new Date().toISOString().split('T')[0],endDate:'2030-12-31',flexible:false};WZ.assignType='all';WZ.assignIds=[];_renderWZ();}
+function _renderWZ(){
+  const STEPS=[{l:'تعريف جدول الوقت',i:'🕐'},{l:'إنشاء المناوبة',i:'🔄'},{l:'وقت الاستراحة',i:'☕'},{l:'تعيين الجدول',i:'📅'},{l:'حساب الحضور',i:'📊'}];
+  const stHtml=STEPS.map((s,i)=>`<div class="wz-step"><div class="wz-circle ${i<WZ.step?'done':i===WZ.step?'active':''}">${i<WZ.step?'✓':s.i}</div><div class="wz-lbl ${i===WZ.step?'active':''}">${s.l}</div></div>`).join('');
+  pg(`<div class="wz-wrap">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><div><div style="font-size:16px;font-weight:800">🧙 معالج الإعداد السريع</div><div style="font-size:11px;color:var(--text3);margin-top:2px">الخطوة ${WZ.step+1} من 5</div></div><span class="badge b">الخطوة ${WZ.step+1} / 5</span></div>
+  <div class="wz-steps">${stHtml}</div>
+  <div class="wz-box">${_wzContent()}</div>
+  <div class="wz-nav">
+    <button class="btn" onclick="wzPrev()" ${WZ.step===0?'style="visibility:hidden"':''}>← السابق</button>
+    ${WZ.step<4?`<button class="btn primary" onclick="wzNext()">التالي ←</button>`:`<button class="btn primary" onclick="wzFinish()">🏁 إنهاء الإعداد</button>`}
+  </div></div>`);
+}
+function _wzContent(){
+  const s=WZ.step;
+  if(s===0)return`
+  <div style="text-align:center;margin-bottom:16px"><div style="font-size:20px;margin-bottom:5px">🕐</div><div style="font-size:14px;font-weight:700">تعريف جدول الوقت</div><div style="font-size:11px;color:var(--text3);margin-top:2px">حدّد وقت الدخول ونوافذه، ووقت الخروج ونوافذه</div></div>
+  <div class="fg-row"><div class="fg"><label class="lbl">اسم جدول الوقت <span class="req">*</span></label><input class="inp" id="wz-ttname" value="${WZ.tt.name||''}"></div><div class="fg"><label class="lbl">النوع</label><select class="sel" id="wz-tttype"><option>عادي</option><option>مرن</option></select></div></div>
+  <div class="tw in-tw">
+    <div class="tw-title"><span style="background:var(--accent-glow);color:var(--accent);padding:1px 8px;border-radius:12px;font-size:9.5px">⬇ دخول</span> نافذة تسجيل الدخول المقبولة</div>
+    <div class="tw-row"><div class="tw-cell"><label>بداية النافذة</label><input class="inp" type="time" id="wz-ins" value="${WZ.tt.checkInStart}"></div><div class="tw-sep">←</div><div class="tw-main in"><label>الدخول الرسمي *</label><input class="inp" type="time" id="wz-in" value="${WZ.tt.checkIn}"></div><div class="tw-sep">←</div><div class="tw-cell"><label>نهاية النافذة</label><input class="inp" type="time" id="wz-ine" value="${WZ.tt.checkInEnd}"></div></div>
+  </div>
+  <div class="tw out-tw">
+    <div class="tw-title"><span style="background:var(--red-glow);color:var(--red);padding:1px 8px;border-radius:12px;font-size:9.5px">⬆ خروج</span> نافذة تسجيل الخروج المقبولة</div>
+    <div class="tw-row"><div class="tw-cell"><label>بداية النافذة</label><input class="inp" type="time" id="wz-outs" value="${WZ.tt.checkOutStart}"></div><div class="tw-sep">←</div><div class="tw-main out"><label>الخروج الرسمي *</label><input class="inp" type="time" id="wz-out" value="${WZ.tt.checkOut}"></div><div class="tw-sep">←</div><div class="tw-cell"><label>نهاية النافذة</label><input class="inp" type="time" id="wz-oute" value="${WZ.tt.checkOutEnd}"></div></div>
+  </div>
+  <div class="fg"><label class="lbl">أيام الراحة — اختر يوماً أو أكثر <span class="req">*</span></label>${_dayChips('wz-offdays',WZ.tt.offDays)}</div>
+  <div class="fg"><label class="lbl">بداية الأسبوع</label><select class="sel" id="wz-wks">${ALL_DAYS.map(d=>`<option ${WZ.tt.weekStart===d?'selected':''}>${d}</option>`).join('')}</select></div>`;
+
+  if(s===1)return`
+  <div style="text-align:center;margin-bottom:16px"><div style="font-size:20px;margin-bottom:5px">🔄</div><div style="font-size:14px;font-weight:700">إنشاء المناوبة</div><div style="font-size:11px;color:var(--text3);margin-top:2px">حدّد مدة سريان المناوبة بالتاريخ</div></div>
+  <div class="fg"><label class="lbl">اسم المناوبة <span class="req">*</span></label><input class="inp" id="wz-shname" value="${WZ.sh.name||WZ.tt.name+' - مناوبة'}"></div>
+  <div style="background:var(--accent-glow);border:1px solid rgba(22,199,132,.25);border-radius:8px;padding:10px 13px;margin-bottom:12px;font-size:11.5px"><span style="color:var(--accent)">✓ مرتبط بجدول:</span> <b>${WZ.tt.name||'جدول الوقت الجديد'}</b><br><span style="color:var(--text3);font-size:10px">دخول: ${WZ.tt.checkIn} (${WZ.tt.checkInStart}→${WZ.tt.checkInEnd}) | خروج: ${WZ.tt.checkOut} (${WZ.tt.checkOutStart}→${WZ.tt.checkOutEnd})</span></div>
+  <div class="fg-row">
+    <div class="fg"><label class="lbl">تاريخ البداية <span class="req">*</span></label><input class="inp" type="date" id="wz-shstart" value="${WZ.sh.startDate}"></div>
+    <div class="fg"><label class="lbl">تاريخ النهاية <span class="req">*</span></label><input class="inp" type="date" id="wz-shend" value="${WZ.sh.endDate}"></div>
+  </div>
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:9px 12px;font-size:11px;color:var(--text2);margin-bottom:12px">💡 مثال: من <b>2026-01-01</b> إلى <b>2030-12-31</b> يعني المناوبة سارية 5 سنوات</div>
+  <div class="tgl-wrap"><label class="tgl"><input type="checkbox" id="wz-flex" ${WZ.sh.flexible?'checked':''}><span class="tgl-sl"></span></label><span style="font-size:12px;color:var(--text2)">مناوبة تلقائية (مرنة)</span></div>`;
+
+  if(s===2)return`
+  <div style="text-align:center;margin-bottom:16px"><div style="font-size:20px;margin-bottom:5px">☕</div><div style="font-size:14px;font-weight:700">وقت الاستراحة</div><div style="font-size:11px;color:var(--text3);margin-top:2px">الاستراحة اختيارية — يُطرح وقتها من ساعات العمل</div></div>
+  <div class="tgl-wrap" style="margin-bottom:14px"><label class="tgl"><input type="checkbox" id="wz-bren" ${WZ.tt.breakEnabled?'checked':''} onchange="_wzBrkToggle()"><span class="tgl-sl"></span></label><span style="font-size:13px;font-weight:600">تفعيل الاستراحة (اختياري)</span></div>
+  <div id="wz-brf" style="transition:opacity .2s;opacity:${WZ.tt.breakEnabled?'1':'0.4'};${WZ.tt.breakEnabled?'':'pointer-events:none'}">
+    <div class="fg-row"><div class="fg"><label class="lbl">بداية الاستراحة</label><input class="inp" type="time" id="wz-brs" value="${WZ.tt.breakStart}"></div><div class="fg"><label class="lbl">نهاية الاستراحة</label><input class="inp" type="time" id="wz-bre" value="${WZ.tt.breakEnd}"></div></div>
+    <div class="fg"><label class="lbl">مدة الاستراحة (دقائق)</label><input class="inp" id="wz-brd" type="number" value="${WZ.tt.breakMins}" min="0" max="240"></div>
+  </div>
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:11px;margin-top:4px">
+    <div style="font-size:10.5px;font-weight:700;color:var(--text2);margin-bottom:6px">📊 ملخص ساعات العمل:</div>
+    <div style="font-size:12px">دخول: <b style="color:var(--accent)">${WZ.tt.checkIn}</b> &nbsp;|&nbsp; خروج: <b style="color:var(--red)">${WZ.tt.checkOut}</b></div>
+    <div style="font-size:12px;margin-top:4px">الاستراحة: <b style="color:var(--amber)">${WZ.tt.breakEnabled?WZ.tt.breakMins+'دقيقة':'لا يوجد'}</b></div>
+  </div>`;
+
+  if(s===3)return`
+  <div style="text-align:center;margin-bottom:16px"><div style="font-size:20px;margin-bottom:5px">📅</div><div style="font-size:14px;font-weight:700">تعيين الجدول للموظفين</div><div style="font-size:11px;color:var(--text3);margin-top:2px">اختر من تريد تطبيق هذا الجدول عليه</div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+    ${[['all','👥','جميع الموظفين','تطبيق على كل الموظفين النشطين'],['dept','🏢','حسب القسم','اختر قسماً أو أكثر'],['emp','👤','موظف بعينه','اختر موظفاً واحداً أو أكثر'],['skip','⏭️','تخطي لاحقاً','سأعيّن الجدول يدوياً']].map(([v,ic,lbl,sub])=>`<div class="wz-assign-card ${WZ.assignType===v?'sel':''}" id="wzac-${v}" onclick="wzSetAssign('${v}')" ><div style="font-size:24px;margin-bottom:6px">${ic}</div><div style="font-size:12px;font-weight:700">${lbl}</div><div style="font-size:10px;color:var(--text3);margin-top:3px">${sub}</div></div>`).join('')}
+  </div>
+  <div id="wz-assign-detail">${_wzAssignDetail()}</div>`;
+
+  if(s===4)return`
+  <div style="text-align:center;padding:10px 0">
+    <div style="font-size:44px;margin-bottom:10px">🎉</div>
+    <div style="font-size:16px;font-weight:800;color:var(--accent);margin-bottom:6px">اكتمل الإعداد بنجاح!</div>
+    <div style="font-size:12px;color:var(--text2);line-height:1.8">تم إنشاء جدول الوقت <b>${WZ.tt.name}</b><br>والمناوبة <b>${WZ.sh.name}</b></div>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn primary" onclick="go('reports')">📋 التقارير</button><button class="btn" onclick="go('timetables')">🕐 جداول الوقت</button></div>
+  </div>`;
+}
+function _wzBrkToggle(){const en=document.getElementById('wz-bren').checked;const f=document.getElementById('wz-brf');if(f){f.style.opacity=en?'1':'0.4';f.style.pointerEvents=en?'':'none';}}
+function _wzAssignDetail(){
+  if(WZ.assignType==='dept')return`<div><label class="lbl" style="margin-bottom:8px">اختر الأقسام:</label><div class="chk-list">${DB.departments.map(d=>{const sel=WZ.assignIds.includes(d.id);return`<div class="chk-item ${sel?'sel':''}" onclick="wzToggle(${d.id})"><div class="chk-box">${sel?'✓':''}</div><span>${d.name}</span><span style="font-size:10px;color:var(--text3);margin-right:auto">${DB.employees.filter(e=>e.dept===d.id&&e.status==='active').length} موظف</span></div>`;}).join('')}</div></div>`;
+  if(WZ.assignType==='emp')return`<div><label class="lbl" style="margin-bottom:8px">اختر الموظفين:</label><div class="chk-list">${DB.employees.filter(e=>e.status==='active').map(e=>{const sel=WZ.assignIds.includes(e.id);return`<div class="chk-item ${sel?'sel':''}" onclick="wzToggle(${e.id})"><div class="chk-box">${sel?'✓':''}</div>${ava(e.name,22)}<span>${e.name}</span><span style="font-size:10px;color:var(--text3);margin-right:auto">${deptN(e.dept)}</span></div>`;}).join('')}</div></div>`;
+  if(WZ.assignType==='all')return`<div style="background:var(--accent-glow);border:1px solid rgba(22,199,132,.2);border-radius:8px;padding:10px 13px;font-size:11.5px;color:var(--accent)">✓ سيُطبق على جميع الموظفين النشطين (${DB.employees.filter(e=>e.status==='active').length} موظف)</div>`;
+  return`<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 13px;font-size:11.5px;color:var(--text2)">⏭️ يمكنك تعيين الجدول لاحقاً من صفحة "تعيين الجداول"</div>`;
+}
+function wzSetAssign(v){WZ.assignType=v;WZ.assignIds=[];const d=document.getElementById('wz-assign-detail');if(d)d.innerHTML=_wzAssignDetail();['all','dept','emp','skip'].forEach(k=>{const el=document.getElementById('wzac-'+k);if(el)el.classList.toggle('sel',k===v);});}
+function wzToggle(id){WZ.assignIds.includes(id)?WZ.assignIds=WZ.assignIds.filter(x=>x!==id):WZ.assignIds.push(id);const d=document.getElementById('wz-assign-detail');if(d)d.innerHTML=_wzAssignDetail();}
+function wzPrev(){if(WZ.step>0){WZ.step--;_renderWZ();}}
+function wzNext(){
+  if(WZ.step===0){
+    WZ.tt.name=document.getElementById('wz-ttname')?.value.trim()||'';
+    if(!WZ.tt.name){toast('❌ أدخل اسم جدول الوقت','err');return;}
+    WZ.tt.checkIn=document.getElementById('wz-in')?.value||'09:00';WZ.tt.checkInStart=document.getElementById('wz-ins')?.value||'07:00';WZ.tt.checkInEnd=document.getElementById('wz-ine')?.value||'11:00';
+    WZ.tt.checkOut=document.getElementById('wz-out')?.value||'17:00';WZ.tt.checkOutStart=document.getElementById('wz-outs')?.value||'15:00';WZ.tt.checkOutEnd=document.getElementById('wz-oute')?.value||'19:00';
+    WZ.tt.offDays=_getChips('wz-offdays');WZ.tt.weekStart=document.getElementById('wz-wks')?.value||'الأحد';
+    if(!WZ.tt.offDays.length){toast('❌ اختر يوم راحة واحد على الأقل','err');return;}
+  }
+  if(WZ.step===1){
+    WZ.sh.name=document.getElementById('wz-shname')?.value.trim()||'';
+    WZ.sh.startDate=document.getElementById('wz-shstart')?.value||'';WZ.sh.endDate=document.getElementById('wz-shend')?.value||'';WZ.sh.flexible=document.getElementById('wz-flex')?.checked||false;
+    if(!WZ.sh.name||!WZ.sh.startDate||!WZ.sh.endDate){toast('❌ أدخل الاسم وتاريخَي البداية والنهاية','err');return;}
+  }
+  if(WZ.step===2){
+    WZ.tt.breakEnabled=document.getElementById('wz-bren')?.checked||false;
+    WZ.tt.breakStart=document.getElementById('wz-brs')?.value||'13:00';WZ.tt.breakEnd=document.getElementById('wz-bre')?.value||'14:00';WZ.tt.breakMins=parseInt(document.getElementById('wz-brd')?.value)||60;
+  }
+  WZ.step++;_renderWZ();
+}
+function wzFinish(){
+  const colors=['#3b8ef5','#16c784','#f5a623','#a78bfa','#f04a5a'];
+  const ttId=DB.timetables.length+1;
+  DB.timetables.push({id:ttId,...WZ.tt,colorCode:colors[ttId%5]});
+  const shId=DB.shifts.length+1;
+  DB.shifts.push({id:shId,name:WZ.sh.name,timetableId:ttId,startDate:WZ.sh.startDate,endDate:WZ.sh.endDate,flexible:WZ.sh.flexible});
+  if(WZ.assignType==='all')DB.employees.filter(e=>e.status==='active').forEach(e=>e.shiftId=shId);
+  else if(WZ.assignType==='dept'&&WZ.assignIds.length)DB.employees.filter(e=>WZ.assignIds.includes(e.dept)).forEach(e=>e.shiftId=shId);
+  else if(WZ.assignType==='emp'&&WZ.assignIds.length)DB.employees.filter(e=>WZ.assignIds.includes(e.id)).forEach(e=>e.shiftId=shId);
+  toast('✅ تم إنشاء جدول الوقت والمناوبة بنجاح','ok');
+  WZ.step=4;_renderWZ();
+}
+// ═══ EMPLOYEES ═══
+function renderEmps(filter=''){
+  const list=filter?DB.employees.filter(e=>e.name.includes(filter)||e.pin.includes(filter)):DB.employees;
+  pg(`<div class="ph"><div><h2>👥 الموظفون (${list.length})</h2></div><div style="display:flex;gap:8px"><input class="inp" placeholder="🔍 بحث..." oninput="renderEmps(this.value)" value="${filter}" style="width:220px"><button class="btn primary" onclick="showAddEmp()">➕ إضافة</button></div></div>
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>PIN</th><th>القسم</th><th>المنصب</th><th>المنطقة</th><th class="tc">المناوبة</th><th>التعيين</th><th class="tc">الحالة</th><th class="tc">إجراءات</th></tr></thead><tbody>
+  ${list.map(e=>`<tr><td><div style="display:flex;align-items:center;gap:8px">${ava(e.name,32)}<div><div style="font-weight:700;font-size:12px">${e.name}</div><div style="font-size:9.5px;color:var(--text3)">${e.empCode}</div></div></div></td>
+  <td style="color:var(--blue);font-weight:800;font-family:'JetBrains Mono',monospace">${e.pin}</td>
+  <td style="font-size:11.5px">${deptN(e.dept)}</td>
+  <td style="font-size:11px;color:var(--text2)">${posN(e.pos)}</td>
+  <td style="font-size:11px">${areaN(e.areaId)}</td>
+  <td class="tc"><span class="badge b" style="font-size:9px">${shiftN(e.shiftId)}</span></td>
+  <td style="font-size:10.5px;color:var(--text3)">${e.hire}</td>
+  <td class="tc"><span class="badge ${e.status==='active'?'g':'a'}">${e.status==='active'?'نشط':'إجازة'}</span></td>
+  <td class="tc"><div style="display:flex;gap:3px;justify-content:center"><button class="btn" onclick="editEmp(${e.id})" style="font-size:10px;padding:3px 7px">✏️</button><button class="btn" onclick="empReport(${e.id})" style="font-size:10px;padding:3px 7px">📋</button></div></td></tr>`).join('')}
+  </tbody></table></div></div>`);
+}
+function showAddEmp(){openMod('➕ إضافة موظف',`
+<div class="fg-row"><div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="ne-name"></div><div class="fg"><label class="lbl">PIN <span class="req">*</span></label><input class="inp" id="ne-pin" type="number"></div></div>
+<div class="fg-row"><div class="fg"><label class="lbl">القسم</label><select class="sel" id="ne-dept">${DB.departments.map(d=>`<option value="${d.id}">${d.name}</option>`).join('')}</select></div><div class="fg"><label class="lbl">المنصب</label><select class="sel" id="ne-pos">${DB.positions.map(p=>`<option value="${p.id}">${p.title}</option>`).join('')}</select></div></div>
+<div class="fg-row"><div class="fg"><label class="lbl">المناوبة</label><select class="sel" id="ne-sh">${DB.shifts.map(s=>{const tt=DB.timetables.find(t=>t.id===s.timetableId);return`<option value="${s.id}">${s.name}${tt?' ('+tt.checkIn+'→'+tt.checkOut+')':''}</option>`;}).join('')}</select></div><div class="fg"><label class="lbl">المنطقة</label><select class="sel" id="ne-area">${DB.areas.map(a=>`<option value="${a.id}">${a.name}</option>`).join('')}</select></div></div>
+<div class="fg-row"><div class="fg"><label class="lbl">رقم البطاقة</label><input class="inp" id="ne-card"></div><div class="fg"><label class="lbl">تاريخ التعيين</label><input class="inp" id="ne-hire" type="date" value="${new Date().toISOString().split('T')[0]}"></div></div>
+<div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="saveEmp()">💾 حفظ</button></div>`);}
+async function saveEmp(){
+  const name=document.getElementById('ne-name')?.value.trim();const pin=document.getElementById('ne-pin')?.value.trim();
+  if(!name||!pin){toast('❌ الاسم والـ PIN مطلوبان','err');return;}
+  if(DB.employees.find(e=>e.pin===pin)){toast('❌ PIN مستخدم','err');return;}
+  const body={pin,name,dept_id:+document.getElementById('ne-dept').value,pos_id:+document.getElementById('ne-pos').value,shift_id:+document.getElementById('ne-sh').value,area_id:+document.getElementById('ne-area').value,card:document.getElementById('ne-card').value||'',status:'active',hire_date:document.getElementById('ne-hire').value};
+  if(API_READY){
+    const res=await api('POST','/api/employees',body);
+    if(!res.success){toast('❌ '+res.error,'err');return;}
+    DB.employees.push(normalizeEmp(res.data));
+  } else {
+    const id=DB.employees.length+1;
+    DB.employees.push({id,pin,name,dept:body.dept_id,pos:body.pos_id,shiftId:body.shift_id,areaId:body.area_id,card:body.card,status:'active',hire:body.hire_date,empCode:`EMP-${String(id).padStart(3,'0')}`});
+  }
+  closeMod();renderEmps();toast('✅ تم الإضافة','ok');
+}
+function editEmp(id){
+  const e=DB.employees.find(x=>x.id===id);
+  openMod(`✏️ ${e.name}`,`
+  <div class="fg-row"><div class="fg"><label class="lbl">الاسم</label><input class="inp" id="ee-name" value="${e.name}"></div><div class="fg"><label class="lbl">البطاقة</label><input class="inp" id="ee-card" value="${e.card}"></div></div>
+  <div class="fg-row"><div class="fg"><label class="lbl">القسم</label><select class="sel" id="ee-dept">${DB.departments.map(d=>`<option value="${d.id}"${d.id===e.dept?' selected':''}>${d.name}</option>`).join('')}</select></div><div class="fg"><label class="lbl">المناوبة</label><select class="sel" id="ee-sh">${DB.shifts.map(s=>`<option value="${s.id}"${s.id===e.shiftId?' selected':''}>${s.name}</option>`).join('')}</select></div></div>
+  <div class="fg-row"><div class="fg"><label class="lbl">المنطقة</label><select class="sel" id="ee-area">${DB.areas.map(a=>`<option value="${a.id}"${a.id===e.areaId?' selected':''}>${a.name}</option>`).join('')}</select></div><div class="fg"><label class="lbl">الحالة</label><select class="sel" id="ee-status"><option value="active"${e.status==='active'?' selected':''}>نشط</option><option value="leave"${e.status==='leave'?' selected':''}>إجازة</option><option value="inactive">غير نشط</option></select></div></div>
+  <div class="form-actions"><button class="btn danger" onclick="delEmp(${id})">🗑️</button><button class="btn" onclick="closeMod()">إلغاء</button>
+  <button class="btn primary" onclick="(async()=>{const e=DB.employees.find(x=>x.id===${id});const data={name:document.getElementById('ee-name').value,card:document.getElementById('ee-card').value,dept_id:+document.getElementById('ee-dept').value,shift_id:+document.getElementById('ee-sh').value,area_id:+document.getElementById('ee-area').value,status:document.getElementById('ee-status').value};if(API_READY){const res=await api('PUT','/api/employees/${id}',data);if(!res.success){toast('❌ '+res.error,'err');return;}}e.name=data.name;e.card=data.card;e.dept=data.dept_id;e.shiftId=data.shift_id;e.areaId=data.area_id;e.status=data.status;closeMod();renderEmps();toast('✅ تم التحديث','ok');})()">💾 حفظ</button></div>`);}
+async function delEmp(id){if(!confirm('حذف هذا الموظف نهائياً؟'))return;if(API_READY){const res=await api('DELETE','/api/employees/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}DB.employees.splice(DB.employees.findIndex(e=>e.id===id),1);closeMod();renderEmps();toast('🗑️ تم الحذف');}
+function empReport(id){
+  const e=DB.employees.find(x=>x.id===id);const logs=DB.logs.filter(l=>l.empId===id);const ins=logs.filter(l=>l.type==='دخول');
+  const lateC=ins.filter(l=>l.lateMin>0).length;const totalLate=ins.reduce((s,l)=>s+l.lateMin,0);const tt=ttByShift(e.shiftId);
+  openMod(`📋 تقرير: ${e.name}`,`
+  <div style="display:flex;gap:12px;align-items:center;padding:13px;background:var(--bg3);border-radius:9px;margin-bottom:16px;border:1px solid var(--border)">${ava(e.name,44)}<div><div style="font-size:15px;font-weight:700">${e.name}</div><div style="font-size:10.5px;color:var(--text3);margin-top:2px">${posN(e.pos)} · ${deptN(e.dept)}</div>${tt?`<div style="font-size:10px;color:var(--blue);margin-top:3px">دخول: ${tt.checkIn} (${tt.checkInStart}→${tt.checkInEnd}) | خروج: ${tt.checkOut} (${tt.checkOutStart}→${tt.checkOutEnd})</div>`:''}</div></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px">
+    ${[[logs.length,'السجلات','var(--blue)'],[ins.length,'الحضور','var(--accent)'],[lateC,'التأخر','var(--amber)'],[totalLate+'د','دقائق تأخر','var(--red)']].map(([v,l,c])=>`<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:${c}">${v}</div><div style="font-size:9.5px;color:var(--text3);margin-top:2px">${l}</div></div>`).join('')}
+  </div>
+  <div style="max-height:230px;overflow-y:auto;border:1px solid var(--border);border-radius:8px"><table><thead><tr><th>التاريخ</th><th class="tc">النوع</th><th class="tc">في النافذة</th><th class="tc">التأخر</th></tr></thead><tbody>
+  ${logs.slice(0,25).map(l=>`<tr><td style="font-size:10.5px;font-family:'JetBrains Mono',monospace">${fDT(l.ts)}</td><td class="tc"><span class="badge ${l.type==='دخول'?'g':'r'}" style="font-size:9.5px">${l.type}</span></td><td class="tc"><span class="badge ${l.inWindow?'g':'r'}" style="font-size:9px">${l.inWindow?'✓':'✗'}</span></td><td class="tc">${l.lateMin>0?`<span class="badge a" style="font-size:9px">${l.lateMin}د</span>`:'—'}</td></tr>`).join('')}
+  </tbody></table></div>
+  <div class="form-actions"><button class="btn" onclick="closeMod()">إغلاق</button></div>`,'lg');}
+
+// ═══ DEPARTMENTS ═══
+function renderDepts(){
+  pg(`<div class="g2">
+  <div class="card"><div class="card-head"><div class="card-title">🏢 الأقسام</div><button class="btn primary" onclick="addDept()" style="font-size:10px">➕</button></div>
+    <div class="tbl-wrap"><table><thead><tr><th>القسم</th><th>الأم</th><th class="tc">موظفون</th><th class="tc">إجراء</th></tr></thead><tbody>
+    ${DB.departments.map(d=>{const p=d.parentId?DB.departments.find(x=>x.id===d.parentId):null;return`<tr><td><div style="display:flex;gap:6px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:${d.color}"></div><b>${d.name}</b></div></td><td style="font-size:11px;color:var(--text3)">${p?p.name:'—'}</td><td class="tc"><span class="badge b">${DB.employees.filter(e=>e.dept===d.id).length}</span></td><td class="tc"><button class="btn" onclick="editDept(${d.id})" style="font-size:10px;padding:3px 7px">✏️</button></td></tr>`;}).join('')}
+    </tbody></table></div></div>
+  <div class="stack">
+    <div class="card"><div class="card-head"><div class="card-title">💼 المناصب</div><button class="btn primary" onclick="addPos()" style="font-size:10px">➕</button></div>
+      <div class="tbl-wrap"><table><thead><tr><th>المنصب</th><th class="tc">موظفون</th></tr></thead><tbody>
+      ${DB.positions.map(p=>`<tr><td style="font-weight:600">${p.title}</td><td class="tc"><span class="badge g">${DB.employees.filter(e=>e.pos===p.id).length}</span></td></tr>`).join('')}
+      </tbody></table></div></div>
+  </div></div>`);
+}
+function addDept(){openMod('➕ قسم',`<div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="nd-n"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const n=document.getElementById('nd-n').value.trim();if(!n)return;const color=AVA_C[DB.departments.length%AVA_C.length];if(API_READY){const res=await api('POST','/api/departments',{name:n,color});if(!res.success){toast('❌ '+res.error,'err');return;}DB.departments.push({id:res.data.id,name:n,parentId:null,managerId:null,color});}else{DB.departments.push({id:DB.departments.length+1,name:n,parentId:null,managerId:null,color});}closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+function editDept(id){const d=DB.departments.find(x=>x.id===id);openMod(`✏️ ${d.name}`,`<div class="fg"><label class="lbl">الاسم</label><input class="inp" id="ed-n" value="${d.name}"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const name=document.getElementById('ed-n').value.trim();if(!name)return;if(API_READY){const res=await api('PUT','/api/departments/${id}',{name});if(!res.success){toast('❌ '+res.error,'err');return;}}DB.departments.find(x=>x.id===${id}).name=name;closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+function addPos(){openMod('➕ منصب',`<div class="fg"><label class="lbl">المسمى <span class="req">*</span></label><input class="inp" id="np-t"></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const t=document.getElementById('np-t').value.trim();if(!t)return;if(API_READY){const res=await api('POST','/api/positions',{title:t});if(!res.success){toast('❌ '+res.error,'err');return;}DB.positions.push({id:res.data.id,title:t});}else{DB.positions.push({id:DB.positions.length+1,title:t});}closeMod();renderDepts();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+
+// ═══ APPROVALS ═══
+// ═══ APPROVALS — ADMIN-ONLY (no employee portal) ═══
+// Types config: label, badge color, detail builder
+const APPR_TYPES=[
+  {key:'annual_leave',     label:'إجازة سنوية',      color:'b',  icon:'🏖️',  needsDate:true,  needsTime:false},
+  {key:'sick_leave',       label:'إجازة مرضية',      color:'p',  icon:'🤒',  needsDate:true,  needsTime:false},
+  {key:'emergency_leave',  label:'إجازة طارئة',      color:'a',  icon:'🚨',  needsDate:true,  needsTime:false},
+  {key:'missed_checkin',   label:'نسيت بصمة الدخول', color:'a',  icon:'⬇️',  needsDate:false, needsTime:true},
+  {key:'missed_checkout',  label:'نسيت بصمة الخروج', color:'a',  icon:'⬆️',  needsDate:false, needsTime:true},
+  {key:'early_exit',       label:'خروج مبكر بعذر',   color:'r',  icon:'🚪',  needsDate:false, needsTime:true},
+  {key:'late_entry',       label:'دخول متأخر بعذر',  color:'r',  icon:'⏰',  needsDate:false, needsTime:true},
+  {key:'absence_excuse',   label:'غياب بعذر',         color:'r',  icon:'📋',  needsDate:true,  needsTime:false},
+  {key:'overtime_request', label:'طلب عمل إضافي',    color:'gn', icon:'🕑',  needsDate:false, needsTime:true},
+  {key:'other',            label:'أخرى',              color:'x',  icon:'📝',  needsDate:false, needsTime:false},
+];
+
+function _apprTypeCfg(key){return APPR_TYPES.find(t=>t.key===key)||APPR_TYPES[APPR_TYPES.length-1];}
+
+async function approve(id){
+  const a=DB.approvals.find(x=>x.id===id);
+  if(API_READY){await api('PUT','/api/approvals/'+id,{status:'approved'});}
+  a.status='approved';a.resolvedAt=fD(new Date());
+  if(curPage==='approvals')renderApprovals();else renderDash();
+  toast('✅ تمت الموافقة على الطلب','ok');
+}
+async function reject(id){
+  const a=DB.approvals.find(x=>x.id===id);
+  if(API_READY){await api('PUT','/api/approvals/'+id,{status:'rejected'});}
+  a.status='rejected';a.resolvedAt=fD(new Date());
+  if(curPage==='approvals')renderApprovals();else renderDash();
+  toast('🚫 تم رفض الطلب');
+}
+async function deleteAppr(id){
+  if(!confirm('حذف هذا الطلب نهائياً؟'))return;
+  if(API_READY){const res=await api('DELETE','/api/approvals/'+id);if(!res.success){toast('❌ '+res.error,'err');return;}}
+  DB.approvals.splice(DB.approvals.findIndex(a=>a.id===id),1);
+  renderApprovals();toast('🗑️ تم الحذف');
+}
+
+function showAddAppr(){
+  const today=new Date().toISOString().split('T')[0];
+  openMod('➕ إضافة طلب جديد',`
+<div style="background:var(--blue-glow);border:1px solid rgba(59,142,245,.25);border-radius:8px;padding:10px 13px;margin-bottom:14px;font-size:11.5px;color:var(--blue)">
+  📞 الموظف أبلغك هاتفياً — أدخل تفاصيل الطلب نيابةً عنه
+</div>
+
+<div class="fg"><label class="lbl">الموظف <span class="req">*</span></label>
+  <select class="sel" id="na-emp">
+    <option value="">— اختر الموظف —</option>
+    ${DB.employees.filter(e=>e.status!=='inactive').map(e=>`<option value="${e.id}">${e.name} (${e.empCode})</option>`).join('')}
+  </select>
+</div>
+
+<div class="fg"><label class="lbl">نوع الطلب <span class="req">*</span></label>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:5px" id="na-type-grid">
+    ${APPR_TYPES.map(t=>`
+      <div class="appr-type-card" id="natc-${t.key}" onclick="selectApprType('${t.key}')" style="background:var(--bg3);border:2px solid var(--border);border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .15s;">
+        <span style="font-size:16px">${t.icon}</span>
+        <span style="font-size:11.5px;font-weight:600">${t.label}</span>
+      </div>`).join('')}
+  </div>
+</div>
+
+<div id="na-date-block" style="display:none">
+  <div class="fg-row">
+    <div class="fg"><label class="lbl">من تاريخ <span class="req">*</span></label><input class="inp" type="date" id="na-from" value="${today}"></div>
+    <div class="fg"><label class="lbl">إلى تاريخ <span class="req">*</span></label><input class="inp" type="date" id="na-to" value="${today}"></div>
+  </div>
+</div>
+
+<div id="na-time-block" style="display:none">
+  <div class="fg-row">
+    <div class="fg"><label class="lbl">التاريخ <span class="req">*</span></label><input class="inp" type="date" id="na-date" value="${today}"></div>
+    <div class="fg"><label class="lbl">الوقت <span class="req">*</span></label><input class="inp" type="time" id="na-time" value="09:00"></div>
+  </div>
+</div>
+
+<div class="fg"><label class="lbl">سبب الطلب / الملاحظات <span class="req">*</span></label>
+  <input class="inp" id="na-reason" placeholder="مثال: ظروف عائلية طارئة / اجتماع خارجي...">
+</div>
+
+<div class="fg">
+  <label class="lbl">الحالة الأولية</label>
+  <div style="display:flex;gap:8px;margin-top:5px">
+    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input type="radio" name="na-status" value="pending" checked> <span style="color:var(--amber)">⏳ معلقة (تحتاج مراجعة)</span></label>
+    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input type="radio" name="na-status" value="approved"> <span style="color:var(--accent)">✅ موافقة مباشرة</span></label>
+    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input type="radio" name="na-status" value="rejected"> <span style="color:var(--red)">❌ مرفوضة</span></label>
+  </div>
+</div>
+
+<div class="form-actions">
+  <button class="btn" onclick="closeMod()">إلغاء</button>
+  <button class="btn primary" onclick="saveAppr()">💾 حفظ الطلب</button>
+</div>`,`lg`);
+}
+
+let _selectedApprType='';
+function selectApprType(key){
+  _selectedApprType=key;
+  document.querySelectorAll('.appr-type-card').forEach(el=>{
+    el.style.background='var(--bg3)';el.style.borderColor='var(--border)';
+  });
+  const el=document.getElementById('natc-'+key);
+  if(el){el.style.background='var(--accent-glow)';el.style.borderColor='var(--accent)';}
+  const cfg=_apprTypeCfg(key);
+  const db=document.getElementById('na-date-block');const tb=document.getElementById('na-time-block');
+  if(db)db.style.display=cfg.needsDate?'block':'none';
+  if(tb)tb.style.display=cfg.needsTime?'block':'none';
+}
+
+async function saveAppr(){
+  const empId=parseInt(document.getElementById('na-emp')?.value);
+  const emp=DB.employees.find(e=>e.id===empId);
+  const reason=document.getElementById('na-reason')?.value.trim();
+  const status=[...document.querySelectorAll('input[name="na-status"]')].find(r=>r.checked)?.value||'pending';
+
+  if(!emp){toast('❌ اختر الموظف','err');return;}
+  if(!_selectedApprType){toast('❌ اختر نوع الطلب','err');return;}
+  if(!reason){toast('❌ أدخل سبب الطلب','err');return;}
+
+  const cfg=_apprTypeCfg(_selectedApprType);
+  let detail='';
+  if(cfg.needsDate){
+    const f=document.getElementById('na-from')?.value;const t=document.getElementById('na-to')?.value;
+    if(!f||!t){toast('❌ حدّد التاريخ','err');return;}
+    const days=Math.max(1,Math.round((new Date(t)-new Date(f))/864e5)+1);
+    detail=`${f} → ${t} (${days} ${days===1?'يوم':'أيام'})`;
+  } else if(cfg.needsTime){
+    const d=document.getElementById('na-date')?.value;const ti=document.getElementById('na-time')?.value;
+    if(!d||!ti){toast('❌ حدّد التاريخ والوقت','err');return;}
+    detail=`${d} | ${ti}`;
+  }
+
+  const apprRecord = {
+    id:DB.approvals.length?Math.max(...DB.approvals.map(a=>a.id))+1:1,
+    empId:emp.id,empName:emp.name,
+    typeKey:_selectedApprType,type:cfg.label,typeIcon:cfg.icon,typeColor:cfg.color,
+    detail,reason,status,
+    submitted:fD(new Date()),resolvedAt:status!=='pending'?fD(new Date()):'',
+    addedBy:'المدير'
+  };
+  if(API_READY){
+    const res=await api('POST','/api/approvals',{employee_id:emp.id,type_key:_selectedApprType,type_label:cfg.label,type_icon:cfg.icon,detail,reason,status,added_by:'المدير'});
+    if(res.success&&res.data) apprRecord.id=res.data.id;
+  }
+  DB.approvals.unshift(apprRecord);
+  _selectedApprType='';
+  closeMod();renderApprovals();
+  const pc=DB.approvals.filter(a=>a.status==='pending').length;
+  document.getElementById('apnb').textContent=pc||'';
+  document.getElementById('apnb').style.display=pc?'inline':'none';
+  toast(`✅ تم حفظ الطلب بحالة: ${status==='pending'?'معلقة':status==='approved'?'موافق عليها':'مرفوضة'}`,'ok');
+}
+
+function renderApprovals(){
+  const pending=DB.approvals.filter(a=>a.status==='pending');
+  const approved=DB.approvals.filter(a=>a.status==='approved');
+  const rejected=DB.approvals.filter(a=>a.status==='rejected');
+  const all=DB.approvals;
+
+  // Update nav badge
+  const pc=pending.length;
+  document.getElementById('apnb').textContent=pc||'';
+  document.getElementById('apnb').style.display=pc?'inline':'none';
+  if(pc>0)document.getElementById('ndot').style.display='block';else document.getElementById('ndot').style.display='none';
+
+  pg(`
+<div class="ph"><div><h2>✅ إدارة الطلبات والموافقات</h2><p>أنت من يُضيف الطلبات بعد تواصل الموظف هاتفياً — لا توجد واجهة للموظفين</p></div>
+<button class="btn primary" onclick="showAddAppr()">➕ إضافة طلب جديد</button></div>
+
+<div class="kpi-row c4">
+  <div class="kpi am"><div class="kpi-icon">⏳</div><div class="kpi-val">${pending.length}</div><div class="kpi-lbl">معلقة</div><div class="kpi-sub">${pending.length>0?'● تحتاج قراراً':'✓ لا يوجد'}</div></div>
+  <div class="kpi gn"><div class="kpi-icon">✅</div><div class="kpi-val">${approved.length}</div><div class="kpi-lbl">موافق عليها</div></div>
+  <div class="kpi rd"><div class="kpi-icon">❌</div><div class="kpi-val">${rejected.length}</div><div class="kpi-lbl">مرفوضة</div></div>
+  <div class="kpi bl"><div class="kpi-icon">📋</div><div class="kpi-val">${all.length}</div><div class="kpi-lbl">إجمالي الطلبات</div></div>
+</div>
+
+${pending.length?`
+<div class="card" style="margin-bottom:14px">
+  <div class="card-head">
+    <div class="card-title">⏳ طلبات تنتظر قراراً</div>
+    <span class="badge a">${pending.length} طلب</span>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>الموظف</th><th>القسم</th><th class="tc">نوع الطلب</th><th>التفاصيل</th><th>السبب</th><th>أُضيف</th><th class="tc">إجراء</th></tr></thead>
+    <tbody>${pending.map(a=>`<tr>
+      <td><div style="display:flex;align-items:center;gap:8px">${ava(a.empName,30)}<div><div style="font-weight:700;font-size:12px">${a.empName}</div><div style="font-size:9.5px;color:var(--text3)">${DB.employees.find(e=>e.id===a.empId)?deptN(DB.employees.find(e=>e.id===a.empId).dept):''}</div></div></div></td>
+      <td style="font-size:11px;color:var(--text2)">${DB.employees.find(e=>e.id===a.empId)?deptN(DB.employees.find(e=>e.id===a.empId).dept):'—'}</td>
+      <td class="tc"><span class="badge ${a.typeColor||'a'}" style="white-space:nowrap">${a.typeIcon||'📋'} ${a.type}</span></td>
+      <td style="font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace">${a.detail||'—'}</td>
+      <td style="font-size:11px;color:var(--text3);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.reason}</td>
+      <td style="font-size:10.5px;color:var(--text3)">${a.submitted}</td>
+      <td class="tc">
+        <div style="display:flex;gap:4px;justify-content:center">
+          <button class="btn primary" style="font-size:10px;padding:4px 10px" onclick="approve(${a.id})">✓ موافقة</button>
+          <button class="btn danger" style="font-size:10px;padding:4px 10px" onclick="reject(${a.id})">✗ رفض</button>
+          <button class="btn" style="font-size:10px;padding:4px 8px" onclick="editAppr(${a.id})" title="تعديل">✏️</button>
+          <button class="btn" style="font-size:10px;padding:4px 8px" onclick="deleteAppr(${a.id})" title="حذف">🗑️</button>
+        </div>
+      </td>
+    </tr>`).join('')}</tbody>
+  </table></div>
+</div>`:'<div class="card" style="margin-bottom:14px"><div style="text-align:center;padding:28px"><div style="font-size:32px;margin-bottom:8px">✅</div><div style="font-size:13px;font-weight:700;color:var(--accent)">لا توجد طلبات معلقة</div><div style="font-size:11px;color:var(--text3);margin-top:4px">جميع الطلبات تمت معالجتها</div></div></div>'}
+
+<div class="card">
+  <div class="card-head">
+    <div class="card-title">📜 سجل جميع الطلبات</div>
+    <div style="display:flex;gap:6px;align-items:center">
+      <select id="appr-filter" class="sel" style="padding:4px 8px;font-size:11px;width:130px" onchange="filterApprList(this.value)">
+        <option value="all">جميع الطلبات</option>
+        <option value="pending">معلقة</option>
+        <option value="approved">موافق عليها</option>
+        <option value="rejected">مرفوضة</option>
+      </select>
+      <select id="appr-type-filter" class="sel" style="padding:4px 8px;font-size:11px;width:160px" onchange="filterApprList()">
+        <option value="">كل الأنواع</option>
+        ${APPR_TYPES.map(t=>`<option value="${t.key}">${t.icon} ${t.label}</option>`).join('')}
+      </select>
+    </div>
+  </div>
+  <div id="appr-list">
+    ${_buildApprList(all)}
+  </div>
+</div>`);
+}
+
+function _buildApprList(list){
+  if(!list.length)return'<div style="text-align:center;padding:22px;color:var(--text3);font-size:12px">لا توجد طلبات</div>';
+  return`<div class="tbl-wrap"><table>
+    <thead><tr><th>الموظف</th><th>القسم</th><th class="tc">نوع الطلب</th><th>التفاصيل</th><th>السبب</th><th>تاريخ الإضافة</th><th>تاريخ القرار</th><th class="tc">الحالة</th><th class="tc">إجراءات</th></tr></thead>
+    <tbody>${list.map(a=>{
+      const emp=DB.employees.find(e=>e.id===a.empId);
+      return`<tr>
+        <td><div style="display:flex;align-items:center;gap:8px">${ava(a.empName,28)}<div><div style="font-weight:600;font-size:12px">${a.empName}</div><div style="font-size:9.5px;color:var(--text3)">${emp?emp.empCode:''}</div></div></div></td>
+        <td style="font-size:11px;color:var(--text2)">${emp?deptN(emp.dept):'—'}</td>
+        <td class="tc"><span class="badge ${a.typeColor||'a'}" style="white-space:nowrap;font-size:9.5px">${a.typeIcon||'📋'} ${a.type}</span></td>
+        <td style="font-size:10.5px;color:var(--text2);font-family:'JetBrains Mono',monospace">${a.detail||'—'}</td>
+        <td style="font-size:11px;color:var(--text3);max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.reason}">${a.reason}</td>
+        <td style="font-size:10.5px;color:var(--text3)">${a.submitted}</td>
+        <td style="font-size:10.5px;color:var(--text3)">${a.resolvedAt||'—'}</td>
+        <td class="tc">
+          ${a.status==='pending'?'<span class="badge a">⏳ معلقة</span>':a.status==='approved'?'<span class="badge g">✓ موافق</span>':'<span class="badge r">✗ مرفوض</span>'}
+        </td>
+        <td class="tc">
+          <div style="display:flex;gap:3px;justify-content:center">
+            ${a.status==='pending'?`<button class="btn primary" style="font-size:10px;padding:3px 8px" onclick="approve(${a.id})">✓</button><button class="btn danger" style="font-size:10px;padding:3px 8px" onclick="reject(${a.id})">✗</button>`:''}
+            <button class="btn" style="font-size:10px;padding:3px 7px" onclick="editAppr(${a.id})">✏️</button>
+            <button class="btn danger" style="font-size:10px;padding:3px 7px" onclick="deleteAppr(${a.id})">🗑️</button>
+          </div>
+        </td>
+      </tr>`;
+    }).join('')}</tbody>
+  </table></div>`;
+}
+
+function filterApprList(statusFilter){
+  const sf=statusFilter||document.getElementById('appr-filter')?.value||'all';
+  const tf=document.getElementById('appr-type-filter')?.value||'';
+  let list=DB.approvals;
+  if(sf!=='all')list=list.filter(a=>a.status===sf);
+  if(tf)list=list.filter(a=>a.typeKey===tf);
+  const el=document.getElementById('appr-list');
+  if(el)el.innerHTML=_buildApprList(list);
+}
+
+function editAppr(id){
+  const a=DB.approvals.find(x=>x.id===id);
+  const emp=DB.employees.find(e=>e.id===a.empId);
+  openMod(`✏️ تعديل طلب: ${a.empName}`,`
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 13px;margin-bottom:14px">
+  <div style="font-size:11px;color:var(--text3);margin-bottom:3px">الطلب الحالي</div>
+  <div style="display:flex;align-items:center;gap:8px">${ava(a.empName,30)}<div><div style="font-size:13px;font-weight:700">${a.empName}</div><div style="font-size:11px;color:var(--text2)"><span class="badge ${a.typeColor||'a'}" style="font-size:9.5px">${a.typeIcon} ${a.type}</span> · ${a.detail}</div></div></div>
+</div>
+<div class="fg"><label class="lbl">الموظف</label>
+  <select class="sel" id="ea-emp">${DB.employees.filter(e=>e.status!=='inactive').map(e=>`<option value="${e.id}"${e.id===a.empId?' selected':''}>${e.name} (${e.empCode})</option>`).join('')}</select>
+</div>
+<div class="fg"><label class="lbl">نوع الطلب</label>
+  <select class="sel" id="ea-type">${APPR_TYPES.map(t=>`<option value="${t.key}"${t.key===a.typeKey?' selected':''}>${t.icon} ${t.label}</option>`).join('')}</select>
+</div>
+<div class="fg"><label class="lbl">التفاصيل</label><input class="inp" id="ea-detail" value="${a.detail||''}"></div>
+<div class="fg"><label class="lbl">السبب / الملاحظات</label><input class="inp" id="ea-reason" value="${a.reason}"></div>
+<div class="fg"><label class="lbl">الحالة</label>
+  <select class="sel" id="ea-status">
+    <option value="pending"${a.status==='pending'?' selected':''}>⏳ معلقة</option>
+    <option value="approved"${a.status==='approved'?' selected':''}>✅ موافق عليها</option>
+    <option value="rejected"${a.status==='rejected'?' selected':''}>❌ مرفوضة</option>
+  </select>
+</div>
+<div class="form-actions">
+  <button class="btn danger" onclick="deleteAppr(${id});closeMod()">🗑️ حذف</button>
+  <button class="btn" onclick="closeMod()">إلغاء</button>
+  <button class="btn primary" onclick="(async()=>{
+    const a=DB.approvals.find(x=>x.id===${id});
+    const empId=parseInt(document.getElementById('ea-emp').value);
+    const emp=DB.employees.find(e=>e.id===empId);
+    const typeKey=document.getElementById('ea-type').value;
+    const cfg=_apprTypeCfg(typeKey);
+    const newStatus=document.getElementById('ea-status').value;
+    const detail=document.getElementById('ea-detail').value;
+    const reason=document.getElementById('ea-reason').value;
+    if(API_READY){
+      const res=await api('PUT','/api/approvals/${id}',{employee_id:empId,type_key:typeKey,type_label:cfg.label,type_icon:cfg.icon,detail,reason,status:newStatus});
+      if(!res.success){toast('❌ '+res.error,'err');return;}
+    }
+    a.empId=empId;a.empName=emp?emp.name:a.empName;
+    a.typeKey=typeKey;a.type=cfg.label;a.typeIcon=cfg.icon;a.typeColor=cfg.color;
+    a.detail=detail;a.reason=reason;
+    if(newStatus!=='pending'&&a.status==='pending')a.resolvedAt=fD(new Date());
+    a.status=newStatus;
+    closeMod();renderApprovals();toast('✅ تم تحديث الطلب','ok');
+  })()">💾 حفظ التعديلات</button>
+</div>`);}
+
+// ═══ DEVICES ═══
+function renderDevices(){
+  const tot=DB.devices.reduce((a,d)=>({u:a.u+d.users,f:a.f+d.fingers,l:a.l+d.logs}),{u:0,f:0,l:0});
+  pg(`<div class="kpi-row c4"><div class="kpi gn"><div class="kpi-icon">🖥️</div><div class="kpi-val">${DB.devices.filter(d=>d.status==='online').length}/${DB.devices.length}</div><div class="kpi-lbl">متصلة</div></div><div class="kpi bl"><div class="kpi-icon">👤</div><div class="kpi-val">${tot.u}</div><div class="kpi-lbl">مستخدمون</div></div><div class="kpi am"><div class="kpi-icon">👆</div><div class="kpi-val">${tot.f}</div><div class="kpi-lbl">بصمات</div></div><div class="kpi bl"><div class="kpi-icon">📊</div><div class="kpi-val">${tot.l}</div><div class="kpi-lbl">سجلات</div></div></div>
+  <div style="display:flex;justify-content:flex-end;margin-bottom:12px"><button class="btn primary" onclick="showAddDev()">➕ إضافة جهاز</button></div>
+  <div class="dev-grid">${DB.devices.map(d=>`<div class="dev-card" onclick="devDetails(${d.id})">
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px"><div style="font-size:28px">🖥️</div><div style="display:flex;align-items:center;gap:5px;background:${d.status==='online'?'var(--accent-glow)':'var(--bg3)'};padding:3px 9px;border-radius:20px;border:1px solid ${d.status==='online'?'rgba(22,199,132,.2)':'var(--border)'}"><div class="pls ${d.status==='online'?'on':'off'}"></div><span style="font-size:10px;font-weight:700;color:${d.status==='online'?'var(--accent)':'var(--text3)'}">${d.status==='online'?'متصل':'غير متصل'}</span></div></div>
+    <div style="font-weight:700;font-size:13px;margin-bottom:2px">${d.name}</div>
+    <div style="font-size:10px;color:var(--text3);margin-bottom:10px">${d.model} · ${areaN(d.areaId)}</div>
+    <div class="dev-stats"><div class="dev-stat"><div class="dev-stat-v" style="color:var(--blue)">${d.users}</div><div class="dev-stat-l">مستخدم</div></div><div class="dev-stat"><div class="dev-stat-v" style="color:var(--accent)">${d.fingers}</div><div class="dev-stat-l">بصمة</div></div><div class="dev-stat"><div class="dev-stat-v" style="color:var(--purple)">${d.faces}</div><div class="dev-stat-l">وجه</div></div><div class="dev-stat"><div class="dev-stat-v" style="color:var(--amber)">${d.logs}</div><div class="dev-stat-l">سجل</div></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;font-size:10px;margin-bottom:10px">${[['SN',d.sn],['IP',d.ip],['Heartbeat',d.heartbeat+'ث'],['آخر نشاط',fT(d.lastSeen)]].map(([l,v])=>`<div style="background:var(--bg3);padding:5px 7px;border-radius:5px;border:1px solid var(--border)"><div style="color:var(--text3);font-size:8px;margin-bottom:1px">${l}</div><div style="font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${v}</div></div>`).join('')}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px">
+      <button class="btn" style="font-size:10px;padding:4px;background:var(--accent-glow);border-color:var(--accent);color:var(--accent);font-weight:700" onclick="event.stopPropagation();requestDevData(${d.id})" title="اطلب البيانات المتراكمة فوراً">📥 جلب البيانات</button>
+      <button class="btn" style="font-size:10px;padding:4px" onclick="event.stopPropagation();sendDevCmd(${d.id},'DATA UPDATE USERINFO')" title="مزامنة بيانات الموظفين">🔄 مزامنة</button>
+      <button class="btn" style="font-size:10px;padding:4px" onclick="event.stopPropagation();sendDevCmd(${d.id},'REBOOT')" title="إعادة تشغيل الجهاز">🔁 تشغيل</button>
+    </div>
+  </div>`).join('')}</div>`);
+}
+function devDetails(id){
+  const d=DB.devices.find(x=>x.id===id);
+  openMod(`🖥️ ${d.name}`,`
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:16px">
+  ${[['SN',d.sn],['IP',d.ip||'—'],['الموديل',d.model||'ZKTeco'],['المنطقة',areaN(d.areaId)],['Heartbeat',d.heartbeat+'ث'],['الحالة',d.status==='online'?'✅ متصل':'❌ غير متصل'],['مستخدمون',d.users||0],['بصمات',d.fingers||0],['سجلات',d.logs||0]].map(([l,v])=>`<div style="background:var(--bg3);padding:9px;border-radius:7px;border:1px solid var(--border)"><div style="font-size:8.5px;color:var(--text3);margin-bottom:3px">${l}</div><div style="font-size:12px;font-weight:700">${v}</div></div>`).join('')}
+</div>
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11.5px">
+  <div style="font-weight:700;color:var(--text2);margin-bottom:5px">⚙️ إعدادات ADMS للجهاز:</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);line-height:1.8">
+    Server : biotrack-backend.onrender.com<br>
+    Port   : 443 &nbsp;&nbsp; HTTPS : ON<br>
+    Path   : /iclock/cdata
+  </div>
+</div>
+<div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:9px">📡 أوامر ADMS:</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+  <button class="btn primary" style="width:100%;margin-bottom:12px;font-size:12px;padding:10px;justify-content:center;gap:8px" onclick="requestDevData(${id})">
+  📥 جلب البيانات من الجهاز الآن
+</button>
+<div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:8px">أوامر أخرى:</div>
+${[['🔄 مزامنة الموظفين','DATA UPDATE USERINFO'],['👆 مزامنة البصمة','DATA UPDATE FINGERTMP'],['🔁 إعادة تشغيل','REBOOT'],['📡 قراءة المعلومات','GET INFO'],['🧹 مسح السجلات','CLEAR ATTLOG'],['⏰ مزامنة الوقت','CHECK TIME']].map(([lbl,cmd])=>`<button class="btn" style="font-size:10px;justify-content:space-between" onclick="sendDevCmd(${id},'${cmd}')">
+    ${lbl}<span style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text3)">${cmd}</span>
+  </button>`).join('')}
+</div>
+<div class="form-actions">
+  <button class="btn danger" onclick="deleteDevice(${id})">🗑️ حذف الجهاز</button>
+  <button class="btn" onclick="closeMod()">إغلاق</button>
+</div>`,'lg');
+}
+
+async function sendDevCmd(devId, cmd){
+  if(!API_READY){ toast('⚠️ غير متصل بالخادم'); return; }
+  const res = await api('POST', '/api/devices/'+devId+'/command', {command: cmd});
+  if(res.success){ toast('✅ تم إرسال الأمر: '+cmd,'ok'); closeMod(); }
+  else { toast('❌ '+(res.error||'فشل الإرسال'),'err'); }
+}
+
+async function requestDevData(devId){
+  // يطلب من الجهاز إرسال كل البصمات المخزنة فوراً
+  if(!API_READY){ toast('⚠️ غير متصل بالخادم'); return; }
+  const dev = DB.devices.find(d=>d.id===devId);
+  if(!dev){ return; }
+
+  if(dev.status !== 'online'){
+    toast('⚠️ الجهاز غير متصل — تأكد من الاتصال بالإنترنت','err');
+    return;
+  }
+
+  // إرسال أمر طلب البيانات
+  const res = await api('POST', '/api/devices/'+devId+'/command', {
+    command: 'DATA QUERY ATTLOG StartTime=2000-01-01\tEndTime=2099-12-31'
+  });
+
+  if(res.success){
+    toast('📥 تم إرسال طلب البيانات إلى: '+dev.name+' — ستصل خلال دقيقة','ok');
+    // Poll for new logs after 30 seconds
+    setTimeout(async ()=>{
+      await pollLiveLogs();
+      toast('🔄 تم تحديث البيانات من '+dev.name,'ok');
+    }, 30000);
+  } else {
+    toast('❌ فشل إرسال الطلب: '+(res.error||''),'err');
+  }
+}
+
+async function deleteDevice(devId){
+  if(!confirm('حذف هذا الجهاز من النظام؟')) return;
+  if(API_READY){
+    const res = await api('DELETE', '/api/devices/'+devId);
+    if(!res.success){ toast('❌ '+(res.error||'فشل الحذف'),'err'); return; }
+  }
+  DB.devices.splice(DB.devices.findIndex(d=>d.id===devId), 1);
+  closeMod();
+  renderDevices();
+  toast('🗑️ تم حذف الجهاز');
+}
+async function showAddDev(){openMod('➕ إضافة جهاز',`
+<div class="fg-row">
+  <div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="nd2-n" placeholder="مدخل رئيسي - الرياض"></div>
+  <div class="fg"><label class="lbl">SN (الرقم التسلسلي) <span class="req">*</span></label><input class="inp" id="nd2-sn" placeholder="MFP3241100235"></div>
+</div>
+<div class="fg-row">
+  <div class="fg"><label class="lbl">IP (اختياري)</label><input class="inp" id="nd2-ip" placeholder="192.168.1.100"></div>
+  <div class="fg"><label class="lbl">المنطقة / الفرع</label><select class="sel" id="nd2-a">${DB.areas.map(a=>`<option value="${a.id}">${a.name}</option>`).join('')}</select></div>
+</div>
+<div class="fg-row">
+  <div class="fg"><label class="lbl">الموديل</label><select class="sel" id="nd2-m"><option>ZKTeco F22</option><option>ZKTeco K40</option><option>ZKTeco uFace800</option><option>ZKTeco SpeedFace</option><option>ZKTeco MB360</option></select></div>
+  <div class="fg"><label class="lbl">Heartbeat (ثانية)</label><input class="inp" id="nd2-hb" type="number" value="10" min="5" max="60"></div>
+</div>
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:11.5px;color:var(--text2);margin-bottom:4px">
+  💡 بعد الإضافة، اضبط في الجهاز:<br>
+  <b>Server:</b> biotrack-backend.onrender.com &nbsp;|&nbsp; <b>Port:</b> 443 &nbsp;|&nbsp; <b>HTTPS:</b> ON
+</div>
+<div class="form-actions">
+  <button class="btn" onclick="closeMod()">إلغاء</button>
+  <button class="btn primary" onclick="saveDevice()">💾 إضافة الجهاز</button>
+</div>`);}
+
+async function saveDevice(){
+  const n  = document.getElementById('nd2-n')?.value.trim();
+  const sn = document.getElementById('nd2-sn')?.value.trim();
+  const ip = document.getElementById('nd2-ip')?.value.trim();
+  const areaId = +document.getElementById('nd2-a')?.value;
+  const model  = document.getElementById('nd2-m')?.value;
+  const hb     = +document.getElementById('nd2-hb')?.value || 10;
+
+  if(!n || !sn){ toast('❌ الاسم والـ SN مطلوبان','err'); return; }
+
+  const devObj = {
+    sn, name:n, ip, area_id:areaId, model,
+    heartbeat:hb, status:'offline', timezone:'Asia/Riyadh',
+    total_users:0, total_fingers:0, total_faces:0, total_logs:0
+  };
+
+  if(API_READY){
+    const res = await api('POST', '/api/devices', devObj);
+    if(!res.success){ toast('❌ '+(res.error||'حدث خطأ'),'err'); return; }
+    DB.devices.push(normalizeDev(res.data));
+  } else {
+    DB.devices.push({id:DB.devices.length+1,sn,name:n,ip,areaId,model,
+      status:'offline',lastSeen:null,users:0,fingers:0,faces:0,palms:0,
+      logs:0,heartbeat:hb,tz:'Asia/Riyadh'});
+  }
+  closeMod();
+  renderDevices();
+  toast('✅ تم إضافة الجهاز — اضبط إعدادات ADMS في الجهاز','ok');
+}
+
+// ═══ AREAS ═══
+function renderAreas(){
+  pg(`<div class="ph"><div><h2>📍 المناطق</h2></div><button class="btn primary" onclick="addArea()">➕ إضافة</button></div>
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>المنطقة</th><th>المنطقة الزمنية</th><th class="tc">الأجهزة</th><th class="tc">الموظفون</th></tr></thead><tbody>
+  ${DB.areas.map(a=>`<tr><td style="font-weight:700">📍 ${a.name}</td><td style="font-family:'JetBrains Mono',monospace;color:var(--blue)">${a.tz}</td><td class="tc"><span class="badge g">${DB.devices.filter(d=>d.areaId===a.id).length}</span></td><td class="tc"><span class="badge b">${DB.employees.filter(e=>e.areaId===a.id).length}</span></td></tr>`).join('')}
+  </tbody></table></div></div>`);
+}
+function addArea(){openMod('➕ منطقة',`<div class="fg"><label class="lbl">الاسم <span class="req">*</span></label><input class="inp" id="na-n"></div><div class="fg"><label class="lbl">المنطقة الزمنية</label><select class="sel" id="na-tz"><option>Etc/GMT+3</option><option>Etc/GMT+2</option><option>Etc/GMT+0</option></select></div><div class="form-actions"><button class="btn" onclick="closeMod()">إلغاء</button><button class="btn primary" onclick="(async()=>{const n=document.getElementById('na-n').value.trim();const tz=document.getElementById('na-tz').value;if(!n)return;if(API_READY){const res=await api('POST','/api/areas',{name:n,timezone:tz});if(!res.success){toast('❌ '+res.error,'err');return;}DB.areas.push({id:res.data.id,name:n,tz});}else{DB.areas.push({id:DB.areas.length+1,name:n,tz});}closeMod();renderAreas();toast('✅ تم','ok');})()">💾</button></div>`,'sm');}
+
+// ═══ ACCESS CONTROL ═══
+function renderAccess(){
+  pg(`<div class="card"><div class="card-head"><div class="card-title">🔐 التحكم بالوصول</div><div style="display:flex;gap:7px"><button class="btn blue-btn" onclick="toast('✅ تم فتح الباب','ok')">🔓 فتح الباب</button><button class="btn" onclick="toast('✅ تم إلغاء التحذير','ok')">🔕 إلغاء تحذير</button></div></div>
+  <div class="tbl-wrap"><table><thead><tr><th>SN</th><th>الجهاز</th><th class="tc">الحالة</th><th class="tc">تأخير الباب</th><th class="tc">المحاولات</th><th class="tc">إجراء</th></tr></thead><tbody>
+  ${DB.devices.map(d=>`<tr><td style="font-family:'JetBrains Mono',monospace;font-size:10.5px">${d.sn}</td><td style="font-weight:600">${d.name}</td><td class="tc"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><div class="pls ${d.status==='online'?'on':'off'}"></div><span style="font-size:10px;color:${d.status==='online'?'var(--accent)':'var(--text3)'}">${d.status==='online'?'متصل':'غير متصل'}</span></div></td><td class="tc" style="color:var(--text2)">5 ث</td><td class="tc" style="color:var(--text2)">3</td><td class="tc"><button class="btn" onclick="toast('✅ تم فتح باب ${d.name}','ok')" style="font-size:10px;padding:3px 8px">🔓 فتح</button></td></tr>`).join('')}
+  </tbody></table></div></div>`);
+}
+
+// ═══ REPORTS (unified flexible page) ═══
+let RPT={type:'full',empFilter:'all',empIds:[],deptIds:[],areaIds:[],from:'',to:''};
+function renderReports(){
+  const today=new Date().toISOString().split('T')[0];
+  const weekAgo=new Date(Date.now()-7*864e5).toISOString().split('T')[0];
+  if(!RPT.from)RPT.from=weekAgo;if(!RPT.to)RPT.to=today;
+  pg(`<div class="ph"><div><h2>📋 التقارير المتكاملة</h2><p>فلتر ديناميكي — اختر الموظفين، الفترة الزمنية، ونوع التقرير</p></div></div>
+  <div class="rpt-filter">
+    <div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:10px">🔧 خيارات التقرير</div>
+    <div class="rpt-filter-grid">
+      <div><div class="rpt-filter-lbl">نوع التقرير</div><select class="rpt-ctrl" id="rpt-type" onchange="RPT.type=this.value;applyRpt()"><option value="full">تقرير شامل</option><option value="absences">الغياب والتأخر</option><option value="overtime">العمل الإضافي</option><option value="daily">يومي مفصّل</option></select></div>
+      <div><div class="rpt-filter-lbl">من تاريخ</div><input type="date" class="rpt-ctrl" id="rpt-from" value="${RPT.from}" onchange="RPT.from=this.value;applyRpt()"></div>
+      <div><div class="rpt-filter-lbl">إلى تاريخ</div><input type="date" class="rpt-ctrl" id="rpt-to" value="${RPT.to}" onchange="RPT.to=this.value;applyRpt()"></div>
+      <div><div class="rpt-filter-lbl">تصفية الموظفين</div><select class="rpt-ctrl" id="rpt-ef" onchange="rptEmpFilter(this.value)"><option value="all">جميع الموظفين</option><option value="dept">حسب القسم</option><option value="area">حسب المنطقة/الفرع</option><option value="select">اختيار يدوي</option></select></div>
+    </div>
+    <div id="rpt-sub" style="margin-bottom:10px"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn primary" onclick="applyRpt()">🔍 تطبيق الفلتر</button>
+      <button class="btn" onclick="toast('✅ جارٍ تصدير Excel...','ok')">📥 Excel</button>
+      <button class="btn" onclick="toast('✅ جارٍ تصدير PDF...','ok')">📄 PDF</button>
+      <button class="btn" onclick="RPT={type:'full',empFilter:'all',empIds:[],deptIds:[],areaIds:[],from:new Date(Date.now()-7*864e5).toISOString().split('T')[0],to:new Date().toISOString().split('T')[0]};renderReports()">🔄 إعادة تعيين</button>
+    </div>
+  </div>
+  <div id="rpt-result"></div>`);
+  applyRpt();
+}
+function rptEmpFilter(v){
+  RPT.empFilter=v;RPT.empIds=[];RPT.deptIds=[];RPT.areaIds=[];
+  const el=document.getElementById('rpt-sub');
+  if(v==='dept')el.innerHTML=`<div style="margin-bottom:6px;font-size:10.5px;font-weight:700;color:var(--text2)">اختر الأقسام:</div><div class="day-chips">${DB.departments.map(d=>`<div class="chip" onclick="this.classList.toggle('sel');RPT.deptIds=getRptSelChips('rpt-sub');applyRpt()">${d.name}</div>`).join('')}</div>`;
+  else if(v==='area')el.innerHTML=`<div style="margin-bottom:6px;font-size:10.5px;font-weight:700;color:var(--text2)">اختر المناطق:</div><div class="day-chips">${DB.areas.map(a=>`<div class="chip" data-id="${a.id}" onclick="this.classList.toggle('sel');RPT.areaIds=getRptSelChipIds('rpt-sub');applyRpt()">${a.name}</div>`).join('')}</div>`;
+  else if(v==='select')el.innerHTML=`<div style="margin-bottom:6px;font-size:10.5px;font-weight:700;color:var(--text2)">اختر الموظفين:</div><div class="chk-list" style="max-height:160px">${DB.employees.filter(e=>e.status==='active').map(e=>`<div class="chk-item" data-id="${e.id}" onclick="this.classList.toggle('sel');this.querySelector('.chk-box').textContent=this.classList.contains('sel')?'✓':'';RPT.empIds=getRptSelCheckIds('rpt-sub');applyRpt()"><div class="chk-box"></div>${ava(e.name,20)}<span>${e.name}</span><span style="font-size:9.5px;color:var(--text3);margin-right:auto">${deptN(e.dept)}</span></div>`).join('')}</div>`;
+  else el.innerHTML='';
+}
+function getRptSelChips(pid){return[...document.querySelectorAll(`#${pid} .chip.sel`)].map(el=>el.textContent);}
+function getRptSelChipIds(pid){return[...document.querySelectorAll(`#${pid} .chip.sel`)].map(el=>+(el.getAttribute('data-id')||0));}
+function getRptSelCheckIds(pid){return[...document.querySelectorAll(`#${pid} .chk-item.sel`)].map(el=>+el.getAttribute('data-id'));}
+function applyRpt(){
+  const from=new Date(RPT.from||'2020-01-01');from.setHours(0,0,0,0);
+  const to=new Date(RPT.to||new Date());to.setHours(23,59,59,999);
+  let emps=DB.employees.filter(e=>e.status!=='inactive');
+  if(RPT.empIds&&RPT.empIds.length)emps=emps.filter(e=>RPT.empIds.includes(e.id));
+  else if(RPT.deptIds&&RPT.deptIds.length)emps=emps.filter(e=>RPT.deptIds.map(n=>DB.departments.find(d=>d.name===n)?.id).includes(e.dept));
+  else if(RPT.areaIds&&RPT.areaIds.length)emps=emps.filter(e=>RPT.areaIds.includes(e.areaId));
+  const fLogs=DB.logs.filter(l=>{const t=new Date(l.ts);return t>=from&&t<=to;});
+  const el=document.getElementById('rpt-result');if(!el)return;
+  if(RPT.type==='full'||RPT.type==='daily'){
+    const rows=emps.map(emp=>{
+      const ei=fLogs.find(l=>l.empId===emp.id&&l.type==='دخول');const eo=fLogs.find(l=>l.empId===emp.id&&l.type==='خروج');
+      const tt=ttByShift(emp.shiftId);const ins=fLogs.filter(l=>l.empId===emp.id&&l.type==='دخول');
+      const lateC=ins.filter(l=>l.lateMin>0).length;const totalLate=ins.reduce((s,l)=>s+l.lateMin,0);
+      return{emp,ei,eo,tt,ins,lateC,totalLate};
+    });
+    el.innerHTML=`<div class="kpi-row c5" style="margin-bottom:14px"><div class="kpi bl"><div class="kpi-icon">👥</div><div class="kpi-val">${emps.length}</div><div class="kpi-lbl">إجمالي</div></div><div class="kpi gn"><div class="kpi-icon">✅</div><div class="kpi-val">${rows.filter(r=>r.ei).length}</div><div class="kpi-lbl">حضور</div></div><div class="kpi rd"><div class="kpi-icon">❌</div><div class="kpi-val">${rows.filter(r=>!r.ei).length}</div><div class="kpi-lbl">غياب</div></div><div class="kpi am"><div class="kpi-icon">⚠️</div><div class="kpi-val">${rows.filter(r=>r.lateC>0).length}</div><div class="kpi-lbl">متأخرون</div></div><div class="kpi pr"><div class="kpi-icon">⏱️</div><div class="kpi-val">${rows.reduce((s,r)=>s+r.totalLate,0)}</div><div class="kpi-lbl">دقائق تأخر</div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">📊 التقرير الشامل — ${RPT.from} إلى ${RPT.to}</div><span class="badge x">${rows.length} موظف</span></div>
+    <div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>القسم</th><th>المنطقة</th><th class="tc">وقت الدخول الرسمي</th><th class="tc">دخول فعلي</th><th class="tc">خروج فعلي</th><th class="tc">في النافذة</th><th class="tc">تأخر</th><th class="tc">الحضور</th></tr></thead><tbody>
+    ${rows.map(({emp,ei,eo,tt,totalLate})=>`<tr><td><div style="display:flex;align-items:center;gap:7px">${ava(emp.name)}<span style="font-weight:600">${emp.name}</span></div></td><td style="font-size:11px">${deptN(emp.dept)}</td><td style="font-size:11px">${areaN(emp.areaId)}</td><td class="tc" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text3)">${tt?tt.checkIn+'→'+tt.checkOut:'—'}</td><td class="tc" style="font-family:'JetBrains Mono',monospace;color:${ei?'var(--accent)':'var(--text3)'}">${ei?fT(ei.ts):'—'}</td><td class="tc" style="font-family:'JetBrains Mono',monospace;color:${eo?'var(--amber)':'var(--text3)'}">${eo?fT(eo.ts):'—'}</td><td class="tc">${ei?`<span class="badge ${ei.inWindow?'g':'r'}" style="font-size:9px">${ei.inWindow?'✓':'✗'}</span>`:'—'}</td><td class="tc">${totalLate>0?`<span class="badge a">${totalLate}د</span>`:'—'}</td><td class="tc">${ei?'<span class="badge g">✓ حاضر</span>':'<span class="badge r">✗ غائب</span>'}</td></tr>`).join('')}
+    </tbody></table></div></div>`;
+  }
+  else if(RPT.type==='absences'){
+    const absRows=[];const days=Math.min(Math.ceil((to-from)/864e5)+1,31);
+    for(let i=0;i<days;i++){const d=new Date(from);d.setDate(d.getDate()+i);d.setHours(0,0,0,0);const nd=new Date(d);nd.setDate(nd.getDate()+1);const dLogs=fLogs.filter(l=>new Date(l.ts)>=d&&new Date(l.ts)<nd);emps.forEach(emp=>{const ei=dLogs.find(l=>l.empId===emp.id&&l.type==='دخول');if(!ei)absRows.push({emp,date:new Date(d),type:'غياب',min:0});else if(ei.lateMin>=DB.rules.lateAbsent)absRows.push({emp,date:new Date(d),type:'غياب (تأخر شديد)',min:ei.lateMin});else if(ei.lateMin>0)absRows.push({emp,date:new Date(d),type:'تأخر',min:ei.lateMin});});}
+    el.innerHTML=`<div class="kpi-row c3" style="margin-bottom:14px"><div class="kpi rd"><div class="kpi-icon">❌</div><div class="kpi-val">${absRows.filter(r=>r.type.includes('غياب')).length}</div><div class="kpi-lbl">غياب</div></div><div class="kpi am"><div class="kpi-icon">⚠️</div><div class="kpi-val">${absRows.filter(r=>r.type==='تأخر').length}</div><div class="kpi-lbl">تأخر</div></div><div class="kpi bl"><div class="kpi-icon">⏱️</div><div class="kpi-val">${absRows.filter(r=>r.type==='تأخر').reduce((s,r)=>s+r.min,0)}</div><div class="kpi-lbl">دقائق تأخر</div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">📅 تقرير الغياب والتأخر</div><span class="badge x">${absRows.length} حالة</span></div><div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>القسم</th><th>المنطقة</th><th>التاريخ</th><th class="tc">النوع</th><th class="tc">الدقائق</th></tr></thead><tbody>
+    ${absRows.map(r=>`<tr><td><div style="display:flex;align-items:center;gap:7px">${ava(r.emp.name)}<span style="font-weight:600">${r.emp.name}</span></div></td><td style="font-size:11px">${deptN(r.emp.dept)}</td><td style="font-size:11px">${areaN(r.emp.areaId)}</td><td style="font-family:'JetBrains Mono',monospace;font-size:11px">${fD(r.date)}</td><td class="tc"><span class="badge ${r.type.includes('غياب')?'r':'a'}">${r.type}</span></td><td class="tc" style="font-weight:700">${r.min>0?r.min+'د':'—'}</td></tr>`).join('')}
+    </tbody></table></div></div>`;
+  }
+  else if(RPT.type==='overtime'){
+    const otData=emps.map(emp=>{const tt=ttByShift(emp.shiftId);if(!tt)return{emp,ot:0,days:0};const[oh,om]=tt.checkOut.split(':').map(Number);const outs=fLogs.filter(l=>l.empId===emp.id&&l.type==='خروج');let ot=0,days=0;outs.forEach(l=>{const a=new Date(l.ts).getHours()*60+new Date(l.ts).getMinutes();if(a>oh*60+om){ot+=a-(oh*60+om);days++;}});return{emp,ot,days,tt};}).filter(x=>x.ot>0).sort((a,b)=>b.ot-a.ot);
+    el.innerHTML=`<div class="kpi-row c3" style="margin-bottom:14px"><div class="kpi bl"><div class="kpi-icon">👥</div><div class="kpi-val">${otData.length}</div><div class="kpi-lbl">موظفون</div></div><div class="kpi gn"><div class="kpi-icon">⏱️</div><div class="kpi-val">${otData.reduce((s,x)=>s+x.ot,0)}</div><div class="kpi-lbl">إجمالي دقائق</div></div><div class="kpi am"><div class="kpi-icon">📊</div><div class="kpi-val">${otData.length?Math.round(otData.reduce((s,x)=>s+x.ot,0)/otData.length):0}</div><div class="kpi-lbl">متوسط دقائق</div></div></div>
+    <div class="card"><div class="card-head"><div class="card-title">🕑 تقرير العمل الإضافي</div></div><div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>القسم</th><th class="tc">خروج رسمي</th><th class="tc">أيام</th><th class="tc">دقائق</th><th class="tc">ساعات</th></tr></thead><tbody>
+    ${otData.map(({emp,ot,days,tt})=>`<tr><td><div style="display:flex;align-items:center;gap:7px">${ava(emp.name)}<span style="font-weight:600">${emp.name}</span></div></td><td style="font-size:11px">${deptN(emp.dept)}</td><td class="tc" style="font-family:'JetBrains Mono',monospace;color:var(--red)">${tt?tt.checkOut:'—'}</td><td class="tc" style="font-weight:700;color:var(--blue)">${days}</td><td class="tc" style="font-weight:700;color:var(--amber)">${ot}</td><td class="tc"><span class="badge p">${(ot/60).toFixed(1)} ساعة</span></td></tr>`).join('')}
+    </tbody></table></div></div>`;
+  }
+}
+
+// ═══ SETTINGS ═══
+function renderSettings(){
+  pg(`<div class="g2">
+  <div class="card"><div class="card-head"><div class="card-title">⚙️ إعدادات ADMS</div></div><div class="card-body">
+    <div class="fg"><label class="lbl">عنوان الخادم</label><input class="inp" value="https://attendance.company.com"></div>
+    <div class="fg-row"><div class="fg"><label class="lbl">HTTP</label><input class="inp" value="80"></div><div class="fg"><label class="lbl">HTTPS</label><input class="inp" value="443"></div></div>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:11px;margin-top:4px">
+      <div style="font-size:10.5px;font-weight:700;color:var(--text2);margin-bottom:7px">🔗 Endpoints:</div>
+      ${[['GET/POST','/iclock/cdata','استقبال السجلات'],['GET','/iclock/getrequest','إرسال الأوامر'],['POST','/iclock/devicecmd','نتائج التنفيذ'],['POST','/iclock/registry','تسجيل الأجهزة']].map(([m,p,d])=>`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--border)"><span class="badge ${m.includes('POST')?'b':'g'}" style="font-size:8.5px;min-width:55px;justify-content:center">${m}</span><code style="font-size:10.5px;color:var(--cyan)">${p}</code><span style="font-size:9.5px;color:var(--text3)">${d}</span></div>`).join('')}
+    </div>
+    <button class="btn primary" style="width:100%;margin-top:12px" onclick="toast('✅ تم حفظ الإعدادات','ok')">💾 حفظ</button>
+    <button class="btn" style="width:100%;margin-top:8px" onclick="showChangePassword()">🔑 تغيير كلمة المرور</button>
+  </div></div>
+  <div class="card"><div class="card-head"><div class="card-title">🔐 حالة النظام</div></div><div class="card-body">
+    ${[['🔒','تشفير HTTPS','مفعّل','g'],['🔄','مزامنة تلقائية','مفعّل','g'],['📡','استقبال البصمات','يعمل','g'],['💾','نسخ احتياطي','يومي','g'],['✅','التحقق من النوافذ','مفعّل','g'],['🌙','الوضع الداكن/الفاتح','متاح','b']].map(([i,l,s,c])=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><span>${i}</span><span style="font-size:12px">${l}</span></div><span class="badge ${c}">${s}</span></div>`).join('')}
+    <div style="margin-top:12px;padding:10px;background:var(--bg3);border-radius:8px;border:1px solid var(--border)">
+      <div style="font-size:11px;font-weight:700;margin-bottom:6px">تبديل الوضع:</div>
+      <button class="btn primary" style="width:100%" onclick="toggleTheme()">🌙/☀️ تبديل الوضع الليلي / النهاري</button>
+    </div>
+  </div></div></div>`);
+}
+
+// ═══ INIT ═══
+
+async function showChangePassword(){
+  openMod('🔑 تغيير كلمة المرور',`
+  <div style="background:var(--blue-glow);border:1px solid rgba(59,142,245,.2);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:var(--blue)">
+    🔒 كلمة المرور الجديدة ستُحفظ في Supabase بشكل مشفر
+  </div>
+  <div class="fg"><label class="lbl">كلمة المرور الجديدة <span class="req">*</span></label>
+    <input class="inp" type="password" id="new-pass" placeholder="8 أحرف على الأقل"></div>
+  <div class="fg"><label class="lbl">تأكيد كلمة المرور <span class="req">*</span></label>
+    <input class="inp" type="password" id="confirm-pass" placeholder="أعد كتابة كلمة المرور"></div>
+  <div class="form-actions">
+    <button class="btn" onclick="closeMod()">إلغاء</button>
+    <button class="btn primary" onclick="doChangePassword()">💾 تغيير كلمة المرور</button>
+  </div>`,'sm');
+}
+
+async function doChangePassword(){
+  const np = document.getElementById('new-pass')?.value;
+  const cp = document.getElementById('confirm-pass')?.value;
+  if(!np || np.length < 8){ toast('❌ كلمة المرور يجب أن تكون 8 أحرف على الأقل','err'); return; }
+  if(np !== cp){ toast('❌ كلمتا المرور غير متطابقتين','err'); return; }
+  const res = await api('POST','/auth/change-password',{new_password:np});
+  if(res.success){ closeMod(); toast('✅ تم تغيير كلمة المرور بنجاح','ok'); }
+  else { toast('❌ '+(res.error||'حدث خطأ'),'err'); }
+}
+
+function startApp(){
+  const n=new Date();document.getElementById('clk').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;
+  // Add logout button to topbar
+  const themeBtn=document.getElementById('theme-btn');
+  if(themeBtn && !document.getElementById('logout-btn')){
+    const logoutBtn=document.createElement('button');
+    logoutBtn.id='logout-btn';
+    logoutBtn.className='theme-btn';
+    logoutBtn.title='تسجيل الخروج';
+    logoutBtn.textContent='🚪';
+    logoutBtn.onclick=()=>{if(confirm('هل تريد تسجيل الخروج؟'))logout();};
+    themeBtn.parentNode.insertBefore(logoutBtn, themeBtn.nextSibling);
+  }
+  // Add user badge
+  const topbar=document.querySelector('.topbar');
+  if(topbar && !document.getElementById('user-badge')){
+    const badge=document.createElement('div');
+    badge.id='user-badge';
+    badge.style.cssText='font-size:10.5px;color:var(--text3);background:var(--bg3);padding:4px 10px;border-radius:7px;border:1px solid var(--border)';
+    badge.textContent='👤 '+currentUser+(currentRole==='viewer'?' (عرض فقط)':'');
+    themeBtn.parentNode.insertBefore(badge, themeBtn);
+  }
+  // Show loading state first
+  pg('<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:16px"><div style="font-size:32px">⏳</div><div style="font-size:14px;font-weight:600;color:var(--text)">جارٍ تحميل البيانات...</div><div style="font-size:12px;color:var(--text3)">يتصل بقاعدة البيانات</div></div>');
+  // Load real data from API then render
+  loadFromAPI().then(()=>{
+    renderDash();
+    const pc=DB.approvals.filter(a=>a.status==='pending').length;
+    const el=document.getElementById('apnb');
+    if(el){el.textContent=pc||'';el.style.display=pc?'inline':'none';}
+  });
+  // Poll for new logs every 10 seconds
+  setInterval(pollLiveLogs, 60000); // كل دقيقة بدلاً من كل 10 ثوانٍ
+  // Clock
+  setInterval(()=>{const n=new Date();const el=document.getElementById('clk');if(el)el.textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;},1000);
+}
+
+(function(){
+  // Check if already logged in (session)
+  if(!checkSession()){
+    // Show login screen and wait
+    document.getElementById('login-screen').style.display = 'flex';
+    setTimeout(()=>document.getElementById('login-user').focus(), 100);
+  } else {
+    startApp();
+  }
+})();
+</script>
+<!-- ══ LOGIN SCREEN ══ -->
+<div class="login-overlay" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-mark">👁</div>
+      <div class="login-logo-name">BioTrack Pro</div>
+      <div class="login-logo-ver">v4.0 · نظام الحضور والانصراف</div>
+    </div>
+    <div class="login-err" id="login-err">❌ اسم المستخدم أو كلمة المرور غير صحيحة</div>
+    <div class="login-field">
+      <label class="login-lbl">البريد الإلكتروني</label>
+      <input class="login-inp" id="login-user" type="email" placeholder="admin@company.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)doLogin()">
+    </div>
+    <div class="login-field">
+      <label class="login-lbl">كلمة المرور</label>
+      <input class="login-inp" id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key===&#39;Enter&#39;)doLogin()">
+    </div>
+    <button class="login-btn" onclick="doLogin()">🔐 تسجيل الدخول</button>
+    <div style="text-align:center;margin-top:16px;font-size:11px;color:var(--text3)">BioTrack Pro © 2026 — جميع الحقوق محفوظة</div>
+  </div>
+</div>
+
+
+</body></html>
