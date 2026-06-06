@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/amarn/Downloads/index_7.html -->
+<!-- saved from url=(0046)file:///C:/Users/amarn/Downloads/index_11.html -->
 <html lang="ar" dir="rtl" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -246,8 +246,23 @@ tr:hover td{background:var(--bg2);}
 /* ── APPROVAL TYPE CARDS ── */
 .appr-type-card:hover{background:var(--bg4) !important;border-color:var(--border3) !important;}
 .appr-type-card.sel{background:var(--accent-glow) !important;border-color:var(--accent) !important;}
+
+/* ── LOGIN ── */
+.login-overlay{position:fixed;inset:0;background:var(--bg0);display:flex;align-items:center;justify-content:center;z-index:9999;}
+.login-card{background:var(--bg1);border:1px solid var(--border2);border-radius:20px;padding:40px;width:360px;max-width:94vw;box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.login-logo{text-align:center;margin-bottom:28px;}
+.login-logo-mark{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--blue));display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 12px;}
+.login-logo-name{font-size:18px;font-weight:800;}
+.login-logo-ver{font-size:11px;color:var(--text3);margin-top:3px;}
+.login-field{margin-bottom:16px;}
+.login-lbl{font-size:11px;color:var(--text2);font-weight:700;margin-bottom:6px;display:block;}
+.login-inp{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:9px;padding:11px 14px;color:var(--text);font-size:13px;font-family:'Cairo',sans-serif;outline:none;transition:border-color .15s;}
+.login-inp:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,199,132,.08);}
+.login-btn{width:100%;background:var(--accent);border:none;border-radius:9px;padding:12px;color:#fff;font-size:14px;font-weight:700;font-family:'Cairo',sans-serif;cursor:pointer;margin-top:8px;transition:background .15s;}
+.login-btn:hover{background:var(--accent2);}
+.login-err{background:var(--red-glow);border:1px solid var(--red);border-radius:8px;padding:9px 13px;font-size:12px;color:var(--red);margin-bottom:14px;display:none;text-align:center;}
 </style>
-<style>@keyframes loadbar{0%{opacity:1;transform:scaleX(0);transform-origin:left}50%{opacity:1;transform:scaleX(1);transform-origin:left}51%{transform-origin:right}100%{opacity:0;transform:scaleX(0);transform-origin:right}}</style></head>
+</head>
 <body>
 <div class="shell">
 <aside class="sidebar">
@@ -272,7 +287,7 @@ tr:hover td{background:var(--bg2);}
     <div class="nav-item" onclick="go(&#39;shifts&#39;)"><span class="ni">🔄</span>المناوبات</div>
     <div class="nav-item" onclick="go(&#39;schedules&#39;)"><span class="ni">📅</span>تعيين الجداول</div>
     <div class="nav-item" onclick="go(&#39;rules&#39;)"><span class="ni">⚙️</span>قواعد الاحتساب</div>
-    <div class="nav-item" onclick="go(&#39;approvals&#39;)"><span class="ni">✅</span>الموافقات<span class="nav-badge" id="apnb" style="display: none;"></span></div>
+    <div class="nav-item" onclick="go(&#39;approvals&#39;)"><span class="ni">✅</span>الموافقات<span class="nav-badge" id="apnb"></span></div>
   </div>
   <div class="nav-section">
     <div class="nav-label">الأجهزة</div>
@@ -295,32 +310,11 @@ tr:hover td{background:var(--bg2);}
     <div class="page-title" id="pg-title">لوحة التحكم</div>
     <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-inp" placeholder="بحث سريع..." oninput="quickSearch(this.value)"></div>
     <div style="position:relative"><button class="btn" onclick="go(&#39;approvals&#39;)">🔔</button><div id="ndot" style="display:none;position:absolute;top:-1px;left:-1px;width:7px;height:7px;background:var(--red);border-radius:50%;"></div></div>
-    <div class="clock" id="clk">14:52:37</div>
-    <div id="api-status" title="حالة الاتصال بالخادم" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; cursor: pointer;" onclick="if(API_READY)toast(&#39;✅ متصل بقاعدة البيانات الحقيقية&#39;,&#39;ok&#39;);else toast(&#39;⚠️ غير متصل — يعمل بالبيانات المحلية&#39;);"></div>
+    <div class="clock" id="clk">15:21:13</div>
+    <div id="api-status" title="حالة الاتصال بالخادم" style="width:8px;height:8px;border-radius:50%;background:var(--text3);flex-shrink:0;cursor:pointer" onclick="if(API_READY)toast(&#39;✅ متصل بقاعدة البيانات الحقيقية&#39;,&#39;ok&#39;);else toast(&#39;⚠️ غير متصل — يعمل بالبيانات المحلية&#39;);"></div>
     <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل الوضع">🌙</button>
   </div>
-  <div class="page fadein" id="pg"><div class="fadein"><div class="kpi-row c4">
-  <div class="kpi gn" onclick="go(&#39;reports&#39;)"><div class="kpi-icon">👥</div><div class="kpi-val">0</div><div class="kpi-lbl">حاضرون اليوم</div><div class="kpi-sub">▲ 0% من الكادر</div><div class="prog" style="margin-top:8px"><div class="prog-bar" style="width:0%;background:var(--accent)"></div></div></div>
-  <div class="kpi bl" onclick="go(&#39;emps&#39;)"><div class="kpi-icon">🧑‍💼</div><div class="kpi-val">1</div><div class="kpi-lbl">الموظفون النشطون</div><div class="kpi-sub">● 0 في إجازة</div></div>
-  <div class="kpi am" onclick="go(&#39;reports&#39;)"><div class="kpi-icon">⚠️</div><div class="kpi-val">0</div><div class="kpi-lbl">متأخرون اليوم</div><div class="kpi-sub">✓ لا تأخير</div></div>
-  <div class="kpi rd" onclick="go(&#39;approvals&#39;)"><div class="kpi-icon">📬</div><div class="kpi-val">0</div><div class="kpi-lbl">طلبات معلقة</div><div class="kpi-sub">✓ لا طلبات</div></div>
-</div>
-<div class="g3">
-  <div class="stack">
-    <div class="card"><div class="card-head"><div class="card-title">📈 حضور آخر 7 أيام</div><button class="btn" onclick="go(&#39;reports&#39;)" style="font-size:10px">تفصيل ←</button></div>
-    <div class="card-body"><div class="bars"><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الأ</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الا</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الث</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الأ</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الخ</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--border3)"></div><div class="bar-l">الج</div></div><div class="bar-w"><div class="bar-b" style="height:4px;background:var(--accent)"></div><div class="bar-l">الس</div></div></div></div></div>
-    <div class="card"><div class="card-head"><div class="card-title">⚡ آخر البصمات</div><button class="btn" onclick="go(&#39;live&#39;)" style="font-size:10px">الكل ←</button></div>
-    <div></div></div>
-  </div>
-  <div class="stack">
-    <div class="card"><div class="card-head"><div class="card-title">🖥️ الأجهزة</div></div>
-    <div></div></div>
-    <div class="card"><div class="card-head"><div class="card-title">📬 الطلبات المعلقة</div></div>
-    <div><div style="padding:18px;text-align:center;color:var(--text3);font-size:11.5px">✓ لا طلبات معلقة</div></div></div>
-    <div class="card"><div class="card-head"><div class="card-title">🏢 الأقسام</div></div>
-    <div class="card-body"><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#3b8ef5;display:inline-block"></span>الإدارة العليا</span><span style="color:var(--text3)">1</span></div><div class="prog"><div class="prog-bar" style="width:100%;background:#3b8ef5"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#f04a5a;display:inline-block"></span>الصيانة والعمليات</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#f04a5a"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#f5a623;display:inline-block"></span>المبيعات</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#f5a623"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#22d3ee;display:inline-block"></span>المحاسبة والمالية</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#22d3ee"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#16c784;display:inline-block"></span>الموارد البشرية</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#16c784"></div></div></div><div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:3px"><span style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#a78bfa;display:inline-block"></span>تقنية المعلومات</span><span style="color:var(--text3)">0</span></div><div class="prog"><div class="prog-bar" style="width:0%;background:#a78bfa"></div></div></div></div></div>
-  </div>
-</div></div></div>
+  <div class="page fadein" id="pg"></div>
 </main>
 </div>
 <div class="overlay" id="ov" style="display:none" onclick="if(event.target===this)closeMod()">
@@ -330,6 +324,139 @@ tr:hover td{background:var(--bg2);}
   </div>
 </div>
 <script>
+
+
+// ══════════════════════════════════════════════════════════════
+//   AUTH — نظام تسجيل الدخول
+//   غيّر كلمة المرور هنا قبل النشر
+// ══════════════════════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════════════════
+//   AUTH — Supabase Authentication (آمن 100%)
+//   كلمة المرور محفوظة في Supabase فقط — لا تُرى هنا أبداً
+// ══════════════════════════════════════════════════════════════
+
+let currentUser = null;
+let currentRole = null;
+let _supabaseAuth = null;
+
+// تهيئة Supabase Auth client
+function _getAuthClient(){
+  if(_supabaseAuth) return _supabaseAuth;
+  const {createClient} = supabase;
+  _supabaseAuth = createClient(API_URL.replace('/api',''), SUPABASE_ANON_KEY);
+  return _supabaseAuth;
+}
+
+async function doLogin(){
+  const email = document.getElementById('login-user').value.trim().toLowerCase();
+  const pass  = document.getElementById('login-pass').value;
+  const errEl = document.getElementById('login-err');
+  const btn   = document.querySelector('.login-btn');
+
+  if(!email || !pass){
+    errEl.style.display='block';
+    errEl.textContent='❌ أدخل البريد الإلكتروني وكلمة المرور';
+    return;
+  }
+
+  btn.textContent='⏳ جارٍ التحقق...';
+  btn.disabled=true;
+  errEl.style.display='none';
+
+  try {
+    // Send to our backend for verification (safe)
+    const res = await fetch(API_URL + '/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({email, password: pass})
+    });
+    const data = await res.json();
+
+    if(data.success){
+      currentUser = data.email;
+      currentRole = data.role;
+      // Store token securely in sessionStorage
+      sessionStorage.setItem('bt_token', data.token);
+      sessionStorage.setItem('bt_email', data.email);
+      sessionStorage.setItem('bt_role',  data.role);
+      document.getElementById('login-screen').style.display = 'none';
+      startApp();
+    } else {
+      errEl.style.display='block';
+      errEl.textContent='❌ ' + (data.error || 'البريد الإلكتروني أو كلمة المرور غير صحيحة');
+      document.getElementById('login-pass').value='';
+      document.getElementById('login-pass').focus();
+    }
+  } catch(e) {
+    errEl.style.display='block';
+    errEl.textContent='❌ تعذر الاتصال بالخادم — تحقق من الإنترنت';
+  } finally {
+    btn.textContent='🔐 تسجيل الدخول';
+    btn.disabled=false;
+  }
+}
+
+function checkSession(){
+  const token = sessionStorage.getItem('bt_token');
+  const email = sessionStorage.getItem('bt_email');
+  const role  = sessionStorage.getItem('bt_role');
+  if(token && email){
+    currentUser = email;
+    currentRole = role || 'admin';
+    // Add token to all API calls
+    return true;
+  }
+  return false;
+}
+
+async function logout(){
+  if(!confirm('هل تريد تسجيل الخروج؟')) return;
+  await fetch(API_URL + '/auth/logout', {
+    method: 'POST',
+    headers: {'Authorization': 'Bearer ' + sessionStorage.getItem('bt_token')}
+  }).catch(()=>{});
+  sessionStorage.clear();
+  currentUser = null;
+  currentRole = null;
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-user').value = '';
+  document.getElementById('login-pass').value = '';
+  // Clear DB
+  Object.keys(DB).forEach(k => { if(Array.isArray(DB[k])) DB[k]=[]; });
+}
+
+function canEdit(){
+  if(currentRole === 'viewer'){
+    toast('⛔ ليس لديك صلاحية التعديل');
+    return false;
+  }
+  return true;
+}
+
+// Add auth token to all API calls
+const _origApi = api;
+async function api(method, path, body=null){
+  const token = sessionStorage.getItem('bt_token');
+  const opts = { method, headers: {'Content-Type':'application/json'} };
+  if(token) opts.headers['Authorization'] = 'Bearer ' + token;
+  if(body)  opts.body = JSON.stringify(body);
+  try {
+    const res = await fetch(API_URL + path, opts);
+    if(res.status === 401){
+      // Token expired — force re-login
+      sessionStorage.clear();
+      document.getElementById('login-screen').style.display='flex';
+      toast('⚠️ انتهت صلاحية الجلسة — سجّل دخولك مجدداً');
+      return {success:false, error:'غير مصرح'};
+    }
+    return await res.json();
+  } catch(e) {
+    console.error('API Error:', e);
+    return {success:false, error: e.message};
+  }
+}
+
 
 // ═══════════════════════════════════════════════════════════
 //   API CONFIG — غيّر هذا الرابط لرابط Render الخاص بك
@@ -1557,6 +1684,7 @@ function renderSettings(){
       ${[['GET/POST','/iclock/cdata','استقبال السجلات'],['GET','/iclock/getrequest','إرسال الأوامر'],['POST','/iclock/devicecmd','نتائج التنفيذ'],['POST','/iclock/registry','تسجيل الأجهزة']].map(([m,p,d])=>`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--border)"><span class="badge ${m.includes('POST')?'b':'g'}" style="font-size:8.5px;min-width:55px;justify-content:center">${m}</span><code style="font-size:10.5px;color:var(--cyan)">${p}</code><span style="font-size:9.5px;color:var(--text3)">${d}</span></div>`).join('')}
     </div>
     <button class="btn primary" style="width:100%;margin-top:12px" onclick="toast('✅ تم حفظ الإعدادات','ok')">💾 حفظ</button>
+    <button class="btn" style="width:100%;margin-top:8px" onclick="showChangePassword()">🔑 تغيير كلمة المرور</button>
   </div></div>
   <div class="card"><div class="card-head"><div class="card-title">🔐 حالة النظام</div></div><div class="card-body">
     ${[['🔒','تشفير HTTPS','مفعّل','g'],['🔄','مزامنة تلقائية','مفعّل','g'],['📡','استقبال البصمات','يعمل','g'],['💾','نسخ احتياطي','يومي','g'],['✅','التحقق من النوافذ','مفعّل','g'],['🌙','الوضع الداكن/الفاتح','متاح','b']].map(([i,l,s,c])=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:7px"><span>${i}</span><span style="font-size:12px">${l}</span></div><span class="badge ${c}">${s}</span></div>`).join('')}
@@ -1568,20 +1696,101 @@ function renderSettings(){
 }
 
 // ═══ INIT ═══
-(function(){
+
+async function showChangePassword(){
+  openMod('🔑 تغيير كلمة المرور',`
+  <div style="background:var(--blue-glow);border:1px solid rgba(59,142,245,.2);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:var(--blue)">
+    🔒 كلمة المرور الجديدة ستُحفظ في Supabase بشكل مشفر
+  </div>
+  <div class="fg"><label class="lbl">كلمة المرور الجديدة <span class="req">*</span></label>
+    <input class="inp" type="password" id="new-pass" placeholder="8 أحرف على الأقل"></div>
+  <div class="fg"><label class="lbl">تأكيد كلمة المرور <span class="req">*</span></label>
+    <input class="inp" type="password" id="confirm-pass" placeholder="أعد كتابة كلمة المرور"></div>
+  <div class="form-actions">
+    <button class="btn" onclick="closeMod()">إلغاء</button>
+    <button class="btn primary" onclick="doChangePassword()">💾 تغيير كلمة المرور</button>
+  </div>`,'sm');
+}
+
+async function doChangePassword(){
+  const np = document.getElementById('new-pass')?.value;
+  const cp = document.getElementById('confirm-pass')?.value;
+  if(!np || np.length < 8){ toast('❌ كلمة المرور يجب أن تكون 8 أحرف على الأقل','err'); return; }
+  if(np !== cp){ toast('❌ كلمتا المرور غير متطابقتين','err'); return; }
+  const res = await api('POST','/auth/change-password',{new_password:np});
+  if(res.success){ closeMod(); toast('✅ تم تغيير كلمة المرور بنجاح','ok'); }
+  else { toast('❌ '+(res.error||'حدث خطأ'),'err'); }
+}
+
+function startApp(){
   const n=new Date();document.getElementById('clk').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;
+  // Add logout button to topbar
+  const themeBtn=document.getElementById('theme-btn');
+  if(themeBtn && !document.getElementById('logout-btn')){
+    const logoutBtn=document.createElement('button');
+    logoutBtn.id='logout-btn';
+    logoutBtn.className='theme-btn';
+    logoutBtn.title='تسجيل الخروج';
+    logoutBtn.textContent='🚪';
+    logoutBtn.onclick=()=>{if(confirm('هل تريد تسجيل الخروج؟'))logout();};
+    themeBtn.parentNode.insertBefore(logoutBtn, themeBtn.nextSibling);
+  }
+  // Add user badge
+  const topbar=document.querySelector('.topbar');
+  if(topbar && !document.getElementById('user-badge')){
+    const badge=document.createElement('div');
+    badge.id='user-badge';
+    badge.style.cssText='font-size:10.5px;color:var(--text3);background:var(--bg3);padding:4px 10px;border-radius:7px;border:1px solid var(--border)';
+    badge.textContent='👤 '+currentUser+(currentRole==='viewer'?' (عرض فقط)':'');
+    themeBtn.parentNode.insertBefore(badge, themeBtn);
+  }
   // Show loading state first
   pg('<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:16px"><div style="font-size:32px">⏳</div><div style="font-size:14px;font-weight:600;color:var(--text)">جارٍ تحميل البيانات...</div><div style="font-size:12px;color:var(--text3)">يتصل بقاعدة البيانات</div></div>');
   // Load real data from API then render
   loadFromAPI().then(()=>{
     renderDash();
-    // Update approvals badge
     const pc=DB.approvals.filter(a=>a.status==='pending').length;
     const el=document.getElementById('apnb');
     if(el){el.textContent=pc||'';el.style.display=pc?'inline':'none';}
   });
   // Poll for new logs every 10 seconds
   setInterval(pollLiveLogs, 10000);
+  // Clock
+  setInterval(()=>{const n=new Date();const el=document.getElementById('clk');if(el)el.textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;},1000);
+}
+
+(function(){
+  // Check if already logged in (session)
+  if(!checkSession()){
+    // Show login screen and wait
+    document.getElementById('login-screen').style.display = 'flex';
+    setTimeout(()=>document.getElementById('login-user').focus(), 100);
+  } else {
+    startApp();
+  }
 })();
-</script><div id="api-loading" style="position: fixed; top: 0px; left: 0px; right: 0px; height: 3px; background: linear-gradient(90deg,var(--accent),var(--blue)); z-index: 9999; animation: 1.5s ease-in-out 0s infinite normal none running loadbar; display: none;"></div>
+</script>
+<!-- ══ LOGIN SCREEN ══ -->
+<div class="login-overlay" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-mark">👁</div>
+      <div class="login-logo-name">BioTrack Pro</div>
+      <div class="login-logo-ver">v4.0 · نظام الحضور والانصراف</div>
+    </div>
+    <div class="login-err" id="login-err">❌ اسم المستخدم أو كلمة المرور غير صحيحة</div>
+    <div class="login-field">
+      <label class="login-lbl">البريد الإلكتروني</label>
+      <input class="login-inp" id="login-user" type="email" placeholder="admin@company.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)doLogin()">
+    </div>
+    <div class="login-field">
+      <label class="login-lbl">كلمة المرور</label>
+      <input class="login-inp" id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key===&#39;Enter&#39;)doLogin()">
+    </div>
+    <button class="login-btn" onclick="doLogin()">🔐 تسجيل الدخول</button>
+    <div style="text-align:center;margin-top:16px;font-size:11px;color:var(--text3)">BioTrack Pro © 2026 — جميع الحقوق محفوظة</div>
+  </div>
+</div>
+
+
 </body></html>
