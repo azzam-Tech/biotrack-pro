@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0045)file:///C:/Users/amarn/Downloads/index_6.html -->
+<html lang="ar" dir="rtl" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BioTrack Pro v4</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="./BioTrack Pro v4_files/css2" rel="stylesheet">
 <style>
 /* ── THEME ── */
 [data-theme="dark"]{
@@ -247,7 +247,7 @@ tr:hover td{background:var(--bg2);}
 .appr-type-card:hover{background:var(--bg4) !important;border-color:var(--border3) !important;}
 .appr-type-card.sel{background:var(--accent-glow) !important;border-color:var(--accent) !important;}
 </style>
-</head>
+<style>@keyframes loadbar{0%{opacity:1;transform:scaleX(0);transform-origin:left}50%{opacity:1;transform:scaleX(1);transform-origin:left}51%{transform-origin:right}100%{opacity:0;transform:scaleX(0);transform-origin:right}}</style></head>
 <body>
 <div class="shell">
 <aside class="sidebar">
@@ -257,49 +257,52 @@ tr:hover td{background:var(--bg2);}
   </div>
   <div class="nav-section">
     <div class="nav-label">الرئيسية</div>
-    <div class="nav-item active" onclick="go('dash')"><span class="ni">📊</span>لوحة التحكم</div>
-    <div class="nav-item" onclick="go('live')"><span class="ni">⚡</span>البصمات الحية<span class="nav-badge" id="nb">0</span></div>
-    <div class="nav-item" onclick="go('wizard')"><span class="ni">🧙</span>معالج الإعداد</div>
+    <div class="nav-item" onclick="go(&#39;dash&#39;)"><span class="ni">📊</span>لوحة التحكم</div>
+    <div class="nav-item" onclick="go(&#39;live&#39;)"><span class="ni">⚡</span>البصمات الحية<span class="nav-badge" id="nb">0</span></div>
+    <div class="nav-item" onclick="go(&#39;wizard&#39;)"><span class="ni">🧙</span>معالج الإعداد</div>
   </div>
   <div class="nav-section">
     <div class="nav-label">الموارد البشرية</div>
-    <div class="nav-item" onclick="go('emps')"><span class="ni">👥</span>الموظفون</div>
-    <div class="nav-item" onclick="go('depts')"><span class="ni">🏢</span>الأقسام والمناطق</div>
+    <div class="nav-item active" onclick="go(&#39;emps&#39;)"><span class="ni">👥</span>الموظفون</div>
+    <div class="nav-item" onclick="go(&#39;depts&#39;)"><span class="ni">🏢</span>الأقسام والمناطق</div>
   </div>
   <div class="nav-section">
     <div class="nav-label">الجداول</div>
-    <div class="nav-item" onclick="go('timetables')"><span class="ni">🕐</span>جداول الوقت</div>
-    <div class="nav-item" onclick="go('shifts')"><span class="ni">🔄</span>المناوبات</div>
-    <div class="nav-item" onclick="go('schedules')"><span class="ni">📅</span>تعيين الجداول</div>
-    <div class="nav-item" onclick="go('rules')"><span class="ni">⚙️</span>قواعد الاحتساب</div>
-    <div class="nav-item" onclick="go('approvals')"><span class="ni">✅</span>الموافقات<span class="nav-badge" id="apnb"></span></div>
+    <div class="nav-item" onclick="go(&#39;timetables&#39;)"><span class="ni">🕐</span>جداول الوقت</div>
+    <div class="nav-item" onclick="go(&#39;shifts&#39;)"><span class="ni">🔄</span>المناوبات</div>
+    <div class="nav-item" onclick="go(&#39;schedules&#39;)"><span class="ni">📅</span>تعيين الجداول</div>
+    <div class="nav-item" onclick="go(&#39;rules&#39;)"><span class="ni">⚙️</span>قواعد الاحتساب</div>
+    <div class="nav-item" onclick="go(&#39;approvals&#39;)"><span class="ni">✅</span>الموافقات<span class="nav-badge" id="apnb" style="display: none;"></span></div>
   </div>
   <div class="nav-section">
     <div class="nav-label">الأجهزة</div>
-    <div class="nav-item" onclick="go('devices')"><span class="ni">🖥️</span>الأجهزة</div>
-    <div class="nav-item" onclick="go('areas')"><span class="ni">📍</span>المناطق</div>
-    <div class="nav-item" onclick="go('access')"><span class="ni">🔐</span>التحكم بالوصول</div>
+    <div class="nav-item" onclick="go(&#39;devices&#39;)"><span class="ni">🖥️</span>الأجهزة</div>
+    <div class="nav-item" onclick="go(&#39;areas&#39;)"><span class="ni">📍</span>المناطق</div>
+    <div class="nav-item" onclick="go(&#39;access&#39;)"><span class="ni">🔐</span>التحكم بالوصول</div>
   </div>
   <div class="nav-section">
     <div class="nav-label">التقارير</div>
-    <div class="nav-item" onclick="go('reports')"><span class="ni">📋</span>التقارير المتكاملة</div>
+    <div class="nav-item" onclick="go(&#39;reports&#39;)"><span class="ni">📋</span>التقارير المتكاملة</div>
   </div>
   <div class="nav-section">
     <div class="nav-label">النظام</div>
-    <div class="nav-item" onclick="go('settings')"><span class="ni">🛠️</span>الإعدادات</div>
+    <div class="nav-item" onclick="go(&#39;settings&#39;)"><span class="ni">🛠️</span>الإعدادات</div>
   </div>
   <div class="sidebar-footer"><div style="font-size:9px;color:var(--text3);text-align:center">BioTrack Pro v4.0 · ISO 27001</div></div>
 </aside>
 <main class="main">
   <div class="topbar">
-    <div class="page-title" id="pg-title">لوحة التحكم</div>
+    <div class="page-title" id="pg-title">إدارة الموظفين</div>
     <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-inp" placeholder="بحث سريع..." oninput="quickSearch(this.value)"></div>
-    <div style="position:relative"><button class="btn" onclick="go('approvals')">🔔</button><div id="ndot" style="display:none;position:absolute;top:-1px;left:-1px;width:7px;height:7px;background:var(--red);border-radius:50%;"></div></div>
-    <div class="clock" id="clk">00:00:00</div>
-    <div id="api-status" title="حالة الاتصال بالخادم" style="width:8px;height:8px;border-radius:50%;background:var(--text3);flex-shrink:0;cursor:pointer" onclick="if(API_READY)toast('✅ متصل بقاعدة البيانات الحقيقية','ok');else toast('⚠️ غير متصل — يعمل بالبيانات المحلية');"></div>
+    <div style="position:relative"><button class="btn" onclick="go(&#39;approvals&#39;)">🔔</button><div id="ndot" style="display:none;position:absolute;top:-1px;left:-1px;width:7px;height:7px;background:var(--red);border-radius:50%;"></div></div>
+    <div class="clock" id="clk">14:15:08</div>
+    <div id="api-status" title="حالة الاتصال بالخادم" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; cursor: pointer;" onclick="if(API_READY)toast(&#39;✅ متصل بقاعدة البيانات الحقيقية&#39;,&#39;ok&#39;);else toast(&#39;⚠️ غير متصل — يعمل بالبيانات المحلية&#39;);"></div>
     <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل الوضع">🌙</button>
   </div>
-  <div class="page fadein" id="pg"></div>
+  <div class="page fadein" id="pg"><div class="fadein"><div class="ph"><div><h2>👥 الموظفون (0)</h2></div><div style="display:flex;gap:8px"><input class="inp" placeholder="🔍 بحث..." oninput="renderEmps(this.value)" value="" style="width:220px"><button class="btn primary" onclick="showAddEmp()">➕ إضافة</button></div></div>
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>الموظف</th><th>PIN</th><th>القسم</th><th>المنصب</th><th>المنطقة</th><th class="tc">المناوبة</th><th>التعيين</th><th class="tc">الحالة</th><th class="tc">إجراءات</th></tr></thead><tbody>
+  
+  </tbody></table></div></div></div></div>
 </main>
 </div>
 <div class="overlay" id="ov" style="display:none" onclick="if(event.target===this)closeMod()">
@@ -313,7 +316,7 @@ tr:hover td{background:var(--bg2);}
 // ═══════════════════════════════════════════════════════════
 //   API CONFIG — غيّر هذا الرابط لرابط Render الخاص بك
 // ═══════════════════════════════════════════════════════════
-const API_URL = 'biotrack-backend.onrender.com';
+const API_URL = 'https://biotrack-backend.onrender.com';
 
 // ═══ API HELPER ═══
 async function api(method, path, body=null){
@@ -509,115 +512,20 @@ async function pollLiveLogs(){
 }
 
 
-// ═══ DATABASE ═══
+// ═══ DATABASE — بيانات فارغة تُملأ من API ═══
 const DB={
-  areas:[
-    {id:1,name:'الرياض - المكتب الرئيسي',tz:'Etc/GMT+3'},
-    {id:2,name:'جدة - الفرع الغربي',tz:'Etc/GMT+3'},
-    {id:3,name:'الدمام - الفرع الشرقي',tz:'Etc/GMT+3'},
-  ],
-  departments:[
-    {id:1,name:'الإدارة العليا',parentId:null,managerId:7,color:'#3b8ef5'},
-    {id:2,name:'تقنية المعلومات',parentId:1,managerId:7,color:'#a78bfa'},
-    {id:3,name:'الموارد البشرية',parentId:1,managerId:2,color:'#16c784'},
-    {id:4,name:'المبيعات',parentId:1,managerId:5,color:'#f5a623'},
-    {id:5,name:'المحاسبة والمالية',parentId:1,managerId:4,color:'#22d3ee'},
-    {id:6,name:'الصيانة والعمليات',parentId:1,managerId:null,color:'#f04a5a'},
-  ],
-  positions:[
-    {id:1,title:'مدير عام'},{id:2,title:'مدير'},{id:3,title:'مشرف'},
-    {id:4,title:'محاسب'},{id:5,title:'مندوب مبيعات'},{id:6,title:'مطور'},{id:7,title:'موظف'},{id:8,title:'فني'},
-  ],
-  // timetables: checkIn/Out + windows (the core feature)
-  timetables:[
-    {id:1,name:'الدوام الرسمي (9ص–5م)',type:'عادي',
-     checkIn:'09:00',checkInStart:'07:00',checkInEnd:'11:00',
-     checkOut:'17:00',checkOutStart:'15:00',checkOutEnd:'19:00',
-     offDays:['الجمعة','السبت'],weekStart:'الأحد',
-     breakEnabled:true,breakStart:'13:00',breakEnd:'14:00',breakMins:60,
-     colorCode:'#3b8ef5'},
-    {id:2,name:'الوردية المسائية (2م–10م)',type:'عادي',
-     checkIn:'14:00',checkInStart:'12:00',checkInEnd:'16:00',
-     checkOut:'22:00',checkOutStart:'20:00',checkOutEnd:'24:00',
-     offDays:['الجمعة','السبت'],weekStart:'الأحد',
-     breakEnabled:true,breakStart:'18:00',breakEnd:'19:00',breakMins:60,
-     colorCode:'#f5a623'},
-    {id:3,name:'الوردية الليلية (10م–6ص)',type:'عادي',
-     checkIn:'22:00',checkInStart:'20:00',checkInEnd:'24:00',
-     checkOut:'06:00',checkOutStart:'04:00',checkOutEnd:'08:00',
-     offDays:['الجمعة','السبت'],weekStart:'الأحد',
-     breakEnabled:false,breakStart:'02:00',breakEnd:'03:00',breakMins:60,
-     colorCode:'#a78bfa'},
-  ],
-  // shifts: date-based (start→end), NOT unit/cycle
-  shifts:[
-    {id:1,name:'مناوبة الدوام الرسمي',timetableId:1,startDate:'2026-01-01',endDate:'2030-12-31',flexible:false},
-    {id:2,name:'مناوبة مسائية',timetableId:2,startDate:'2026-01-01',endDate:'2027-12-31',flexible:false},
-    {id:3,name:'مناوبة ليلية (مرنة)',timetableId:3,startDate:'2026-01-01',endDate:'2026-12-31',flexible:true},
-  ],
-  employees:[
-    {id:1,pin:'1001',name:'أحمد محمد العمري',dept:2,pos:6,shiftId:1,card:'A12345',status:'active',hire:'2021-03-15',areaId:1,empCode:'EMP-001'},
-    {id:2,pin:'1002',name:'سارة خالد الزهراني',dept:3,pos:3,shiftId:1,card:'B23456',status:'active',hire:'2020-07-01',areaId:1,empCode:'EMP-002'},
-    {id:3,pin:'1003',name:'محمد عبدالله الغامدي',dept:2,pos:6,shiftId:1,card:'C34567',status:'active',hire:'2022-01-10',areaId:1,empCode:'EMP-003'},
-    {id:4,pin:'1004',name:'فاطمة علي القحطاني',dept:5,pos:4,shiftId:1,card:'D45678',status:'active',hire:'2019-11-20',areaId:1,empCode:'EMP-004'},
-    {id:5,pin:'1005',name:'عبدالرحمن سعد الدوسري',dept:4,pos:5,shiftId:1,card:'E56789',status:'active',hire:'2023-02-14',areaId:2,empCode:'EMP-005'},
-    {id:6,pin:'1006',name:'نورة إبراهيم الشمري',dept:6,pos:8,shiftId:2,card:'F67890',status:'active',hire:'2021-08-30',areaId:2,empCode:'EMP-006'},
-    {id:7,pin:'1007',name:'خالد ناصر العتيبي',dept:1,pos:2,shiftId:1,card:'G78901',status:'active',hire:'2018-05-12',areaId:1,empCode:'EMP-007'},
-    {id:8,pin:'1008',name:'ريم فهد الحربي',dept:3,pos:7,shiftId:1,card:'H89012',status:'leave',hire:'2022-09-05',areaId:1,empCode:'EMP-008'},
-    {id:9,pin:'1009',name:'عمر طارق المالكي',dept:5,pos:4,shiftId:1,card:'I90123',status:'active',hire:'2020-12-28',areaId:3,empCode:'EMP-009'},
-    {id:10,pin:'1010',name:'منال حسن البلوي',dept:4,pos:5,shiftId:2,card:'J01234',status:'active',hire:'2023-06-01',areaId:2,empCode:'EMP-010'},
-    {id:11,pin:'1011',name:'بدر سالم الرشيدي',dept:6,pos:8,shiftId:1,card:'K12345',status:'active',hire:'2022-03-20',areaId:1,empCode:'EMP-011'},
-    {id:12,pin:'1012',name:'هند عبدالعزيز السهلي',dept:5,pos:4,shiftId:1,card:'L23456',status:'active',hire:'2021-11-08',areaId:3,empCode:'EMP-012'},
-  ],
-  devices:[
-    {id:1,sn:'MFP3241100235',name:'مدخل رئيسي - الرياض',ip:'192.168.1.201',areaId:1,status:'online',lastSeen:new Date(),model:'ZKTeco F22',users:25,fingers:798,faces:12,palms:3,logs:798,heartbeat:10,tz:'Etc/GMT+3'},
-    {id:2,sn:'ZK-JED-002',name:'مدخل - جدة',ip:'192.168.2.101',areaId:2,status:'online',lastSeen:new Date(),model:'ZKTeco uFace800',users:18,fingers:320,faces:18,palms:0,logs:412,heartbeat:10,tz:'Etc/GMT+3'},
-    {id:3,sn:'ZK-DAM-001',name:'مدخل - الدمام',ip:'192.168.3.101',areaId:3,status:'offline',lastSeen:new Date(Date.now()-9e6),model:'ZKTeco SpeedFace',users:10,fingers:200,faces:10,palms:0,logs:215,heartbeat:10,tz:'Etc/GMT+3'},
-    {id:4,sn:'ZK-JED-003',name:'مدخل خلفي - جدة',ip:'192.168.2.102',areaId:2,status:'online',lastSeen:new Date(),model:'ZKTeco K40',users:15,fingers:280,faces:0,palms:0,logs:330,heartbeat:10,tz:'Etc/GMT+3'},
-  ],
+  areas:[],
+  departments:[],
+  positions:[],
+  timetables:[],
+  shifts:[],
+  employees:[],
+  devices:[],
   rules:{lateAbsent:100,earlyAbsent:100,noInAction:'تأخير',noInMins:60,noOutAction:'مغادرة مبكرة',noOutMins:60,maxHours:12,calcRule:'الأول والأخير',dailyOT:false,weekendOT:false,holidayOT:false,weeklyOT:false},
-  approvals:[
-    {id:1,empId:3,empName:'محمد عبدالله الغامدي',typeKey:'annual_leave',type:'إجازة سنوية',typeIcon:'🏖️',typeColor:'b',detail:'2026-06-10 → 2026-06-12 (3 أيام)',reason:'إجازة سنوية مستحقة',status:'pending',submitted:'2026-06-04',resolvedAt:'',addedBy:'المدير'},
-    {id:2,empId:6,empName:'نورة إبراهيم الشمري',typeKey:'missed_checkin',type:'نسيت بصمة الدخول',typeIcon:'⬇️',typeColor:'a',detail:'2026-06-03 | 09:15',reason:'نسيت البصمة عند الدخول',status:'pending',submitted:'2026-06-04',resolvedAt:'',addedBy:'المدير'},
-    {id:3,empId:10,empName:'منال حسن البلوي',typeKey:'early_exit',type:'خروج مبكر بعذر',typeIcon:'🚪',typeColor:'r',detail:'2026-06-02 | 15:30',reason:'ظروف عائلية طارئة',status:'approved',submitted:'2026-06-02',resolvedAt:'2026-06-02',addedBy:'المدير'},
-    {id:4,empId:5,empName:'عبدالرحمن سعد الدوسري',typeKey:'late_entry',type:'دخول متأخر بعذر',typeIcon:'⏰',typeColor:'r',detail:'2026-06-01 | 10:30',reason:'عطل في السيارة',status:'approved',submitted:'2026-06-01',resolvedAt:'2026-06-01',addedBy:'المدير'},
-  ],
+  approvals:[],
   logs:[],nid:1
 };
-// ═══ GENERATE LOGS ═══
-(function(){
-  const SNs=DB.devices.filter(d=>d.status==='online').map(d=>d.sn);
-  const modes=['بصمة','وجه','بطاقة','بصمة','بصمة'];
-  const now=new Date();
-  DB.employees.forEach(emp=>{
-    if(emp.status==='leave')return;
-    const sh=DB.shifts.find(s=>s.id===emp.shiftId)||DB.shifts[0];
-    const tt=DB.timetables.find(t=>t.id===sh.timetableId)||DB.timetables[0];
-    const[iH,iM]=tt.checkIn.split(':').map(Number);
-    const[oH,oM]=tt.checkOut.split(':').map(Number);
-    const[isH,isM]=tt.checkInStart.split(':').map(Number);
-    const[ieH,ieM]=tt.checkInEnd.split(':').map(Number);
-    const[osH,osM]=tt.checkOutStart.split(':').map(Number);
-    const[oeH,oeM]=tt.checkOutEnd.split(':').map(Number);
-    for(let day=6;day>=0;day--){
-      if(Math.random()<.07)continue;
-      const lm=Math.random()<.2?Math.floor(Math.random()*55)+1:-Math.floor(Math.random()*8);
-      const em=Math.random()<.12?Math.floor(Math.random()*40)+1:-Math.floor(Math.random()*5);
-      const inT=new Date(now);inT.setDate(inT.getDate()-day);inT.setHours(iH,iM+lm,Math.floor(Math.random()*60),0);
-      const outT=new Date(now);outT.setDate(outT.getDate()-day);outT.setHours(oH,oM-em,Math.floor(Math.random()*60),0);
-      if(day===0&&inT>now)continue;
-      const im=inT.getHours()*60+inT.getMinutes();
-      const inOk=im>=(isH*60+isM)&&im<=(ieH*60+ieM);
-      if(inOk)DB.logs.push({id:DB.nid++,empId:emp.id,empName:emp.name,empPin:emp.pin,devSN:SNs[Math.floor(Math.random()*SNs.length)],deptId:emp.dept,areaId:emp.areaId,ts:new Date(inT),type:'دخول',mode:modes[Math.floor(Math.random()*5)],lateMin:Math.max(0,lm),earlyMin:0,inWindow:true,isNew:false});
-      if(day===0&&outT>now)continue;
-      const om2=outT.getHours()*60+outT.getMinutes();
-      const outOk=om2>=(osH*60+osM)&&om2<=(oeH*60+oeM);
-      if(outOk)DB.logs.push({id:DB.nid++,empId:emp.id,empName:emp.name,empPin:emp.pin,devSN:SNs[Math.floor(Math.random()*SNs.length)],deptId:emp.dept,areaId:emp.areaId,ts:new Date(outT),type:'خروج',mode:modes[Math.floor(Math.random()*5)],lateMin:0,earlyMin:Math.max(0,em),inWindow:true,isNew:false});
-    }
-  });
-  DB.logs.sort((a,b)=>b.ts-a.ts);
-})();
-
+// لا توجد بيانات وهمية — كل البيانات تأتي من Supabase عبر API
 // ═══ HELPERS ═══
 const pad=n=>String(n).padStart(2,'0');
 const fT=dt=>{if(!dt)return'—';const d=new Date(dt);return`${pad(d.getHours())}:${pad(d.getMinutes())}`;};
@@ -659,18 +567,8 @@ function toggleTheme(){
 // ═══ CLOCK + LIVE SIM ═══
 let liveCount=0;
 setInterval(()=>{const n=new Date();document.getElementById('clk').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;},1000);
-// Fake simulation only runs when API not connected
-setInterval(()=>{
-  if(API_READY) return; // Real data comes from pollLiveLogs
-  const active=DB.employees.filter(e=>e.status==='active');
-  if(!active.length) return;
-  const emp=active[Math.floor(Math.random()*active.length)];
-  const devs=DB.devices.filter(d=>d.status==='online');
-  const dev=devs.length?devs[Math.floor(Math.random()*devs.length)]:{sn:'SIM'};
-  DB.logs.unshift({id:DB.nid++,empId:emp.id,empName:emp.name,empPin:emp.pin,devSN:dev.sn,deptId:emp.dept,areaId:emp.areaId,ts:new Date(),type:Math.random()<.5?'دخول':'خروج',mode:['بصمة','وجه','بطاقة'][Math.floor(Math.random()*3)],lateMin:0,earlyMin:0,inWindow:true,isNew:true});
-  liveCount++;document.getElementById('nb').textContent=liveCount;document.getElementById('ndot').style.display='block';
-  if(curPage==='dash')renderDash();if(curPage==='live')renderLive();
-},5000);
+// Live data comes from API polling (pollLiveLogs every 10s)
+// No fake simulation
 
 // ═══ NAV ═══
 let curPage='dash';
@@ -1648,12 +1546,18 @@ function renderSettings(){
 // ═══ INIT ═══
 (function(){
   const n=new Date();document.getElementById('clk').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;
-  const pc=DB.approvals.filter(a=>a.status==='pending').length;
-  const el=document.getElementById('apnb');el.textContent=pc||'';el.style.display=pc?'inline':'none';
-  renderDash();
-  // Load real data from API
-  loadFromAPI().then(()=>{ renderDash(); });
-  // Poll for new attendance logs every 10 seconds
+  // Show loading state first
+  pg('<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:16px"><div style="font-size:32px">⏳</div><div style="font-size:14px;font-weight:600;color:var(--text)">جارٍ تحميل البيانات...</div><div style="font-size:12px;color:var(--text3)">يتصل بقاعدة البيانات</div></div>');
+  // Load real data from API then render
+  loadFromAPI().then(()=>{
+    renderDash();
+    // Update approvals badge
+    const pc=DB.approvals.filter(a=>a.status==='pending').length;
+    const el=document.getElementById('apnb');
+    if(el){el.textContent=pc||'';el.style.display=pc?'inline':'none';}
+  });
+  // Poll for new logs every 10 seconds
   setInterval(pollLiveLogs, 10000);
 })();
-</script></body></html>
+</script><div id="api-loading" style="position: fixed; top: 0px; left: 0px; right: 0px; height: 3px; background: linear-gradient(90deg,var(--accent),var(--blue)); z-index: 9999; animation: 1.5s ease-in-out 0s infinite normal none running loadbar; display: none;"></div>
+</body></html>
